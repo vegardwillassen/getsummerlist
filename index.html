@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Summer List · Landed already? Your list is one hour away</title>
+<meta name="description" content="Your destination as one list on both phones: 50+ places with real prices, distances and bus times, wish lists you tick off together. Works offline. €15, in your inbox within the hour.">
+<style>
+  :root{
+    --navy:#101C2E; --navy2:#0F1B28; --cream:#F7F1E3; --cream2:#FBF3E4;
+    --coral:#FF6B57; --coral-d:#E5533E; --sea:#0FA3B1;
+    --ink:#1F3A4D; --soft:#5B7386; --line:#EBDFC9;
+    --off:#F4EFE6;
+  }
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased;}
+  .kick{font-family:'Courier New',monospace; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 22px;}
+  h1,h2,h3{font-weight:bold; line-height:1.15;}
+  h2{font-size:clamp(26px,4.5vw,38px); font-style:italic; margin-bottom:14px;}
+  section{padding:64px 0;}
+  .btn{display:inline-block; font-family:'Courier New',monospace; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    font-size:14px; background:var(--coral); color:#fff; border:none; border-radius:999px; padding:16px 30px; min-height:48px;
+    cursor:pointer; text-decoration:none; text-align:center; transition:background .15s;}
+  .btn:hover{background:var(--coral-d);}
+  .btn.ghost{background:none; color:var(--ink); border:2px solid var(--ink);}
+  .btn.ghost:hover{background:var(--ink); color:var(--cream);}
+
+  /* ---------- hero ---------- */
+  .hero{background:linear-gradient(165deg,#FFDF9E 0%,#FFB36B 45%,#FF7E5F 100%); padding:26px 0 0; overflow:hidden;}
+  .hero .kick{color:#7A3D22;}
+  .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:30px; align-items:center; padding:44px 0 0;}
+  .hero h1{font-size:clamp(34px,6vw,56px); font-style:italic; color:var(--navy); margin:14px 0 18px;}
+  .hero p.sub{font-size:clamp(16px,2.2vw,19px); color:#4A2E1E; max-width:46ch; margin-bottom:26px;}
+  .hero .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:16px;}
+  .hero .micro{font-family:'Courier New',monospace; font-size:12px; letter-spacing:.06em; color:#7A3D22;}
+  .wave{display:block; width:100%; margin-top:40px;}
+
+  /* ---------- phone mock ---------- */
+  .phone{width:min(300px,80vw); margin:0 auto; background:var(--navy2); border-radius:34px; padding:14px 12px 18px;
+    box-shadow:0 30px 70px rgba(60,20,5,.35); transform:rotate(2deg);}
+  .phone .screen{background:var(--navy); border-radius:24px; padding:16px 13px; color:#EAF2F6;}
+  .phone .appname{font-style:italic; font-family:Georgia,serif; font-weight:bold; font-size:17px; text-align:center; margin-bottom:2px;}
+  .phone .appsub{font-family:'Courier New',monospace; font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; text-align:center; color:#8FA6B5; margin-bottom:12px;}
+  .pcard{background:#16283C; border-radius:14px; padding:11px 12px; margin-bottom:9px;}
+  .pcard .cat{font-family:'Courier New',monospace; font-size:8px; letter-spacing:.14em; text-transform:uppercase; color:#8FA6B5;}
+  .pcard .nm{font-family:Georgia,serif; font-weight:bold; font-size:14px; margin:3px 0 4px;}
+  .pcard .meta{font-size:11px; color:#A9BCC9;}
+  .badge{display:inline-block; font-family:'Courier New',monospace; font-size:8.5px; font-weight:700; letter-spacing:.1em;
+    border-radius:999px; padding:3px 9px; margin-top:7px;}
+  .badge.want{background:#F3B62E; color:#4A3300;}
+  .badge.both{background:var(--coral); color:#fff;}
+  .badge.done{background:#2FA36B; color:#fff;}
+  .pbar{background:#16283C; border-radius:999px; height:7px; margin:4px 0 12px; overflow:hidden;}
+  .pbar i{display:block; height:100%; width:38%; background:var(--coral); border-radius:999px;}
+  .pnums{display:flex; justify-content:space-between; font-family:'Courier New',monospace; font-size:8.5px; letter-spacing:.08em; color:#8FA6B5; text-transform:uppercase; margin-bottom:3px;}
+
+  /* ---------- sections ---------- */
+  .band-cream{background:var(--cream);}
+  .band-off{background:var(--off);}
+  .band-navy{background:var(--navy); color:#EAF2F6;}
+  .band-navy .kick{color:#C9AA7A;}
+  .band-navy h2{color:#fff;}
+  .lead{font-size:clamp(16px,2vw,18px); max-width:62ch;}
+  .band-navy .lead{color:#C3D2DC;}
+
+  .cols3{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:36px;}
+  .step .num{font-family:Georgia,serif; font-style:italic; font-weight:bold; font-size:44px; color:var(--coral); line-height:1;}
+  .step h3{font-size:19px; margin:10px 0 8px;}
+  .step p{font-size:15px; color:var(--soft);}
+  .band-navy .step p{color:#A9BCC9;}
+
+  .feat{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:36px; border-radius:18px; overflow:hidden;}
+  .feat .f{background:#18293D; padding:24px 22px;}
+  .feat .f .kick{color:#C9AA7A; font-size:10.5px;}
+  .feat .f p{font-size:15px; color:#C3D2DC; margin-top:8px;}
+  .feat .f b{color:#fff;}
+
+  .proof{display:grid; grid-template-columns:.9fr 1.1fr; gap:40px; align-items:center;}
+  .proof .phone{transform:rotate(-2deg); width:min(270px,74vw);}
+  .quote{font-size:clamp(19px,2.6vw,24px); font-style:italic; line-height:1.45; margin:16px 0;}
+  .qwho{font-family:'Courier New',monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft);}
+
+  .dests{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .dest{font-family:'Courier New',monospace; font-size:13px; letter-spacing:.06em; border:2px solid var(--line); border-radius:999px; padding:10px 18px; background:var(--cream2);}
+  .dest.hot{border-color:var(--coral); background:var(--coral); color:#fff; font-weight:700;}
+
+  /* ---------- price ---------- */
+  .pricecard{background:var(--cream2); border:2px solid var(--line); border-radius:22px; max-width:520px; margin:36px auto 0; padding:34px 30px; text-align:center;}
+  .pricecard .kick{color:var(--soft);}
+  .price{font-family:Georgia,serif; font-style:italic; font-weight:bold; font-size:64px; color:var(--navy); line-height:1.1; margin:10px 0 2px;}
+  .price small{font-size:22px; font-style:normal;}
+  .strike{color:var(--soft); text-decoration:line-through; font-size:17px;}
+  .plist{text-align:left; max-width:360px; margin:22px auto 26px; font-size:15.5px;}
+  .plist div{padding:7px 0 7px 22px; position:relative; border-bottom:1px solid var(--line);}
+  .plist div::before{content:""; position:absolute; left:2px; top:15px; width:8px; height:8px; border-radius:50%; background:var(--coral);}
+
+  /* ---------- form ---------- */
+  .formwrap{max-width:560px; margin:36px auto 0;}
+  .formwrap label{display:block; font-family:'Courier New',monospace; font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#C9AA7A; margin:18px 0 6px;}
+  .formwrap input, .formwrap select, .formwrap textarea{width:100%; font-family:Georgia,serif; font-size:16px; color:#fff;
+    background:#18293D; border:2px solid #23364D; border-radius:14px; padding:13px 15px; min-height:48px; outline:none;}
+  .formwrap input:focus, .formwrap select:focus, .formwrap textarea:focus{border-color:var(--coral);}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .payrow{display:flex; gap:10px; margin-top:4px;}
+  .payrow label{flex:1; margin:0; display:flex; align-items:center; justify-content:center; gap:8px; background:#18293D; border:2px solid #23364D;
+    border-radius:14px; padding:13px 10px; cursor:pointer; font-size:12px; color:#C3D2DC; text-align:center; min-height:48px;}
+  .payrow input{display:none; width:auto; min-height:0;}
+  .payrow label:has(input:checked){border-color:var(--coral); color:#fff; background:#1E3145;}
+  .formwrap .btn{width:100%; margin-top:26px; font-size:15px; padding:18px;}
+  .consent{display:flex; gap:10px; margin-top:22px; align-items:flex-start; font-size:13px; color:#C3D2DC; text-transform:none; letter-spacing:0; font-family:Georgia,serif; font-weight:normal; line-height:1.5;}
+  .consent input{width:auto; min-height:0; margin-top:3px; accent-color:var(--coral);}
+  .formnote{font-family:'Courier New',monospace; font-size:11.5px; letter-spacing:.04em; color:#8FA6B5; text-align:center; margin-top:14px;}
+  .oksplash{display:none; text-align:center; padding:34px 20px; background:#18293D; border-radius:18px; margin-top:26px;}
+  .oksplash.show{display:block;}
+  .oksplash h3{font-style:italic; font-size:24px; color:#fff; margin-bottom:10px;}
+  .oksplash p{color:#C3D2DC; font-size:15.5px;}
+  .errline{display:none; font-family:'Courier New',monospace; font-size:12px; color:#FF9A8B; margin-top:12px; text-align:center;}
+  .errline.show{display:block;}
+
+  /* ---------- faq ---------- */
+  .faq{max-width:680px; margin:30px auto 0;}
+  .faq details{border-bottom:1px solid var(--line); padding:4px 0;}
+  .faq summary{cursor:pointer; font-weight:bold; font-size:16.5px; padding:14px 0; list-style:none;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+"; float:right; font-family:'Courier New',monospace; color:var(--coral); font-size:20px;}
+  .faq details[open] summary::after{content:"\2212";}
+  .faq p{font-size:15px; color:var(--soft); padding:0 0 16px; max-width:60ch;}
+
+  footer{background:var(--navy2); color:#8FA6B5; padding:34px 0 44px; font-family:'Courier New',monospace; font-size:11.5px; letter-spacing:.06em;}
+  footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+
+  @media(max-width:760px){
+    section{padding:48px 0;}
+    .hero-grid{grid-template-columns:1fr; gap:38px; padding-top:30px;}
+    .phone{transform:rotate(0);}
+    .cols3{grid-template-columns:1fr; gap:28px;}
+    .feat{grid-template-columns:1fr;}
+    .proof{grid-template-columns:1fr; gap:34px;}
+    .proof .phone{transform:rotate(0);}
+    .two{grid-template-columns:1fr;}
+  }
+
+  /* variant */
+  .hero{background:linear-gradient(165deg,#FFB36B 0%,#FF7E5F 55%,#E5533E 100%);}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap">
+    <span class="kick">The Summer List</span>
+    <div class="hero-grid">
+      <div>
+        <h1>Landed already? Your list is one hour away.</h1>
+        <p class="sub">You're on the sunbed googling &ldquo;things to do here&rdquo;. Stop: one order, and both your phones hold the whole place. 50+ spots with real prices, bus times and wish lists you tick off together. Maps doesn't do that. &euro;15, in your inbox within the hour, working offline all week.</p>
+        <div class="cta-row">
+          <a class="btn" href="#order">Get it within the hour</a>
+          <a class="btn ghost" href="#how">See how it works</a>
+        </div>
+        <div class="micro">&euro;15 incl. VAT · on both phones within the hour · no app, no account, no subscription</div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="appname">The Rhodes List</div>
+          <div class="appsub">Maria &amp; Jonas · 12 to 19 July</div>
+          <div class="pnums"><span>9 done · 14 on the wish list</span><span>9/54</span></div>
+          <div class="pbar"><i></i></div>
+          <div class="pcard">
+            <div class="cat">Beach</div>
+            <div class="nm">Anthony Quinn Bay</div>
+            <div class="meta">Bus 20 min · free · best light before 11</div>
+            <span class="badge both">Both want · M+J</span>
+          </div>
+          <div class="pcard">
+            <div class="cat">Day trip</div>
+            <div class="nm">Lindos acropolis</div>
+            <div class="meta">Bus 1 h · 12 &euro; · climb before the heat</div>
+            <span class="badge want">Wish · M</span>
+          </div>
+          <div class="pcard">
+            <div class="cat">Food</div>
+            <div class="nm">Taverna To Steno</div>
+            <div class="meta">10 min walk · about 40 &euro; for two</div>
+            <span class="badge done">Done · day 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#F7F1E3" d="M0,42 C180,70 360,14 540,35 C720,56 900,7 1080,28 C1260,49 1380,35 1440,24 L1440,70 L0,70 Z"/></svg>
+</div>
+
+<!-- ================= PROBLEM ================= -->
+<section class="band-cream">
+  <div class="wrap">
+    <span class="kick" style="color:var(--soft);">Sound familiar</span>
+    <h2>The first day of a holiday always disappears. Not this one.</h2>
+    <p class="lead">One of you has ten saved TikToks. The other has three tabs of &ldquo;things to do in Rhodes&rdquo; and a screenshot from a Facebook group. The first day of the holiday goes to scrolling on the hotel bed, and you find the best beach the evening before the flight home. The Summer List gathers everything in one place before you leave, built for your exact trip, with your dates, your names and everything worth knowing.</p>
+  </div>
+</section>
+
+<!-- ================= HOW ================= -->
+<section class="band-off" id="how">
+  <div class="wrap">
+    <span class="kick" style="color:var(--soft);">How it works</span>
+    <h2>Order tonight, tick off tomorrow.</h2>
+    <div class="cols3">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Tell us about your trip</h3>
+        <p>Destination, dates and your names. Two minutes in the form at the bottom of this page.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Pay, and we build your list</h3>
+        <p>You get a payment link by email (card, Apple Pay or Google Pay, through Stripe). Within the hour after payment, your list arrives: your names, your dates, and everything worth doing where you're going.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Add it to your home screen</h3>
+        <p>Open the link, tap &ldquo;Add to Home Screen&rdquo;, done. It opens like an app on both phones and works without coverage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT YOU GET ================= -->
+<section class="band-navy">
+  <div class="wrap">
+    <span class="kick">What you get</span>
+    <h2>One list. Two phones. Zero arguing.</h2>
+    <p class="lead">Everything below is included, built for your destination and your dates.</p>
+    <div class="feat">
+      <div class="f"><span class="kick">50+ places</span><p><b>Beaches, day trips, food and nights out</b> with what matters: price, distance from your hotel, bus or walk, and when in the day it's best.</p></div>
+      <div class="f"><span class="kick">A wish list each</span><p>You each sign in with your own name and PIN. Cards show who wants what, and <b>&ldquo;Both want&rdquo;</b> shows where you agree.</p></div>
+      <div class="f"><span class="kick">Sync with QR</span><p>One of you shows a code, the other scans it. <b>No account, no cloud</b>, the lists meet directly between your phones.</p></div>
+      <div class="f"><span class="kick">Works offline</span><p>The list lives on your phone, not on the internet. <b>Roaming anxiety is not a thing.</b></p></div>
+      <div class="f"><span class="kick">Budget and day plan</span><p>The wish list adds up what the fun costs for two, and you can pin things to specific days.</p></div>
+      <div class="f"><span class="kick">The done list</span><p>After the holiday you're left with the whole trip, day by day. <b>The best souvenir is a full list.</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section class="band-cream">
+  <div class="wrap proof">
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="appname">The Ayia Napa List</div>
+        <div class="appsub">Vegard &amp; Hanne · 27 July to 3 August</div>
+        <div class="pnums"><span>Wish list ≈ 193 &euro; for two</span><span>51 places</span></div>
+        <div class="pbar"><i style="width:6%"></i></div>
+        <div class="pcard">
+          <div class="cat">Boat</div>
+          <div class="nm">Blue Lagoon cruise</div>
+          <div class="meta">From the harbour · the quay kiosk beats the online price</div>
+          <span class="badge both">Both want · V+H</span>
+        </div>
+        <div class="pcard">
+          <div class="cat">Sight</div>
+          <div class="nm">Cape Greco at sunrise</div>
+          <div class="meta">Bus 101 · free · walk out to the edge</div>
+          <span class="badge want">Wish · H</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="kick" style="color:var(--soft);">The first list</span>
+      <h2>This started as a list for our own trip.</h2>
+      <p class="quote">&ldquo;51 things in Ayia Napa, with bus times, prices and which end of the beach stays quiet. We built it for ourselves. Then everyone we showed it to wanted one for their trip.&rdquo;</p>
+      <div class="qwho">Vegard, made The Summer List</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DESTINATIONS ================= -->
+<section class="band-off">
+  <div class="wrap">
+    <span class="kick" style="color:var(--soft);">Destinations</span>
+    <h2>Three places this summer. Deep, not wide.</h2>
+    <p class="lead">Every list is researched down to bus lines, real prices and which end of the beach stays quiet. That kind of depth takes focus, so this summer we build for three places only. More follow.</p>
+    <div class="dests">
+      <span class="dest hot">Ayia Napa</span>
+      <span class="dest hot">Rhodes</span>
+      <span class="dest hot">Albufeira</span>
+      <span class="dest">your place, later this summer</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICE ================= -->
+<section class="band-cream">
+  <div class="wrap">
+    <div class="pricecard">
+      <span class="kick">Launch price</span>
+      <div class="price">&euro;15</div>
+      <div class="strike">Regular &euro;25</div>
+      <div class="plist">
+        <div>The whole list, built for your trip</div>
+        <div>Both phones, a PIN each</div>
+        <div>Pay by card when you order (Stripe)</div>
+        <div>On your phones within the hour</div>
+        <div>No sponsors, no affiliate links, no ads inside</div>
+        <div>One price, once, VAT included. No subscription.</div>
+      </div>
+      <a class="btn" href="#order">Close the tabs. Order.</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="band-off">
+  <div class="wrap">
+    <span class="kick" style="color:var(--soft);">Questions</span>
+    <h2>What people ask.</h2>
+    <div class="faq">
+      <details>
+        <summary>Do we need to download an app?</summary>
+        <p>No. The list is a web page you add to your home screen. It opens full screen like an app, with no App Store, no account and no updates to install.</p>
+      </details>
+      <details>
+        <summary>Does it work without internet?</summary>
+        <p>Yes. Everything is stored on your phone after the first open. Photos load when you have coverage; the rest works in flight mode.</p>
+      </details>
+      <details>
+        <summary>How do we share it between two phones?</summary>
+        <p>You each sign in with your name and a four-digit PIN. When you want to share wishes and tick-offs, one of you shows a QR code and the other scans it. Done in seconds, and nothing touches a cloud.</p>
+      </details>
+      <details>
+        <summary>When and how do we pay?</summary>
+        <p>Right after you send the order, a Pay now button appears (and we can email you the same link): card, Apple Pay or Google Pay, hosted by Stripe. Your list normally arrives within one hour of payment between 09:00 and 22:00 CET; orders paid at night arrive by morning. The price includes Norwegian VAT.</p>
+      </details>
+      <details>
+        <summary>Our place isn't one of the three. Can you still do it?</summary>
+        <p>Not this summer. Depth is the whole product, so we only sell lists for places we've researched properly. Pick &ldquo;somewhere else&rdquo; in the form and leave your destination in the notes; you get an email the day your place goes live, and no charge before that.</p>
+      </details>
+      <details>
+        <summary>Can we be more than two?</summary>
+        <p>The list is built for two phones with a wish list each. If you're a group of friends or a family, write it in the order and we'll work it out together.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORDER FORM ================= -->
+<section class="band-navy" id="order">
+  <div class="wrap">
+    <span class="kick">Order</span>
+    <h2>Tell us about the trip. We handle the rest.</h2>
+    <p class="lead">Two minutes now, a payment link right after, your list within the hour of payment.</p>
+    <form class="formwrap" id="orderForm" action="https://formsubmit.co/hello@getsummerlist.com" method="POST">
+      <input type="hidden" name="_subject" value="New order: The Summer List">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <label for="dest">Where are you going?</label>
+      <select id="dest" name="Destination" required>
+        <option value="" disabled selected>Choose your place</option>
+        <option>Ayia Napa</option>
+        <option>Rhodes</option>
+        <option>Albufeira</option>
+        <option>Somewhere else (waiting list)</option>
+      </select>
+      <div class="two">
+        <div>
+          <label for="from">From</label>
+          <input id="from" name="From" type="date" required>
+        </div>
+        <div>
+          <label for="to">To</label>
+          <input id="to" name="To" type="date" required>
+        </div>
+      </div>
+      <label for="names">The names on the list (the two of you)</label>
+      <input id="names" name="Names" type="text" required placeholder="Maria and Jonas">
+      <label for="hotel">Hotel or area (optional, makes distances better)</label>
+      <input id="hotel" name="Hotel" type="text" placeholder="Napa Plaza, Faliraki &hellip;">
+      <label for="email">Email (where the list goes)</label>
+      <input id="email" name="Email" type="email" required placeholder="name@email.com">
+      <label for="notes">Anything we should know? (optional)</label>
+      <textarea id="notes" name="Notes" rows="3" placeholder="Kids on the trip, scared of boats, loves snorkelling &hellip;"></textarea>
+      <label class="consent"><input type="checkbox" required name="Consent" value="Accepted">I agree that building starts as soon as I pay, and that the right of withdrawal lapses once the list is delivered. Price includes VAT. See the fine print below.</label>
+      <button class="btn" type="submit" id="sendBtn">Send the order · &euro;15</button>
+      <div class="formnote">Payment comes as the next step, hosted by Stripe. The list follows within the hour of payment (09:00 to 22:00 CET).</div>
+      <div class="errline" id="errLine">Something went wrong. Try again, or email hello@getsummerlist.com.</div>
+    </form>
+    <div class="oksplash" id="okSplash">
+      <h3>Order received. One step left.</h3>
+      <p>Pay now and the clock starts: your list lands in your inbox within the hour (09:00 to 22:00 CET; night orders arrive by morning).</p>
+      <a class="btn" id="payNowBtn" href="#" style="margin-top:18px;">Pay now · &euro;15</a>
+      <p style="margin-top:14px; font-size:13px;">Prefer not to pay right away? We also email you the same payment link.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band-cream">
+  <div class="wrap">
+    <span class="kick" style="color:var(--soft);">The fine print</span>
+    <h2>Terms, plainly.</h2>
+    <div class="faq">
+      <details>
+        <summary>Who you're buying from</summary>
+        <p>Capital Control AS, org. nr. 912 080 978 MVA, Norway. Questions and complaints: hello@getsummerlist.com. Norwegian consumer law applies.</p>
+      </details>
+      <details>
+        <summary>Price and VAT</summary>
+        <p>The price shown is what you pay: &euro;15 per list, Norwegian VAT (25%) included. Payment by card, Apple Pay or Google Pay through Stripe. Your card details never reach us.</p>
+      </details>
+      <details>
+        <summary>Delivery</summary>
+        <p>The list is digital and delivered as a link to your email, normally within one hour of payment between 09:00 and 22:00 CET. Orders paid at night are delivered by 09:00 the next morning. Not delivered on time? Email us and we deliver or refund.</p>
+      </details>
+      <details>
+        <summary>Right of withdrawal</summary>
+        <p>This is digital content delivered immediately. By ticking the consent box in the order form you agree that delivery starts right away and that the right of withdrawal under the Norwegian Cancellation Act lapses on delivery. Something wrong with the list itself? That's a complaint, not a withdrawal, and we fix it or refund.</p>
+      </details>
+      <details>
+        <summary>Your data</summary>
+        <p>The order form sends your details to our email inbox. We use them for one thing: building and delivering your list. Nothing is shared, nothing is sold, no newsletter unless you ask for one. Want your data deleted after delivery? One email.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>The Summer List · made in Norway</span>
+    <span>hello@getsummerlist.com</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById("orderForm");
+  var ok = document.getElementById("okSplash");
+  var err = document.getElementById("errLine");
+  var btn = document.getElementById("sendBtn");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.classList.remove("show");
+    btn.disabled = true; btn.textContent = "Sending …";
+    var data = new FormData(form);
+    fetch(form.action, {method:"POST", body:data, headers:{"Accept":"application/json"}})
+      .then(function(r){
+        if(r.ok){
+          form.style.display="none";
+          var PAYLINK = "https://buy.stripe.com/test_8x2cN52lu6yj1hV4Gsawo00";
+          var pay = document.getElementById("payNowBtn");
+          if(PAYLINK.indexOf("http")===0){
+            var em = document.getElementById("email").value;
+            var dest = (document.getElementById("dest").value||"list").replace(/[^A-Za-z]/g,"").slice(0,12);
+            var ref = dest + "-" + Date.now().toString(36).toUpperCase();
+            pay.href = PAYLINK + "?prefilled_email=" + encodeURIComponent(em) + "&client_reference_id=" + encodeURIComponent(ref);
+          } else { pay.style.display = "none"; }
+          ok.classList.add("show"); ok.scrollIntoView({behavior:"smooth", block:"center"});
+        }
+        else { throw new Error("bad status"); }
+      })
+      .catch(function(){
+        err.classList.add("show");
+        btn.disabled = false; btn.textContent = "Send the order · €15";
+      });
+  });
+})();
+
+/* ---------- per-destination ad param (?d=ayianapa|rhodes|albufeira) ---------- */
+(function(){
+  var map={ayianapa:{place:"Ayia Napa",beach:"Konnos Bay"},rhodes:{place:"Rhodes",beach:"Anthony Quinn Bay"},albufeira:{place:"Albufeira",beach:"Praia da Coelha"}};
+  var d=(new URLSearchParams(location.search).get("d")||"").toLowerCase().replace(/[^a-z]/g,"");
+  var info=map[d]; if(!info) return;
+  var sel=document.getElementById("dest");
+  if(sel){ for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text===info.place){ sel.selectedIndex=i; break; } } }
+  var jh=document.getElementById("jHero");
+  if(jh){ jh.textContent="They found "+info.beach+" on their last day in "+info.place+"."; }
+})();
+</script>
+</body>
+</html>
