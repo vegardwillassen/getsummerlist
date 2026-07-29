@@ -39,8 +39,10 @@ strengthen it, it waits.
    buyer already has.
 4. **No dependencies.** `npm run build` is `node scripts/build.mjs` and nothing else. Ask before
    adding a single package.
-5. **Page weight budget: 30 KB per zone page.** Current is 23 KB. Buyers are on roaming data.
-   If a change pushes past 30 KB, say so before doing it.
+5. **Page weight budget: 40 KB per zone page.** Raised from 30 KB on 29 July 2026 when the
+   buyer pages adopted the sommer-26 card design at Vegard's request; the design floor is
+   about 37 KB and Netlify gzips the transfer to about 11 KB. Buyers are on roaming data.
+   If a change pushes past 40 KB, say so before doing it.
 6. **Buyer pages are noindex.** `/l/*` carries `X-Robots-Tag: noindex, nofollow` and
    `Referrer-Policy: no-referrer`. Do not weaken this for SEO reasons.
 

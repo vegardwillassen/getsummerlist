@@ -5,9 +5,10 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const places = JSON.parse(readFileSync(join(root, 'data/places.json'), 'utf8'));
 const zonesFile = JSON.parse(readFileSync(join(root, 'data/zones.json'), 'utf8'));
-const minify = s => s.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim()).filter(Boolean).join('\n').replace(/\n(?=[{}])/g, '').replace(/([{};:,])\n/g, '$1');
-const css = minify(readFileSync(join(root, 'src/styles.css'), 'utf8'));
-const appJs = minify(readFileSync(join(root, 'src/app.js'), 'utf8'));
+const minCss = s => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/ ?([{};:,>]) ?/g, '$1').replace(/;}/g, '}').trim();
+const minJs = s => s.split('\n').map(l => l.replace(/\/\/[^'"]*$/, '').trim()).filter(Boolean).join('\n');
+const css = minCss(readFileSync(join(root, 'src/styles.css'), 'utf8'));
+const appJs = minJs(readFileSync(join(root, 'src/app.js'), 'utf8'));
 const landingTpl = readFileSync(join(root, 'src/landing.html'), 'utf8');
 
 const HARBOUR = [34.9822, 33.9994];
@@ -46,24 +47,27 @@ function trim(text, max) {
   return end > max * 0.4 ? cut.slice(0, end + 1) : cut.replace(/\s+\S*$/, '') + '.';
 }
 
+const CATLAB = { beach: 'Beach', water: 'Water fun', sight: 'Sight', boat: 'Boat trip', daytrip: 'Day trip', food: 'Food & drink', night: 'Nightlife', well: 'Wellness' };
+const MODE_LAB = { walk: 'Walk', bus: 'Bus', taxi: 'Taxi', boat: 'Boat' };
+
 function entryHtml(zone, p, i, tier) {
-  return '<article class="e" data-id="' + p.id + '">' +
-    '<div class="ehead"><span class="cat">' + esc(p.cat) + '</span>' +
-    '<h3>' + (tier === 'verdict' ? (i + 1) + '. ' : '') + esc(p.name) + '</h3></div>' +
-    '<p class="verdict">' + esc(p.verdict) + '</p>' +
-    '<div class="facts">' +
-    '<div><span class="lab">Costs</span>' + esc(p.price.band || p.price.text) + (eur(p) ? ' <span class="typ">(' + eur(p) + ' typical)</span>' : '') + '</div>' +
-    '<div><span class="lab">From your hotel</span>' + esc(fromHotel(zone, p)) + '</div>' +
-    '<div><span class="lab">Time</span>' + esc(p.duration) + (p.book_ahead ? ' · book ahead' : '') + '</div>' +
-    '</div>' +
-    (tier === 'verdict'
-      ? '<details><summary>The full story</summary><p>' + esc(trim(p.detail, 320)) + '</p>' +
-        (p.tip ? '<p class="tip"><b>Tip:</b> ' + esc(trim(p.tip, 170)) + '</p>' : '') +
-        '<p class="links"><a href="' + esc(p.maps) + '" target="_blank" rel="noopener">Open in Google Maps</a>' +
-        (p.web ? ' · <a href="' + esc(p.web) + '" target="_blank" rel="noopener">Website</a>' : '') + '</p></details>'
-      : '<p class="links"><a href="' + esc(p.maps) + '" target="_blank" rel="noopener">Open in Google Maps</a></p>') +
-    '<button class="want" data-want="' + p.id + '" type="button">Want to do this</button>' +
-    '</article>';
+  return '<div class="card" data-id="' + p.id + '" data-cat="' + p.cat + '" tabindex="0"' +
+    (p.img ? ' data-img="' + esc(p.img) + '"' : '') +
+    (p.book_ahead ? ' data-ba="1"' : '') +
+    (p.web ? ' data-web="' + esc(p.web) + '"' : '') + '>' +
+    '<div class="body">' +
+    '<div class="name">' + esc(p.name) + '</div>' +
+    '<div class="blurb">' + esc(p.verdict) + '</div>' +
+    '<div class="meta"><span><b>' + esc(p.price.band || p.price.text) + '</b></span>' +
+    '<span class="from">' + esc(fromHotel(zone, p)) + '</span>' +
+    '<span class="mbadge">' + (MODE_LAB[p.mode] || p.mode) + '</span>' +
+    '</div></div>' +
+    '<div class="extra hidden">' +
+    '<p class="d">' + esc(trim(p.detail, tier === 'verdict' ? 300 : 170)) + '</p>' +
+    (p.tip && tier === 'verdict' ? '<p class="t">' + esc(trim(p.tip, 160)) + '</p>' : '') +
+    '<span class="dur">' + esc(p.duration) + '</span>' +
+    '<span class="ptext">' + esc(p.price.typical_eur ? (p.price.band || p.price.text) + ', typically EUR ' + p.price.typical_eur : (p.price.band || p.price.text)) + '</span>' +
+    '</div></div>';
 }
 
 function zonePage(zone) {
@@ -72,30 +76,36 @@ function zonePage(zone) {
   const u1 = unlocks.slice(0, 5), u2 = unlocks.slice(5, 10);
   const verified = new Date(zonesFile.meta.verified + 'T00:00:00Z')
     .toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const wave = '<div class="wave"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,48 C180,80 360,16 540,40 C720,64 900,8 1080,32 C1260,56 1380,40 1440,28 L1440,80 L0,80 Z"/></svg></div>';
   return '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
     '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
     '<meta name="robots" content="noindex, nofollow">' +
     '<meta name="referrer" content="no-referrer">' +
     '<title>The Summer List · Ayia Napa · ' + esc(zone.name) + '</title>' +
     '<style>' + css + '</style></head><body>' +
-    '<header><p class="kick">The Summer List · Ayia Napa</p>' +
-    '<h1>' + esc(zone.name) + '</h1>' +
-    '<p class="hotels">Distances measured for ' + esc(zone.hotels.join(', ')) + ' and nearby hotels.</p>' +
-    '<p class="verified">Prices, routes and opening hours verified ' + verified + '.</p>' +
-    '<div class="toolbar"><button id="printBtn" type="button">Save as PDF / print</button>' +
-    '<span class="hint">Bookmark this page or add it to your home screen. This link is your copy.</span></div>' +
-    '</header>' +
-    '<main>' +
-    '<p class="framing">300 checked, 12 won. These are the twelve worth your week, with what each costs and how you get there from your hotel.</p>' +
-    verdicts.map((p, i) => entryHtml(zone, p, i, 'verdict')).join('') +
-    '<section class="unlock" id="u1"><button class="unlockBtn" data-unlock="u1" type="button">Show 5 more that nearly made it</button>' +
-    '<div class="upanel" hidden>' + u1.map((p, i) => entryHtml(zone, p, i, 'unlock')).join('') + '</div></section>' +
-    '<section class="unlock" id="u2"><button class="unlockBtn" data-unlock="u2" type="button">Show the last 5 from the shortlist</button>' +
-    '<div class="upanel" hidden>' + u2.map((p, i) => entryHtml(zone, p, i, 'unlock')).join('') + '</div></section>' +
+    '<header><div class="wrap">' +
+    '<span class="kicker">Ayia Napa · Cyprus · ' + esc(zone.name) + '</span>' +
+    '<h1>The Summer List</h1>' +
+    '<p class="sub">The 12 things worth doing, what each costs, how you get there from your hotel. Distances measured for ' + esc(zone.hotels.join(', ')) + ' and neighbours.</p>' +
+    '<div class="progress"><div class="row"><span class="nums"><b id="nDone">0</b> done</span><span class="nums" id="nTotal">0 / 12</span></div>' +
+    '<div class="bar"><i id="barFill"></i></div></div>' +
+    '</div>' + wave + '</header>' +
+    '<main class="wrap">' +
+    '<div class="lede">' +
+    '<span class="verified">Verified ' + verified + '</span>' +
+    '<button class="btn solid" id="printBtn" type="button">Save as PDF / print</button>' +
+    '<span class="note">Bookmark this page or add it to your home screen. This link is your copy. Tap a card for the full story.</span>' +
+    '</div>' +
+    '<p class="framing">300 checked, 12 won. These are the twelve worth your week.</p>' +
+    '<div class="grid">' + verdicts.map((p, i) => entryHtml(zone, p, i, 'verdict')).join('') + '</div>' +
+    '<section class="unlock" id="u1"><button class="btn unlockBtn" data-unlock="u1" type="button">Show 5 more that nearly made it</button>' +
+    '<div class="grid upanel" hidden>' + u1.map((p, i) => entryHtml(zone, p, i, 'unlock')).join('') + '</div></section>' +
+    '<section class="unlock" id="u2"><button class="btn unlockBtn" data-unlock="u2" type="button">Show the last 5 from the shortlist</button>' +
+    '<div class="grid upanel" hidden>' + u2.map((p, i) => entryHtml(zone, p, i, 'unlock')).join('') + '</div></section>' +
+    '<div class="foot"><p>The Summer List by Vegard · Ayia Napa EUR 29 · Rhodes and Albufeira next season · getsummerlist.com</p>' +
+    '<p class="privacy">We log page opens and taps on this page to improve the list. Nothing is sold or shared, and nothing identifies you beyond this link.</p></div>' +
     '</main>' +
-    '<footer><p>The Summer List by Vegard · Ayia Napa EUR 29 · Rhodes and Albufeira next season · getsummerlist.com</p>' +
-    '<p class="privacy">We log page opens and taps on this page to improve the list. Nothing is sold or shared, and nothing identifies you beyond this link.</p>' +
-    '</footer>' +
+    '<div class="overlay" id="overlay"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>' +
     '<script>const ZONE="' + zone.slug + '";' + appJs + '</script>' +
     '</body></html>';
 }
