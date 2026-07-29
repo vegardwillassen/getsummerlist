@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build && npm run check"
+  publish = "dist"
+
+[[redirects]]
+  from = "/an"
+  to = "/"
+  status = 302
+
+[[redirects]]
+  from = "/api/e"
+  to = "/.netlify/functions/e"
+  status = 200
+
+[[headers]]
+  for = "/l/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "no-referrer"

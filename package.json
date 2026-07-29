@@ -1,0 +1,10 @@
+{
+  "name": "summerlist",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The Summer List, Ayia Napa. Static build, no dependencies.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}

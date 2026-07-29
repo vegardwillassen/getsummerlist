@@ -1,0 +1,1277 @@
+[
+ {
+  "id": "nissi",
+  "name": "Nissi Beach",
+  "cat": "beach",
+  "tier": "verdict",
+  "verdict": "The postcard of Ayia Napa: shallow turquoise water, white sand and a tiny islet you wade out to. Loud, beautiful, unmissable at least once.",
+  "detail": "A 500 metre crescent of fine golden-white sand with knee-deep, bath-warm water stretching far out. The Nissi Bay end runs beach-bar DJs and foam-party energy from around noon, while the western end near Nissi Beach Resort stays calmer. In late July it packs out: arrive before 09:30 for front-row sunbeds, or come after 16:30 for a mellow golden-hour swim. Full facilities: lifeguards, showers, water sports and beach bars. Blue Flag awarded.",
+  "tip": "Wade out to Nissi islet and scramble to the top for the best photo in town. If the DJs get too much, walk ten minutes west to quieter Landa Beach.",
+  "price": {
+   "text": "Free entry; private sunbed and umbrella €2.50 to 3.50 per piece, so about €7.50 to 10 for two",
+   "band": "Free · beds €2.50",
+   "typical_eur": 0
+  },
+  "duration": "Half or full day",
+  "bus": "102",
+  "book_ahead": false,
+  "ll": [
+   34.9887,
+   33.9646
+  ],
+  "mode": "bus",
+  "getting": "Bus 102 toward the Waterpark from the stop 2 to 3 minutes from the hotel, a 10 to 12 minute ride, €2 cash. Buses every 15 to 20 minutes. Taxi €10 to 12.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Nissi%20Beach%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "landa",
+  "name": "Landa Beach",
+  "cat": "beach",
+  "tier": "verdict",
+  "verdict": "Nissi's mellow neighbour: the same caster-sugar sand and turquoise water without the party speakers. The locals' pick for a relaxed day for two.",
+  "detail": "A wide, gently shelving bay of golden sand between Nissi and Makronissos, Blue Flag awarded and noticeably more laid-back than Nissi. Expect families and couples rather than club crowds; even in late July you can usually find sunbeds after mid-morning. Lifeguards, showers, a beach kiosk and a water-sports station. The water is calm and shallow, lovely for long swims. Fewest people before 11:00 or from 16:00.",
+  "tip": "Morning swim at Landa, then stroll the coast path east to Nissi for lunch and people-watching. Sunset from the western rocks is superb.",
+  "price": {
+   "text": "Free; sunbed and umbrella about €2.50 each",
+   "band": "Free · beds €2.50",
+   "typical_eur": 0
+  },
+  "duration": "Half day",
+  "bus": "102",
+  "book_ahead": false,
+  "ll": [
+   34.9868,
+   33.9569
+  ],
+  "mode": "bus",
+  "getting": "Bus 102 toward the Waterpark, 13 to 15 minutes, €2. Get off one stop past Nissi at the Landa stop, then a short walk down to the sand. Taxi €11 to 13.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Landa%20Beach%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "makronissos",
+  "name": "Makronissos Beach",
+  "cat": "beach",
+  "tier": "verdict",
+  "verdict": "Three connected sandy coves around a low peninsula dotted with 2,000 year old rock tombs. Calm water, space to breathe, a proper beach restaurant.",
+  "detail": "The most westerly of the big beaches. Soft sand and very calm, shallow water on the main bay, with two smaller coves around the headland if you want near-privacy. Late July crowds are moderate: busy but rarely rammed. Lifeguards, sunbeds, showers, changing rooms, a water-sports hut and the Makronissos beach restaurant. Wander the free open-air tombs on the headland between swims. Mornings are glassy-calm.",
+  "tip": "Cross the little causeway to the islet at the tip for snorkelling off the rocks. The western cove catches the sunset: bring a drink from the bar and stay late.",
+  "price": {
+   "text": "Free; sunbed and umbrella about €2.50 each; tombs free",
+   "band": "Free · beds €2.50",
+   "typical_eur": 0
+  },
+  "duration": "Half day",
+  "bus": "102",
+  "book_ahead": false,
+  "ll": [
+   34.9853,
+   33.9503
+  ],
+  "mode": "bus",
+  "getting": "Bus 102 toward the Waterpark, 15 to 18 minutes, €2, to the Makronissos stop, then a 5 minute walk. Taxi €12 to 15.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Makronissos%20Beach%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "pantachou",
+  "name": "Pantachou / Limanaki Beach",
+  "cat": "beach",
+  "tier": "verdict",
+  "verdict": "Your ten-minute house beach: a kilometre of Blue Flag sand starting right at the fishing harbour. Made for first-evening swims and lazy mornings.",
+  "detail": "Pantachou runs east from the harbour breakwater: organised golden sand, calm shallow water and a relaxed mix of families and couples. It is the closest proper beach to Napa Plaza, ideal for a pre-breakfast dip or a sunset swim before dinner at the harbour tavernas. Busy by midday in late July, blissfully quiet early. Lifeguards, sunbeds, showers, cafes, and the MUSAN underwater sculpture museum lies just offshore.",
+  "tip": "Swim before 09:00 and you share the bay with fishermen and joggers. Book a harbour fish taverna for sunset so beach day and dinner merge into one.",
+  "price": {
+   "text": "Free; sunbed and umbrella about €2.50 each",
+   "band": "Free · 10 min walk",
+   "typical_eur": 0
+  },
+  "duration": "1 to 3 hours, or a lazy day",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9832,
+   34.0002
+  ],
+  "mode": "walk",
+  "getting": "Walk 650 metres, 8 to 10 minutes downhill past the monastery square to the harbour. No bus needed.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Pantachou%20Beach%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "grecian",
+  "name": "Grecian Bay Beach (Glyki Nero)",
+  "cat": "beach",
+  "tier": "verdict",
+  "verdict": "A wide, elegant sweep of sand east of the harbour with some of the clearest water in town. The classiest beach within walking distance.",
+  "detail": "Fronting the five-star Grecian Bay Hotel but fully public. Fine pale sand, gin-clear water and rock formations at the eastern end that are great for snorkelling. The crowd skews couples and hotel guests, so even in late July it feels less frantic than Nissi, though sunbeds near the hotel go early. Morning water clarity is exceptional. From here a scenic coastal path continues east toward the sea caves and Cape Greco.",
+  "tip": "Bring snorkel gear for the rocks at the east end, then walk 20 more minutes along the clifftop path to the sea caves at golden hour.",
+  "price": {
+   "text": "Free; sunbed and umbrella about €2.50 each",
+   "band": "Free · 20 min walk",
+   "typical_eur": 0
+  },
+  "duration": "Half day",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.982,
+   34.008
+  ],
+  "mode": "walk",
+  "getting": "Walk 1.5 km, 18 to 20 minutes, via the harbour and Kryou Nerou Avenue. Taxi €8 to 10. A pleasant seafront stroll back.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Glyki%20Nero%20Beach%20Grecian%20Bay%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "konnos",
+  "name": "Konnos Bay",
+  "cat": "beach",
+  "tier": "verdict",
+  "verdict": "A horseshoe cove wrapped in pine-covered cliffs on the edge of Cape Greco. Many call it the most beautiful bay in Cyprus.",
+  "detail": "Sheltered, impossibly turquoise and calm: ideal for swimming and snorkelling, with juniper slopes running down to the sand. It is small, so in late July it fills by 10:30. Go early morning for the best light, or after 16:00 when day-trippers thin out. Sunbeds, a snack bar, showers, lifeguard, and a kiosk renting kayaks and SUPs to explore the cliffs. Confident swimmers use the cliff-jump spots on the north side.",
+  "tip": "Rent a kayak and paddle 15 minutes along the cliffs toward the Cape Greco grottoes: the same scenery as the paid tours for a fraction of the price. The Cliff Bar above the bay does a spectacular sunset cocktail.",
+  "price": {
+   "text": "Free; sunbeds about €2.50 each; kayak or SUP €10 to 15 per hour",
+   "band": "Free · bus €2",
+   "typical_eur": 0
+  },
+  "duration": "Half day",
+  "bus": "101",
+  "book_ahead": false,
+  "ll": [
+   34.9776,
+   34.0755
+  ],
+  "mode": "bus",
+  "getting": "Bus 101 toward Protaras from Makariou Avenue, 15 to 20 minutes, €2. Get off at the Konnos stop and walk 5 to 8 minutes down. The climb back up is sweaty; consider a taxi home, €15 to 18.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Konnos%20Bay%20Cyprus",
+  "web": null
+ },
+ {
+  "id": "nissi-watersports",
+  "name": "Parasailing & Jet Skis at Nissi",
+  "cat": "water",
+  "tier": "verdict",
+  "verdict": "The adrenaline hub of Nissi Bay: parasail a hundred metres above the turquoise, race jet skis, or get flung off a ringo. Book on the sand, no planning required.",
+  "detail": "Long-established operators run stations directly on Nissi Beach offering parasailing, jet skis, banana boats, ringos, wakeboarding and pedalos. Tandem parasailing is the couples' favourite: calm morning flights give glassy water and the best views over the islet and coves. Queues build from midday in late July, so book a morning slot. Life jackets, briefing and boat crew included. Roughly 09:00 to 18:00 daily.",
+  "tip": "Go before 11:00 for calmer sea and shorter queues. Haggle politely when booking two or more activities together; combo discounts are standard.",
+  "price": {
+   "text": "Jet ski €50 to 60 per 15 min; tandem parasail €110 to 130; ringo €20 to 25 pp (verify on the beach)",
+   "band": "From €20 pp",
+   "typical_eur": 50
+  },
+  "duration": "1 to 2 hours",
+  "bus": "102",
+  "book_ahead": false,
+  "ll": [
+   34.9889,
+   33.965
+  ],
+  "mode": "bus",
+  "getting": "Same as Nissi Beach: bus 102, 10 to 12 minutes, €2, or taxi €10 to 12.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Nissi%20Watersports%20Ayia%20Napa",
+  "web": "https://nissiwatersports.com"
+ },
+ {
+  "id": "waterworld",
+  "name": "WaterWorld Waterpark",
+  "cat": "water",
+  "tier": "verdict",
+  "verdict": "One of Europe's biggest themed waterparks: Ancient-Greece slides, a huge wave pool and a lazy river, twenty minutes away by bus.",
+  "detail": "A Greek-mythology park with more than 25 rides: the Fall of Icarus racing slides, Poseidon's wave pool, a lazy river, big drop slides and gentler options, so it works as a fun couples' day, not just for families. Open daily 10:00 to 18:00 in summer. Late July is peak: arrive at opening to bank the big slides before queues form, then retreat to the lazy river. Lockers, cabanas, restaurants and bars on site. Sundays host the Wave Fest music events (every Sunday to 30 August), and online tickets earn a FREE second visit on Wave Fest Sundays, or 50% off Mon to Sat. For your week that means: go early in the week with online tickets, then come back free on Sunday 2 August for Wave Fest.",
+  "tip": "Buy tickets online for the discount and keep the receipt: the half-price second visit is the best deal in town. The concrete scorches by noon, bring water shoes.",
+  "price": {
+   "text": "€49 adult online, €52 at the gate. July promo: 50% off a second visit Mon to Sat",
+   "band": "€49 · full day",
+   "typical_eur": 49
+  },
+  "duration": "Full day",
+  "bus": "102",
+  "book_ahead": false,
+  "ll": [
+   34.9902,
+   33.9483
+  ],
+  "mode": "bus",
+  "getting": "Bus 102 to its Waterpark terminus, about 20 minutes, €2; the park is the end of the line. Taxi €12 to 15.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=WaterWorld%20Waterpark%20Ayia%20Napa",
+  "web": "https://waterworldwaterpark.com"
+ },
+ {
+  "id": "scuba",
+  "name": "Try Dive with Just Scuba",
+  "cat": "water",
+  "tier": "verdict",
+  "verdict": "Your first breath underwater in some of the Mediterranean's clearest, warmest water, with the town's top-rated dive centre five minutes from the hotel.",
+  "detail": "Just Scuba on Tefkrou Anthia is Ayia Napa's favourite PADI centre, running beginner try dives: a pool-style briefing followed by a shallow guided sea dive. No experience needed beyond basic comfort in water. Late July gives 27 degree water and 20 metre visibility. Book one or two days ahead; morning slots have the calmest sea. The bucket-list upgrade is an intro dive at MUSAN, the underwater sculpture forest just off Pantachou beach.",
+  "tip": "Book the first morning slot: flat sea, best visibility, back on a sunbed by lunch. If one of you dives, the other can usually snorkel above the same site.",
+  "price": {
+   "text": "Try dive €75 to 95 with all equipment; MUSAN intro dive €120 to 140",
+   "band": "From €75 pp",
+   "typical_eur": 75
+  },
+  "duration": "Half day, about 3 hours",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9891,
+   33.9973
+  ],
+  "mode": "walk",
+  "getting": "Walk 5 minutes to the shop in the town centre; the centre arranges transport to the dive site.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Just%20Scuba%20Diving%20Centre%20Ayia%20Napa",
+  "web": "https://napadiving.com"
+ },
+ {
+  "id": "kayak-caves",
+  "name": "Sea Caves by Kayak or SUP",
+  "cat": "water",
+  "tier": "verdict",
+  "verdict": "Paddle into carved limestone grottoes beneath the cliffs of Cape Greco: echoing caves, turquoise water and snorkel stops you cannot reach on foot.",
+  "detail": "Guided kayak and SUP tours launch from coves around Konnos and hug the coastline past arches, blowholes and the sea caves, with snorkelling stops in glass-clear water, gear included. Group tours run 2 to 4 hours; premium half-day trips include hotel pickup, dry bags and a guide. Mornings are markedly better: afternoon winds chop up the sea and some operators cancel late departures. Late July sells out days ahead, book early in your week.",
+  "tip": "Book an 08:00 departure for mirror-calm water inside the caves. Budget option: rent a kayak off Konnos beach and self-paddle the nearer grottoes, staying close to the cliffs.",
+  "price": {
+   "text": "Group cave tours €30 to 45 pp; premium guided half day with pickup up to about €175 pp (verify); DIY kayak at Konnos €10 to 15 per hour",
+   "band": "From €30 pp",
+   "typical_eur": 30
+  },
+  "duration": "Half day",
+  "bus": "101",
+  "book_ahead": true,
+  "ll": [
+   34.977,
+   34.074
+  ],
+  "mode": "taxi",
+  "getting": "Most tours pick up at or near Napa Plaza. Otherwise bus 101 to Konnos, €2, or taxi €15 to 18.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Cape%20Greco%20Sea%20Caves%20Cyprus",
+  "web": "https://www.getyourguide.com/ayia-napa-l124743/cave-tours-tc166/"
+ },
+ {
+  "id": "cape-greco",
+  "name": "Cape Greco National Forest Park",
+  "cat": "sight",
+  "tier": "verdict",
+  "verdict": "The wild, juniper-scented headland where Cyprus meets its clearest blue sea. The best free show in the region, and THE sunrise spot.",
+  "detail": "A protected forest park east of town with marked nature trails, sea cliffs, a panoramic viewpoint and the famous coastal path. The full trail from the sea caves to Konnos Bay, about 5 km one way, is stunning but completely shadeless: in late July walk it at sunrise or after 17:00, never midday. As the easternmost tip of the island it owns the sunrise. Bring 1.5 litres of water each, hats and proper shoes.",
+  "tip": "Sunrise is about 05:50 in late July and you will have the cape to yourselves. The buses run late, so you can also come back for sunset and stay for the stars.",
+  "price": {
+   "text": "Free",
+   "band": "Free · bus €2",
+   "typical_eur": 0
+  },
+  "duration": "2 to 4 hours",
+  "bus": "101",
+  "book_ahead": false,
+  "ll": [
+   34.966,
+   34.066
+  ],
+  "mode": "bus",
+  "getting": "Bus 101 toward Paralimni to the Cape Greco or Sea Caves stops, 15 to 20 minutes, €2. Taxi €12 to 15. Many walk out along the coast and bus back.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Cape%20Greco%20National%20Forest%20Park",
+  "web": "https://www.visitcyprus.com"
+ },
+ {
+  "id": "love-bridge",
+  "name": "Sea Caves & the Love Bridge",
+  "cat": "sight",
+  "tier": "verdict",
+  "verdict": "Wave-carved caves and a natural rock arch straight out of a fantasy film. The most photographed stretch of coast in Ayia Napa.",
+  "detail": "On the western edge of Cape Greco the sea has sculpted caves, ledges and blowholes into the white limestone, and just east stands Kamara tou Koraka, the natural stone arch nicknamed the Love Bridge. Legend says couples who kiss beneath it stay together forever. The arch is fragile, so admire it from the viewpoint beside it rather than walking on top. Cliff jumping here is popular and risky; watch instead. Allow an hour or ninety minutes, ideally at golden hour when the cliffs glow.",
+  "tip": "Sunset beats sunrise here: the caves face west and the low light hits the cliff face directly. Wear grippy sandals, the rock shelf is sharp.",
+  "price": {
+   "text": "Free",
+   "band": "Free",
+   "typical_eur": 0
+  },
+  "duration": "1 to 1.5 hours",
+  "bus": "101",
+  "book_ahead": false,
+  "ll": [
+   34.9705,
+   34.0432
+  ],
+  "mode": "bus",
+  "getting": "Bus 101 to the Sea Caves stop, 10 to 15 minutes, then a short walk. Taxi €10 to 12. Or walk the coast path from the Sculpture Park, 30 to 40 minutes, sensible only early or late in July.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Sea%20Caves%20Cape%20Greco%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "blue-lagoon-chapel",
+  "name": "Ayioi Anargyroi Chapel & Blue Lagoon",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "A tiny whitewashed chapel perched over a sea cave, with the turquoise Blue Lagoon swimming spot below. The most romantic corner of Cape Greco.",
+  "detail": "The blue-domed chapel sits on the cliffs on the eastern side of Cape Greco; steps lead down to a rocky cove and a holy-water sea cave. A few minutes along the coast is the Blue Lagoon, a sheltered inlet of impossibly clear water reached by ladder and rocks: a snorkelling dream with no sand, no facilities and no shade. Swim before 10:00 or after 16:00 in late July; by day the lagoon also fills with tour boats. Dress respectfully inside the chapel.",
+  "tip": "Bring water shoes and a mask: entry is over rocks and the fish life is the whole point. Weekday mornings are far quieter than weekends.",
+  "price": {
+   "text": "Free",
+   "band": "Free · bus €2",
+   "typical_eur": 0
+  },
+  "duration": "2 to 3 hours",
+  "bus": "101",
+  "book_ahead": false,
+  "ll": [
+   34.9689,
+   34.0782
+  ],
+  "mode": "bus",
+  "getting": "Bus 101 toward Paralimni to the Ayioi Anargyroi or Konnos stops, about 20 minutes, €2, then 5 to 15 minutes on marked paths. Taxi €13 to 15.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Agioi%20Anargyroi%20Chapel%20Cape%20Greco",
+  "web": null
+ },
+ {
+  "id": "monastery",
+  "name": "Ayia Napa Monastery",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "A 500 year old Venetian monastery sitting serenely in the middle of party-town. A cool, shaded time capsule three minutes from your door.",
+  "detail": "Built around 1500 over a cave where an icon of the Virgin Mary was found. The stone courtyard, octagonal marble fountain and giant 600 year old sycamore fig are an oasis of calm, and the walls are beautifully lit in the evening while the square buzzes around them. Typical summer hours: weekdays 08:30 to 19:30, weekends from 11:00; the monastery says it opens daily, but verify times locally. Free entry via the south gate. Cover shoulders and knees inside the church. Half an hour is plenty, paired with dinner in the square.",
+  "tip": "Come twice: morning quiet for the courtyard light, then after dark when the illuminated monastery against the neon square makes a brilliant contrast photo.",
+  "price": {
+   "text": "Free",
+   "band": "Free · 3 min walk",
+   "typical_eur": 0
+  },
+  "duration": "30 to 45 minutes",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9887,
+   34.0004
+  ],
+  "mode": "walk",
+  "getting": "Walk 3 to 5 minutes to the central square at the top of Makariou Avenue.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Monastery",
+  "web": "https://ayianapamonastery.org.cy/"
+ },
+ {
+  "id": "thalassa",
+  "name": "Thalassa Museum of the Sea",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "Home of the Kyrenia II, a full-size sailing replica of a 4th century BC Greek trading ship. The best air-conditioned hour in town.",
+  "detail": "The centrepiece is an exact replica of the ancient Kyrenia shipwreck, viewable from three levels, surrounded by amphorae, fossils and marine exhibits covering 8,000 years of Cypriot seafaring. Compact, well done and blissfully cool when the streets hit 35 degrees. Hours per the museum's own site, July 2026: Mon and Sat 09:00 to 14:00, Tue to Fri 09:00 to 17:00, closed Sunday.  On Kryou Nerou, between the square and the Sculpture Park.",
+  "tip": "Slot it in between 12:00 and 14:00 when outdoor sightseeing is miserable anyway. Check the site for temporary exhibitions.",
+  "price": {
+   "text": "€4 adults",
+   "band": "€4 · 1 hour",
+   "typical_eur": 4
+  },
+  "duration": "45 minutes to 1 hour",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9868,
+   34.0043
+  ],
+  "mode": "walk",
+  "getting": "Walk 5 to 7 minutes: up Makariou to the square, then along Kryou Nerou.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Thalassa%20Municipal%20Museum%20Ayia%20Napa",
+  "web": "https://www.thalassamuseum.org.cy/"
+ },
+ {
+  "id": "sculpture-park",
+  "name": "Sculpture Park & Cactus Park",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "An open-air gallery of 300+ marble and stone sculptures on a clifftop, next to a surreal garden of 10,000 cacti. Free, always open, made for golden hour.",
+  "detail": "On the eastern edge of town, international sculptors add new works every year to this hillside overlooking the sea; the adjacent Park of Mediterranean Plants, Cacti and Succulents is arguably even more photogenic. There is zero shade, so in late July this is strictly an early-morning or evening visit. Sunset here, with sculptures silhouetted over the bay, is superb. Allow an hour or ninety minutes for the pair.",
+  "tip": "Do it as a sunset combo: cactus park first, sculptures as the light goes orange, then walk back into town for dinner. It never closes, so it also works as a full-moon stroll.",
+  "price": {
+   "text": "Free",
+   "band": "Free · open 24/7",
+   "typical_eur": 0
+  },
+  "duration": "1 to 1.5 hours",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9808,
+   34.0195
+  ],
+  "mode": "walk",
+  "getting": "Walk 25 to 30 minutes east, fine in the evening; any 101 bus two stops toward Paralimni; or taxi €6 to 8.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Sculpture%20Park",
+  "web": null
+ },
+ {
+  "id": "harbour",
+  "name": "Limanaki Harbour Evenings",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "Ayia Napa's prettiest evening ritual: fishing boats, a palm-lined promenade and fish tavernas on the water, with the famous selfie sign on the way down.",
+  "detail": "Limanaki is where old Ayia Napa survives: working fishing boats beside excursion catamarans, a smart promenade and the town's best fish restaurants. It is also the departure point for all the cruises. The I Love Ayia Napa sign stands on Makariou Avenue, your own street, best photographed lit up at night. From about 18:30: stroll down, catch sunset from the pier, dinner at a taverna, gelato on the walk back.",
+  "tip": "Book a morning Blue Lagoon cruise at the harbour kiosks the day before and haggle politely. For the sign photo without crowds, go before 09:00.",
+  "price": {
+   "text": "Free; boat trips €20 to 50",
+   "band": "Free · 10 min walk",
+   "typical_eur": 0
+  },
+  "duration": "2 to 3 hours, evening",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9822,
+   33.9994
+  ],
+  "mode": "walk",
+  "getting": "Walk 10 to 12 minutes downhill straight down Makariou Avenue to the sea.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour%20Limanaki",
+  "web": null
+ },
+ {
+  "id": "luna-park",
+  "name": "Parko Paliatso Luna Park",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "A gloriously loud seaside funfair with one killer headline act: the 45-storey Sling Shot, the tallest of its kind in Europe. Pure holiday kitsch, best after dark.",
+  "detail": "A classic luna park on Nissi Avenue: ferris wheel, log flume, bumper cars, haunted house and the infamous Sling Shot that catapults riders skyward on camera. Entry is free; you pay per ride with tokens or buy an unlimited wristband. It only makes sense after sunset in July, when the neon-lit ferris wheel view over the coast is lovely. Ninety minutes covers it unless you are wristband-committed.",
+  "tip": "Ride the ferris wheel right at sunset for the best view-per-euro in town. The Sling Shot video they sell afterwards is the ultimate souvenir and blackmail material.",
+  "price": {
+   "text": "Free entry; rides €3 to 6 each or wristband about €25 to 40",
+   "band": "Rides from €3",
+   "typical_eur": 0
+  },
+  "duration": "1.5 to 2 hours, evening",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9895,
+   33.9926
+  ],
+  "mode": "walk",
+  "getting": "Walk 12 to 15 minutes via the square onto Nissi Avenue, or a €5 taxi.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Parko%20Paliatso%20Luna%20Park%20Ayia%20Napa",
+  "web": "https://www.parkopaliatsocy.com/"
+ },
+ {
+  "id": "marina",
+  "name": "Ayia Napa Marina",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "Superyachts, twisting designer towers and a polished waterfront of restaurants and boutiques. The glamorous new side of town, lovely for an evening promenade.",
+  "detail": "West of town near Ayia Thekla, the marina pairs a superyacht basin with a commercial village of upscale restaurants, cafes and shops beneath its landmark twisted towers. Strolling is free, and summer brings open-air events, live music and pop-up markets. Treat it as an evening destination: arrive around 19:00, wander the quays gawking at the yachts, stay for dinner with sunset over the water. Smart-casual by Ayia Napa standards.",
+  "tip": "Check the events page before you go: summer weekends often have free live music. Combine with sunset at Ayia Thekla chapel, a 15 minute walk away.",
+  "price": {
+   "text": "Free to stroll; dinner extra",
+   "band": "Free · taxi €10",
+   "typical_eur": 0
+  },
+  "duration": "2 to 3 hours, evening",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9772,
+   33.9539
+  ],
+  "mode": "taxi",
+  "getting": "Too far to walk, about 6 km west. Taxi €10 to 13, ten minutes. Taxi ranks on site for the trip home.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Marina",
+  "web": "https://marinaayianapa.com/"
+ },
+ {
+  "id": "tombs",
+  "name": "Makronissos Tombs",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "A hauntingly quiet Hellenistic necropolis of 19 rock-cut tombs hiding behind one of the most popular beaches. Almost nobody visits.",
+  "detail": "Carved into the soft rock around the 3rd century BC and used into Roman times, the 19 chamber tombs are reached by stone stairways descending into the ground; a small quarry and ancient sanctuary adjoin them. The site is open, unfenced and free at all times, and you will likely have it to yourselves while hundreds sunbathe 200 metres away. No shade: visit before 10:00 or after 17:00 and combine with a swim.",
+  "tip": "Go late afternoon: tombs in the softening light, then the quieter west side of Makronissos Beach for the last swim of the day. Shoot down the tomb stairways, the geometry is striking.",
+  "price": {
+   "text": "Free",
+   "band": "Free",
+   "typical_eur": 0
+  },
+  "duration": "30 to 45 minutes plus beach time",
+  "bus": "102",
+  "book_ahead": false,
+  "ll": [
+   34.9868,
+   33.9482
+  ],
+  "mode": "bus",
+  "getting": "Bus 102 along Nissi Avenue to Makronissos Beach, 15 to 20 minutes, then a 5 minute walk inland. Taxi €8 to 10.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Makronissos%20Tombs%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "ayia-thekla",
+  "name": "Ayia Thekla Chapel & Coast",
+  "cat": "sight",
+  "tier": "unlock",
+  "verdict": "A tiny blue-and-white chapel on a low headland facing its own islet: the postcard sunset spot of the coast, with an ancient cave church hidden beside it.",
+  "detail": "West of Makronissos near the marina, the little chapel of Ayia Thekla stands by the sea next to an early-Christian cave chapel cut into the rock, with steps leading down to icons and candles. The setting of white chapel, turquoise shallows and islet offshore is made for photographs, and the small sandy beach beside it is calmer and more local than the town beaches. Best in the last two hours before sunset. Bring modest cover-ups for the cave chapel.",
+  "tip": "This is the sunset counterpart to Cape Greco's sunrise: chapel silhouette, islet, often not another tourist in sight. Stroll to the marina for dinner afterwards so the taxi does double duty.",
+  "price": {
+   "text": "Free",
+   "band": "Free · taxi €12",
+   "typical_eur": 0
+  },
+  "duration": "1 to 1.5 hours",
+  "bus": "102",
+  "book_ahead": false,
+  "ll": [
+   34.9763,
+   33.9436
+  ],
+  "mode": "taxi",
+  "getting": "Taxi €12 to 15, about 12 minutes. Or bus 102 toward the Waterpark end and walk 25 minutes along the coast path. Combines with the marina, a 15 minute walk away.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Thekla%20Chapel%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "blue-lagoon-cruise",
+  "name": "Blue Lagoon & Cape Greco Cruise",
+  "cat": "boat",
+  "tier": "unlock",
+  "verdict": "The classic Ayia Napa boat trip: sail past the sea caves to swim in the electric-turquoise Blue Lagoon. The best-value way to see coastline you cannot reach on foot.",
+  "detail": "Boats leave the harbour, cruise east past the sea caves and the Cape Greco headland, then anchor in the Blue Lagoon and Konnos Bay for swimming and snorkelling, gear usually provided. Options range from a quick 2.5 hour morning lagoon run to 4.5 hour cruises with lunch on board. Late July water is 27 to 28 degrees and gin-clear, but boats fill up: book a day or two ahead and take the morning departure before the midday heat. Some operators run glass-bottom vessels.",
+  "tip": "Grab a spot on the bow, left side, for the best sea-cave views on the way out. Bring water shoes, the lagoon rocks are sharp if you swim to shore.",
+  "price": {
+   "text": "From about €23 to 35 pp for the short run; €35 to 50 with lunch on board. Quay kiosks beat online prices",
+   "band": "From €23 pp",
+   "typical_eur": 23
+  },
+  "duration": "2.5 to 4.5 hours",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.9822,
+   33.999
+  ],
+  "mode": "boat",
+  "getting": "Walk 10 minutes down Makariou Avenue to the harbour. Tickets at the quay kiosks or online.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour",
+  "web": "https://famagustanapaboat.com/en-gb/"
+ },
+ {
+  "id": "black-pearl",
+  "name": "Black Pearl Pirate Cruise",
+  "cat": "boat",
+  "tier": "shortlist",
+  "verdict": "A full-size replica pirate galleon with Jack Sparrow characters, cannon battles and walk-the-plank antics. Pure theatre, and entertaining for adults too.",
+  "detail": "The famous black-sailed galleon sails from the harbour along the Cape Greco coast with live pirate shows, a cannon-fire display and two swim stops in crystal-clear bays; lunch is served on board. About 4 hours, and the most-booked cruise in town, so in late July reserve 2 to 3 days ahead. It is family-oriented rather than a party boat, which makes it a relaxed pick for a couple who want a show with their swimming. The upper deck scorches in July: claim shade early.",
+  "tip": "It does not sail every day in 2026 and never on Mondays, so confirm the sailing days for your week when you book. Take the daytime family sailing, not the evening party version, for the full cannon-show theatrics. It is loud, kid-heavy theatre: brilliant if you are in the mood, skip it if you want a quiet romantic sail. Photos with the Jack Sparrow lookalike are free; the printed ones cost extra.",
+  "price": {
+   "text": "About €45 to 55 adult, €25 to 30 child at the quay; online platforms (Viator etc.) charge more",
+   "band": "€45-55 pp",
+   "typical_eur": 45
+  },
+  "duration": "About 4 hours",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.9821,
+   33.9996
+  ],
+  "mode": "boat",
+  "getting": "Walk 10 minutes to the harbour; the black galleon is impossible to miss. Book at the quay booths a day or two ahead; online booking sites run pricier.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour",
+  "web": "https://blackpearlayianapa.com/"
+ },
+ {
+  "id": "ghost-cruise",
+  "name": "Famagusta Ghost Town Cruise",
+  "cat": "boat",
+  "tier": "shortlist",
+  "verdict": "Sail north past Protaras to the eerie skyline of Varosha, the abandoned 1974 ghost town, seen from the sea. No border, no passport.",
+  "detail": "A laid-back 4 hour cruise, daily 10:30 to 14:30, running the full coastline up to the Famagusta viewpoint, where you drift offshore looking at the fenced-off, crumbling hotel towers of Varosha: a haunting sight. On the way back there are swim stops at the Blue Lagoon and Konnos Bay, and lunch is included; a full bar operates on board. You never leave Republic of Cyprus waters, so no passport is needed. Book a day ahead and board by 10:00; the shaded lower deck is the smart choice.",
+  "tip": "Bring binoculars or a zoom lens for Varosha, the boat keeps a legal distance from shore, and some find the view from that distance underwhelming: if seeing Varosha up close matters, do the land tour or the Deryneia viewpoint instead. Cash is preferred at the on-board bar.",
+  "price": {
+   "text": "€35 adult, €20 child",
+   "band": "€35 pp",
+   "typical_eur": 35
+  },
+  "duration": "4 hours",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.9823,
+   33.9992
+  ],
+  "mode": "boat",
+  "getting": "Walk 10 minutes to the harbour; board by 10:00. Book online with CyCruises or at the quay.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour",
+  "web": "https://cycruises.com/ayia-napa-boat-trips/"
+ },
+ {
+  "id": "sunset-cruise",
+  "name": "Sunset Cruise",
+  "cat": "boat",
+  "tier": "shortlist",
+  "verdict": "Golden-hour sailing past the sea caves, the Love Bridge and Cape Greco with a swim as the sun drops. The most romantic €30 of the week.",
+  "detail": "Evening cruises leave around 16:30 and return between 19:30 and 21:00, taking in the Blue Lagoon, the sea caves and the Love Bridge in soft evening light, with a sunset swim stop when the sea is calm. The standard 3.5 hour trip starts at €30; the Blue Star Sunday version at €50 adds a champagne welcome and live violin. Sunset falls around 19:50 in late July, and the evening breeze is blissful after a 33 degree day. Book ahead for the front-of-boat seats.",
+  "tip": "Take a light cover-up, it cools fast on the water after sunset. Time dinner afterwards at one of the fish tavernas ringing the harbour.",
+  "price": {
+   "text": "From €30 pp; champagne and violin version €50 pp",
+   "band": "From €30 pp",
+   "typical_eur": 30
+  },
+  "duration": "3.5 to 4 hours",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.982,
+   33.9998
+  ],
+  "mode": "boat",
+  "getting": "Walk 10 minutes to the harbour; boarding usually 40 minutes before departure.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour",
+  "web": "https://famagustanapaboat.com/en-gb/"
+ },
+ {
+  "id": "fig-tree",
+  "name": "Fig Tree Bay & Protaras",
+  "cat": "daytrip",
+  "tier": "shortlist",
+  "verdict": "Cyprus's most photographed beach: soft sand, a swimmable islet and calm shallow water, a €2 bus ride from your hotel.",
+  "detail": "Buses 101 and 102 loop between Ayia Napa and Paralimni through Protaras every 15 to 20 minutes in summer, so there is no timetable stress. Hop off at the Protaras strip and walk down to Fig Tree Bay: Blue Flag sand and a tiny rocky islet you can swim or wade out to. The seafront promenade runs for kilometres if you fancy a stroll to Pernera and lunch with a sea view. Arrive before 10:00 for front-row sunbeds; the shallow water stays warm into the evening.",
+  "tip": "Take the 101 outbound, it winds via scenic Cape Greco, and the faster inland 102 back. Swim out to the islet early, by noon it is a queue of selfie-takers.",
+  "price": {
+   "text": "€2 pp each way, cash to the driver; €3 after 21:00",
+   "band": "Bus €2 · full day",
+   "typical_eur": 2
+  },
+  "duration": "25 to 35 minutes each way; make it a beach day",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   35.0125,
+   34.0583
+  ],
+  "mode": "bus",
+  "getting": "Walk 2 to 3 minutes to the 101/102 stop on Makariou Avenue or by the monastery; pay the driver. Get off at Fig Tree Bay or Protaras centre.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Fig%20Tree%20Bay%20Protaras",
+  "web": "https://osea.com.cy/en/bus-routes/"
+ },
+ {
+  "id": "larnaca",
+  "name": "Larnaca by Intercity Bus",
+  "cat": "daytrip",
+  "tier": "shortlist",
+  "verdict": "Palm-lined Finikoudes promenade, the Byzantine church of Saint Lazarus and a proper Cypriot-city feel. 75 minutes and €9 return.",
+  "detail": "Intercity buses run 18 times on weekdays, 05:55 to 21:30, roughly 1 hour 15 to Larnaca's seafront. Start with coffee under the palms on Finikoudes, then walk five minutes inland to the 9th century Church of Saint Lazarus, built over the tomb of the biblical Lazarus. A short taxi reaches Hala Sultan Tekke, the Ottoman mosque on the salt lake, a shimmering white crust in July. The city is hot and slow midday: sights in the morning, long shaded taverna lunch, seafront swim, afternoon bus home.",
+  "tip": "Covered shoulders and knees inside Saint Lazarus, bring a light scarf. Aim for the 08:00 or 09:30 bus out; the 15:00 to 16:00 returns are least crowded.",
+  "price": {
+   "text": "€5 single, about €9 return (verify on board), cash to the driver",
+   "band": "Bus €5 each way",
+   "typical_eur": 5
+  },
+  "duration": "Full day; 1h15 each way",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9182,
+   33.6201
+  ],
+  "mode": "bus",
+  "getting": "Catch the Intercity bus at the stop by the monastery on Makariou Avenue, 3 to 5 minutes from the hotel. No booking, pay the driver.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Finikoudes%20Promenade%20Larnaca",
+  "web": "https://intercity-buses.com/en/routes/larnaca-ayia-napa-paralimni-paralimni-ayia-napa-larnaca/"
+ },
+ {
+  "id": "varosha",
+  "name": "Famagusta & Varosha Ghost Town",
+  "cat": "daytrip",
+  "tier": "shortlist",
+  "verdict": "Cross the Green Line to walled Famagusta and walk the reopened streets of Varosha, a resort town frozen in 1974. The most extraordinary day trip in this corner of Cyprus.",
+  "detail": "Small-group tours (often a shared minibus or private-hire car for up to 8, not a big coach) with hotel pickup cross the UN buffer zone into North Cyprus; bring your passport, or for Norwegians a nasjonalt ID-kort med reiserett, non-negotiable. Half-day tours of about 5 hours visit the Gothic St Nicholas Cathedral, now a mosque, inside Famagusta's Venetian walls, then Varosha itself, where you walk or cycle streets of hotels and shops untouched for 50 years; full-day versions add the ancient ruins of Salamis. Late July is brutally hot on Varosha's shadeless streets: water, hat and sunscreen are essential. Euros work everywhere on the north side.",
+  "tip": "No tour? Bus 101 to Paralimni plus a short taxi reaches the Deryneia viewpoint, with rooftop telescopes looking straight into Varosha from the south, no border crossing needed. In Varosha, rent one of the cheap bikes at the entrance, the zone is bigger than it looks.",
+  "price": {
+   "text": "Roughly €63 to 110 pp for a half-day small-group tour with pickup depending on operator and group size; local agencies beat the big online platforms; lunch extra",
+   "band": "From €63 pp",
+   "typical_eur": 63
+  },
+  "duration": "5 hours to a full day",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   35.1149,
+   33.9578
+  ],
+  "mode": "taxi",
+  "getting": "Coach pickup at or near Napa Plaza; confirm the exact point when booking. Book at least 48 hours ahead. Passports required.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Varosha%20Famagusta",
+  "web": "https://www.getyourguide.com/ayia-napa-l124743/from-ayia-napa-famagusta-salamis-full-day-tour-t787347/"
+ },
+ {
+  "id": "nicosia",
+  "name": "Nicosia, the Divided Capital",
+  "cat": "daytrip",
+  "tier": "shortlist",
+  "verdict": "Walk a capital split in two: Venetian walls, the Ledra Street crossing, and Ottoman caravanserais on the far side of the Green Line. €11 return by bus.",
+  "detail": "Intercity buses link Ayia Napa with Nicosia roughly hourly on weekdays, about 2 hours each way. Wander inside the star-shaped Venetian walls, browse Ledra Street, then cross the pedestrian checkpoint with your passport into North Nicosia for the Selimiye Mosque, a converted Gothic cathedral, and the restored Büyük Han caravanserai, where lunch costs pocket change. Nicosia is inland and often past 37 degrees in late July: treat it as a morning-heavy day with a long shaded lunch. The Cyprus Museum is an excellent air-conditioned escape.",
+  "tip": "Take the earliest bus you can face: by 08:30 you have the old town almost to yourselves. Climb the Shacolas Tower observatory on Ledra Street for a view across the divided city.",
+  "price": {
+   "text": "€6 single, about €11 return (verify on board), cash to the driver",
+   "band": "Bus €6 each way",
+   "typical_eur": 6
+  },
+  "duration": "Full day; 2h each way",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   35.1725,
+   33.3625
+  ],
+  "mode": "bus",
+  "getting": "Board the Nicosia bus at the Makariou Avenue and monastery stops, 3 to 5 minutes from the hotel. Passport needed only to cross at Ledra Street.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ledra%20Street%20Nicosia",
+  "web": "https://intercity-buses.com/en/routes/nicosia-ayia-napa-paralimni-ayia-napa-paralimni-nicosia/"
+ },
+ {
+  "id": "vassos",
+  "name": "Vassos Fish Harbour Tavern",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "The harbour classic since 1962: pick your fish from the ice display and eat it grilled metres from the boats that landed it.",
+  "detail": "Family-run tavern right on the harbour, going strong for over sixty years. Go for the fresh whole sea bream or sea bass, calamari, or commit to the full fish meze; there is a sushi counter these days, and lobster pasta for a splurge. White-tablecloth-meets-fishing-port, lovely at sunset with harbour views. In late July, book a day or two ahead and ask for a front-row sea-view table. Fish is priced by weight, so confirm the price before it hits the grill.",
+  "tip": "Book the terrace for sunset; the walk back up is a gentle ten minutes, perfect for a gelato stop on Makariou.",
+  "price": {
+   "text": "Fish mains €18 to 30; fish meze about €28 pp",
+   "band": "€€€ · seafood",
+   "typical_eur": 18
+  },
+  "duration": "Dinner, or a long lazy lunch",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.9827,
+   33.9989
+  ],
+  "mode": "walk",
+  "getting": "Walk 10 to 12 minutes downhill via Makariou Avenue to the harbour.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Vassos%20Psarolimano%20Fish%20Tavern%20Ayia%20Napa",
+  "web": "https://vassosfishtavern.com/"
+ },
+ {
+  "id": "sage",
+  "name": "Sage Restaurant & Wine Bar",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "The grown-up dinner: candlelit garden terrace, a serious wine cellar, and cooking reviewers compare to starred kitchens. The special-occasion table.",
+  "detail": "A long-running fine-dining institution on Kryou Nerou. Beautifully executed steaks, fresh fish, risottos and Mediterranean plates, plus one of the best wine lists in town: ask the sommelier to pair Cypriot labels like Xynisteri and Maratheftiko. The atmosphere is romantic and calm, a world away from the strip. Booking is essential in late July, several days ahead, and request the garden terrace.",
+  "tip": "Book the garden terrace and go around 20:30 for full candlelit effect. Leave room for the dessert trolley.",
+  "price": {
+   "text": "Mains €20 to 35; tasting menus higher",
+   "band": "€€€ · book ahead",
+   "typical_eur": 20
+  },
+  "duration": "Dinner, 2 to 3 hours",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.984,
+   34.007
+  ],
+  "mode": "walk",
+  "getting": "Walk 8 to 10 minutes east along Kryou Nerou.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Sage%20Restaurant%20Wine%20Bar%20Ayia%20Napa",
+  "web": "https://sagerest.com/"
+ },
+ {
+  "id": "stamna",
+  "name": "Stamna Taverna",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "Traditional Cypriot meze in the oldest house in Ayia Napa, family-run since 1982. Eat like a local, five minutes from your door.",
+  "detail": "A restored old stone house near the monastery quarter serving the meze crawl you came to Cyprus for: taramosalata, grilled halloumi, afelia, slow-baked kleftiko and a parade of fifteen-plus small plates, with owner Andreas often working the room. Consistently rated the best meze in town. Open 17:00 to 23:00 daily and full every night in season, so book a day or two ahead. Warm, unhurried and authentic: plan two-plus hours and arrive hungry.",
+  "tip": "Order the meat meze for two rather than a la carte, it is the whole point. Skip lunch that day.",
+  "price": {
+   "text": "Full meze €22 to 28 pp; mains €12 to 18",
+   "band": "€€ · meze",
+   "typical_eur": 22
+  },
+  "duration": "Dinner, 2+ hours",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.9893,
+   34.0009
+  ],
+  "mode": "walk",
+  "getting": "Walk 4 to 5 minutes, just behind the monastery square.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Stamna%20Taverna%20Ayia%20Napa",
+  "web": "https://stamnatavern.com/"
+ },
+ {
+  "id": "kota",
+  "name": "Kota Greek Souvlaki",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "The best gyros and souvlaki in town, char-grilled Greek-style and cheap as chips. The low-key night or post-beach refuel.",
+  "detail": "A casual Greek grill near the centre that reviewers keep calling the best gyros in Ayia Napa. Pork and chicken skewers, gyros wrapped in warm pita with tzatziki, Greek salads and proper hand-cut chips: simple things done properly. Counter-casual with a few tables, no booking needed, takeaway if you fancy eating on your balcony. Gluten-free pita available, a rarity in town.",
+  "tip": "Go before 20:00 in peak season to beat the queue. The mixed souvlaki plate for two plus a cold KEO beer is the move.",
+  "price": {
+   "text": "Gyros pita €5 to 7; souvlaki plates €10 to 14",
+   "band": "€ · casual",
+   "typical_eur": 5
+  },
+  "duration": "Quick lunch or dinner",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9886,
+   33.9985
+  ],
+  "mode": "walk",
+  "getting": "Walk 4 to 5 minutes, near the Square area.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Kota%20Greek%20Souvlaki%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "mexicanos",
+  "name": "Los Mexicanos",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "The fun night out: proper Mexican food, festive staff and margaritas in the middle of Ayia Napa. A lively dinner that is not a tourist trap.",
+  "detail": "Rated among the town's best restaurants in local guides, Los Mexicanos does good tacos, burritos, fajitas and nachos rather than watered-down Tex-Mex. The room is colourful and buzzy with music and theatrical staff: great energy without the 18-30 chaos. Margaritas and Mexican beers flow and portions are generous. Book a table in high season or arrive before 19:30; popular with couples and families alike.",
+  "tip": "Tell them if it is a birthday or anniversary, the staff make a show of it. The fajitas for two sizzle impressively.",
+  "price": {
+   "text": "Mains €12 to 20; margaritas €7 to 9",
+   "band": "€€ · lively",
+   "typical_eur": 12
+  },
+  "duration": "Dinner, 1.5 to 2 hours",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9884,
+   33.9993
+  ],
+  "mode": "walk",
+  "getting": "Walk about 5 minutes into central Ayia Napa.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Los%20Mexicanos%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "bakery",
+  "name": "The Bakery Co.",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "Your morning HQ: proper flat whites, fresh pastries and cooked breakfasts two minutes from the hotel, plus house-made gelato for later.",
+  "detail": "A modern bakery-cafe on Makariou Avenue praised for its morning coffee, breakfast plates, sandwiches and homemade cakes. It opens early and has shaded outdoor seating for people-watching on the main street. The counter is dangerous: croissants, baklava and their own gelato, which some reviewers call the smoothest in Cyprus. Drop in, no booking. Ideal before a boat trip or a Nissi day.",
+  "tip": "Go before 09:30 in peak season for a shaded table. Grab picnic pastries here before beach days.",
+  "price": {
+   "text": "Coffee €3 to 4.50; breakfast €6 to 12",
+   "band": "€ · breakfast",
+   "typical_eur": 3
+  },
+  "duration": "Breakfast or coffee, 30 to 60 minutes",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9879,
+   33.9989
+  ],
+  "mode": "walk",
+  "getting": "Walk 2 to 3 minutes on Makariou Avenue.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=The%20Bakery%20Co%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "napolea",
+  "name": "Napolea Artisan Ice Cream",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "French-technique ice cream that regulars call the best in Ayia Napa. The mandatory stop on the evening stroll between the square and the harbour.",
+  "detail": "A small artisan parlour making its own ice cream and sorbets in-house, with a loyal repeat crowd. Flavours rotate but the pistachio, salted caramel and fresh fruit sorbets are standouts, and there are crepes and waffles if you want to sit in. Open late, glowing on the walk down Makariou: perfect after dinner at Vassos or Stamna. No booking, just join the fast-moving queue.",
+  "tip": "Make it your nightly ritual on the harbour walk and try a different pairing each evening. The sorbets are as good as the creams.",
+  "price": {
+   "text": "Scoops €2.50 to 4; waffles and crepes €6 to 9",
+   "band": "€ · dessert",
+   "typical_eur": 2.5
+  },
+  "duration": "15 to 30 minutes",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9856,
+   33.9996
+  ],
+  "mode": "walk",
+  "getting": "Walk 5 to 7 minutes, on the way down toward the harbour.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Napolea%20French%20Ice%20Cream%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "isola",
+  "name": "Isola Beach Bar, Nissi",
+  "cat": "night",
+  "tier": "shortlist",
+  "verdict": "Golden-hour cocktails with your feet in Nissi sand while a DJ eases in at five and the whole bay turns amber. The classiest sunset session in town.",
+  "detail": "Right on the central stretch of Nissi Beach, Isola shifts from beach cafe by day to stylish sunset bar by evening. Cocktails run €9 to 14, the frozen margaritas and Aperol Spritz are the go-tos, and the kitchen is a cut above beach-bar standard, so drinks can turn into dinner with shared Mediterranean plates. The 17:30 to 19:00 golden hour is the sweet spot: lively but not rowdy, very couple-friendly. Arrive by 17:00 for a front-row spot.",
+  "tip": "Swim first, then claim a bar-side sunbed as the day crowd leaves. Time it for 17:30 and stay through sunset.",
+  "price": {
+   "text": "Cocktails €9 to 14; beer €4 to 6; plates €10 to 18",
+   "band": "Cocktails €9+",
+   "typical_eur": 9
+  },
+  "duration": "Sunset and early evening",
+  "bus": "102",
+  "book_ahead": false,
+  "ll": [
+   34.9884,
+   33.9648
+  ],
+  "mode": "bus",
+  "getting": "Taxi 8 to 10 minutes, €5 to 8, or the Nissi Avenue bus 102.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Isola%20Beach%20Bar%20Nissi%20Beach%20Ayia%20Napa",
+  "web": "https://www.isolabeachbar.com/"
+ },
+ {
+  "id": "river-rock",
+  "name": "River Rock Cocktail Bar",
+  "cat": "night",
+  "tier": "shortlist",
+  "verdict": "A leafy, waterfall-backed cocktail garden near the square: grown-up drinks, low lighting and actual conversation. The antidote to Bar Street.",
+  "detail": "Tucked into a tropical garden near central Ayia Napa, this is where thirty-and-forty-somethings go for well-made cocktails without the strip's chaos. Classics done properly, fruity signatures, and optional shisha in a chilled lounge setting with rock and water features. Music stays at talking volume and service is warm. No reservation needed most nights; an ideal first stop before dinner or a nightcap after.",
+  "tip": "Come before 22:00 for the quietest garden tables. Ask the bartender for an off-menu twist, they enjoy the challenge.",
+  "price": {
+   "text": "Cocktails €7 to 10; happy-hour deals early evening",
+   "band": "Cocktails €7+",
+   "typical_eur": 7
+  },
+  "duration": "Evening drinks, 1 to 2 hours",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9886,
+   34
+  ],
+  "mode": "walk",
+  "getting": "Walk 6 to 8 minutes, near Ayia Napa Square.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=River%20Rock%20Cocktail%20Bar%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "bedrock",
+  "name": "Bedrock Inn, Bar Street",
+  "cat": "night",
+  "tier": "shortlist",
+  "verdict": "The Flintstones-themed institution: caveman staff, fire shows and cocktails in stone-age mugs. Gloriously silly and fun at any age.",
+  "detail": "A Bar Street landmark and pure theatre: Flintstones decor, Yabba Dabba Doo toasts, nightly fire-and-dance shows and staff in caveman furs. It draws a mixed-age crowd, plenty of couples and returning forty-somethings on nostalgia trips alongside younger groups. Cheerfully priced cocktails, fishbowls and beers; the show kicks off late evening. No booking: grab a roadside table around 21:30 to catch the entertainment before Bar Street peaks.",
+  "tip": "Go before midnight, after that Bar Street tips into full 18-30 mode. The fire show is the highlight, ask the staff when it starts.",
+  "price": {
+   "text": "Cocktails €6 to 9; beers €4 to 5; fishbowls about €15",
+   "band": "Cocktails €6+",
+   "typical_eur": 6
+  },
+  "duration": "Evening, 1 to 2 hours",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9898,
+   33.9995
+  ],
+  "mode": "walk",
+  "getting": "Walk about 5 minutes to Bar Street.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Bedrock%20Inn%20Bar%20Ayia%20Napa",
+  "web": "http://www.bedrock-inn.com/"
+ },
+ {
+  "id": "carwash",
+  "name": "Carwash Disco",
+  "cat": "night",
+  "tier": "shortlist",
+  "verdict": "The beloved retro disco: seventies-to-noughties anthems, zero pretension and a dancefloor of every age. The one club in town a couple will love.",
+  "detail": "Running for decades, Carwash swaps EDM for disco, funk, Motown and classic party anthems, ABBA to Daft Punk. The crowd is famously mixed-age, from honeymooners to fifty-something regulars, and the staff keep it friendly rather than rowdy. Drinks are refreshingly cheap at €2 to 9 and entry runs free to about €15 depending on the night. Doors open around midnight (check locally): no booking, just turn up after your cocktails, and it is an easy stroll home.",
+  "tip": "Arrive right at opening to skip queues and grab a spot by the dancefloor. Request a song, the DJs actually play them.",
+  "price": {
+   "text": "Entry free to €15; drinks €2 to 9",
+   "band": "Entry €0 to 15",
+   "typical_eur": 15
+  },
+  "duration": "Late evening, midnight onward",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9893,
+   33.9989
+  ],
+  "mode": "walk",
+  "getting": "Walk 5 to 6 minutes, central Ayia Napa near the Square.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Carwash%20Disco%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "musan-snorkel",
+  "name": "Snorkel the MUSAN Underwater Museum",
+  "cat": "water",
+  "tier": "shortlist",
+  "verdict": "Swim over a submerged forest of 93 sculptures right off your house beach. Licensed operators run guided snorkel visits, no diving certificate needed.",
+  "detail": "MUSAN, the Museum of Underwater Sculpture Ayia Napa, sits about 200 metres off Pantachou beach at 8 to 10 metres depth: trees, human figures and children at play, slowly turning into living reef. Licensed centres run guided snorkelling and freediving visits with briefing, gear and a surface guide; you float above the sculptures while divers wander below. Book a day ahead; morning visits get the calmest, clearest water. About an hour in the water, fine for any confident swimmer.",
+  "tip": "If one of you would rather dive it, the centres run snorkellers and divers on the same trip. Never touch the sculptures, they are growing living reef, and wear reef-safe sunscreen, it is a protected site. Glass-bottom boat tours run over the same site if one of you prefers to stay dry.",
+  "price": {
+   "text": "Guided snorkel visit €40 to 55 pp (verify with the operator)",
+   "band": "From €40 pp",
+   "typical_eur": 40
+  },
+  "duration": "About 2 hours door to door",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.9827,
+   34.0033
+  ],
+  "mode": "walk",
+  "getting": "Walk 8 to 10 minutes to the harbour end of Pantachou beach; the operator confirms the exact meeting point when you book.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=MUSAN%20Underwater%20Museum%20Ayia%20Napa",
+  "web": "https://musan.com.cy/"
+ },
+ {
+  "id": "spa",
+  "name": "Spa Afternoon at Napa Plaza",
+  "cat": "well",
+  "tier": "shortlist",
+  "verdict": "Your own hotel opened a new spa in 2026: treatments, saunas, ice shower, heated indoor pool and a relax lounge. Zero metres of travel.",
+  "detail": "Napa Plaza renovated its wellness floor in 2026: a 180 square metre spa with treatment rooms, several sauna types, ice shower, jacuzzi, heated indoor pool and a relax area, plus a Technogym training room. Book a couples treatment for the hottest hours, 13:00 to 16:00, when the beach is punishing anyway. Spa access is charged separately from the room and treatment slots go fast in peak weeks, so reserve at reception on day one.",
+  "tip": "Reserve on your first evening for a mid-week slot. Pair a treatment with the indoor pool and you have a complete heat-escape afternoon.",
+  "price": {
+   "text": "Entry and treatments priced at reception; verify on arrival",
+   "band": "Priced on site",
+   "typical_eur": null
+  },
+  "duration": "2 to 3 hours",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.9885,
+   33.9986
+  ],
+  "mode": "walk",
+  "getting": "The lift. It is inside your hotel.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Napa%20Plaza%20Hotel%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "cyprus-night",
+  "name": "Cypriot Wine & Meze Night",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "Commandaria, Xynisteri and a table full of small plates, ideally with live bouzouki. The island's food culture in one sitting.",
+  "detail": "Cyprus makes serious wine, and Commandaria is the world's oldest named dessert wine still in production. Tavernas and hotels around Ayia Napa run Cyprus nights in season: a meze parade, live music, sometimes traditional dancing. Or build your own version: ask Stamna or Sage for a flight of Cypriot labels alongside a meze. Ask reception or the harbour noticeboards which venue hosts a Cyprus night during your week.",
+  "tip": "Drink Xynisteri cold with fish and Maratheftiko with grilled meat, then finish with a small Commandaria. If dancing starts, join in, resistance is futile.",
+  "price": {
+   "text": "Cyprus night with dinner typically €30 to 45 pp (verify locally)",
+   "band": "€€ · verify",
+   "typical_eur": 30
+  },
+  "duration": "Evening",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9887,
+   34.0006
+  ],
+  "mode": "walk",
+  "getting": "Central venues are a 3 to 10 minute walk; reception can point you to this week's host.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Square",
+  "web": null
+ },
+ {
+  "id": "potamos",
+  "name": "Potamos Liopetriou Fishing Harbour",
+  "cat": "food",
+  "tier": "shortlist",
+  "verdict": "A working fishing river lined with wooden boats and waterside fish tavernas. Old Cyprus, fifteen minutes away.",
+  "detail": "Potamos tou Liopetri is a narrow river inlet where fishermen still land their catch every morning, painted boats moored stem to stern under the trees. Come for a long fish lunch at one of the waterside tavernas, then walk the short path to the little chapel and the sea at the river mouth. It is the antidote to the strip: slow, photogenic and full of locals at weekends. Weekday lunches are quietest.",
+  "tip": "Order whatever was landed that morning, just ask the waiter. Golden hour turns the river to glass, stay for it if you can.",
+  "price": {
+   "text": "Fish lunch €15 to 25 pp; taxi €12 to 15 each way",
+   "band": "€€ · taxi",
+   "typical_eur": 15
+  },
+  "duration": "Half a day with lunch",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9601,
+   33.9013
+  ],
+  "mode": "taxi",
+  "getting": "Taxi 12 to 15 minutes west. No direct bus; agree a pickup time with the driver or ask the taverna to call your return taxi.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Potamos%20Liopetriou",
+  "web": null
+ },
+ {
+  "id": "horse-riding",
+  "name": "Sunset Horse Ride by Cape Greco",
+  "cat": "daytrip",
+  "tier": "shortlist",
+  "verdict": "Ride through juniper scrub to a clifftop as the sun drops. Moonshine Ranch runs evening hacks with transfers from Ayia Napa.",
+  "detail": "Moonshine Ranch, between Paralimni and Cape Greco, takes small groups on evening rides suited to beginners: helmets, briefing and calm horses, ending with sea views in the low light. In high summer rides run in the cooler hours only, so evening slots go first; book 2 to 3 days ahead and confirm the 2026 price and whether pickup from Napa Plaza is included. Long trousers and closed shoes required.",
+  "tip": "Ask for the clifftop route if you both feel steady after the first stretch. Bring a light layer, it cools fast after sunset in the saddle.",
+  "price": {
+   "text": "About €40 to 60 pp for 1 to 1.5 hours in the saddle (verify when booking)",
+   "band": "From €40 pp",
+   "typical_eur": 40
+  },
+  "duration": "Evening, about 3 hours with transfer",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   35.02,
+   34.01
+  ],
+  "mode": "taxi",
+  "getting": "Ranch transfer or taxi, about 15 minutes; confirm the pickup when you book.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Moonshine%20Ranch%20Cyprus",
+  "web": null
+ },
+ {
+  "id": "full-moon",
+  "name": "Full Moon Rise, Wednesday 29 July",
+  "cat": "sight",
+  "tier": "shortlist",
+  "verdict": "Mid-trip, the full moon lifts out of the sea on your Wednesday night. Claim a clifftop and watch it happen.",
+  "detail": "The July 2026 full moon falls on Wednesday 29 July, right in the middle of your week. Moonrise over open sea is best from the east-facing cliffs: the Sculpture Park is a 25 minute walk from the hotel, Cape Greco wilder still by bus or taxi. Take a blanket and something cold, and time it for just after sunset, when the sky is still deep blue and the moon comes up orange. Ask at the harbour kiosks early in the week whether any boat runs a moonlight cruise that night.",
+  "tip": "On full moon night the moon rises shortly after sunset; be in place by 19:45. The sculpture silhouettes make the best photo foreground.",
+  "price": {
+   "text": "Free; optional moonlight cruise if offered (ask at the harbour)",
+   "band": "Free · 29 July",
+   "typical_eur": 0
+  },
+  "duration": "Evening, 1 to 2 hours",
+  "bus": "101",
+  "book_ahead": false,
+  "ll": [
+   34.9808,
+   34.0195
+  ],
+  "mode": "walk",
+  "getting": "Sculpture Park: 25 minute walk or a €6 taxi. Cape Greco viewpoint: bus 101 or a €12 taxi.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Sculpture%20Park",
+  "web": null
+ },
+ {
+  "id": "square",
+  "name": "The Square Bar Crawl",
+  "cat": "night",
+  "tier": "shortlist",
+  "verdict": "The town's engine room: the old square around the monastery, ringed with bars of every flavour. Start here every night and see where it takes you.",
+  "detail": "Ayia Napa Square is where every evening begins: Irish pubs, karaoke joints, cocktail terraces and rooftop bars packed around the floodlit monastery. It gets going from 21:00, with happy hours running before 23:00 and the crowd young but mixed; early evening is relaxed and very couples-friendly, later it turns up. Even on a quiet night the people-watching alone is worth a drink. Everything is within a two minute stumble of everything else, and your hotel is 250 metres away.",
+  "tip": "Grab a first-floor balcony table overlooking the square for the best people-watching seat in town. The lit monastery against the neon makes a surreal photo.",
+  "price": {
+   "text": "Beers €4 to 5; cocktails €7 to 10; no entry fees",
+   "band": "€ · free entry",
+   "typical_eur": 4
+  },
+  "duration": "Evening, as long as you like",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9888,
+   34.0005
+  ],
+  "mode": "walk",
+  "getting": "Walk 3 minutes up Makariou Avenue; the square is at the top.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Square",
+  "web": null
+ },
+ {
+  "id": "bar-street",
+  "name": "Bar Street (Ayias Mavris)",
+  "cat": "night",
+  "tier": "shortlist",
+  "verdict": "One neon strip of back-to-back party bars: fishbowls, karaoke, shot bars and fire shows. Not refined, extremely Ayia Napa.",
+  "detail": "The strip behind the square is wall-to-wall bars that come alive from 22:00 and peak between midnight and 02:00. PRs outside every door offer drink deals, so a polite haggle is part of the game, and the Bedrock Inn fire show lands mid-strip. It is loud, silly and pure holiday theatre; most couples do one lap and one bar, then retreat somewhere calmer with a story. Five minutes from your door, so leaving is always easy.",
+  "tip": "Go for one silly hour before midnight, then escape to River Rock or Carwash. Never take the first PR offer, the next bar will beat it.",
+  "price": {
+   "text": "Free to wander; drink deals everywhere, fishbowls about €15",
+   "band": "€ · deals",
+   "typical_eur": 0
+  },
+  "duration": "1 to 2 hours, evening",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9899,
+   33.9998
+  ],
+  "mode": "walk",
+  "getting": "Walk 5 minutes via the square; the strip runs along Ayias Mavris.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Bar%20Street%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "castle-club",
+  "name": "The Castle Club",
+  "cat": "night",
+  "tier": "shortlist",
+  "verdict": "Ayia Napa's biggest club: a mock castle with several rooms and an open-air courtyard, R&B to house until sunrise. The proper big night out.",
+  "detail": "A landmark on Grigori Afxentiou, the Castle runs multiple arenas playing different genres plus a courtyard under the stars, and pulls international DJs through the summer season. Doors open around 23:30 but nothing peaks before 01:30; entry usually includes a first drink. Dress code is relaxed, though not swimwear. It is the one full-scale club worth doing even if clubbing is not normally your thing: the building alone is a spectacle.",
+  "tip": "Check the lineup posters around the square in the afternoon; big nights sell advance tickets that skip the queue. Pace yourselves, it runs until dawn.",
+  "price": {
+   "text": "Entry €10 to 20 depending on the night, often with a drink included",
+   "band": "Entry €10+",
+   "typical_eur": 10
+  },
+  "duration": "Late night",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9905,
+   33.9955
+  ],
+  "mode": "walk",
+  "getting": "Walk 7 to 8 minutes from the hotel via the square.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=The%20Castle%20Club%20Ayia%20Napa",
+  "web": null
+ },
+ {
+  "id": "river-reggae",
+  "name": "River Reggae Club",
+  "cat": "night",
+  "tier": "shortlist",
+  "verdict": "The legendary after-hours: an open-air club around a swimming pool, reggae and party classics until the sun comes up, swim included.",
+  "detail": "An Ayia Napa institution and the traditional final stop: River Reggae opens around 02:00 and is at its best from 03:00, an open-air garden club where the dancefloor wraps around a real pool you are welcome to swim in. The vibe is looser and friendlier than the big clubs, reggae and singalong classics rather than bangers. Its online review pages are quiet but the club runs strong every summer per its own site. Wear something that survives a dip.",
+  "tip": "This is the one you end the night at, not start. A late swim under the open sky is a core Ayia Napa memory, but only if you are still sober enough for it; skip the pool after a heavy night. Take the €5 taxi home together rather than the dark 15 minute walk.",
+  "price": {
+   "text": "Entry free early, up to about €10 late; drinks €5 to 9",
+   "band": "Entry €0 to 10",
+   "typical_eur": 10
+  },
+  "duration": "Very late night",
+  "bus": null,
+  "book_ahead": false,
+  "ll": [
+   34.9878,
+   33.9903
+  ],
+  "mode": "walk",
+  "getting": "Walk about 15 minutes or a €5 taxi; it sits off the Ayia Thekla road west of the centre.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=River%20Reggae%20Club%20Ayia%20Napa",
+  "web": "https://river-reggae.com/"
+ },
+ {
+  "id": "ocean-queen",
+  "name": "Ocean Queen Day Cruise",
+  "cat": "boat",
+  "tier": "shortlist",
+  "verdict": "The biggest, plushest boat in the harbour: a 4 hour cruise past 13 coastal highlights with a buffet, swim stops and room to spread out.",
+  "detail": "Ocean Queen is the largest cruise vessel sailing out of Ayia Napa harbour, running a daily 4 hour day cruise along the coast: sea caves, Cape Greco, the Blue Lagoon and more, with a food buffet on board and swim and snorkel stops in the clearest bays. More space and shade than the small boats, so it suits a lazy, comfortable sea day rather than a party. A VIP jacuzzi-deck upgrade exists for those feeling flush. Book a day or two ahead in late July.",
+  "tip": "Compare it with the Black Pearl before you choose: Ocean Queen is calm comfort and food, the Pearl is pirate theatre. Claim shaded seats on boarding; the open top deck bakes in July.",
+  "price": {
+   "text": "About €50 pp including buffet; VIP jacuzzi deck about €120 pp (verify at the quay)",
+   "band": "€50 pp · buffet",
+   "typical_eur": 50
+  },
+  "duration": "About 4 hours",
+  "bus": null,
+  "book_ahead": true,
+  "ll": [
+   34.9824,
+   33.9988
+  ],
+  "mode": "boat",
+  "getting": "Walk 10 minutes down Makariou Avenue to the harbour; the biggest boat at the quay. Tickets at the kiosks or online.",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour",
+  "web": "https://www.oceanqueenayianapa.com/"
+ }
+]

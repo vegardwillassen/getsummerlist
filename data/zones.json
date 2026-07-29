@@ -1,0 +1,107 @@
+{
+ "meta": {
+  "destination": "Ayia Napa",
+  "verified": "2026-07-20",
+  "walk_metres_per_minute": 80,
+  "note": "Zone centroids and hotel lists are estimates. Verify before selling (H2)."
+ },
+ "zones": [
+  {
+   "id": "centre",
+   "name": "Town centre and the strip",
+   "ll": [
+    34.9847,
+    33.9995
+   ],
+   "hotels": [
+    "Napa Plaza",
+    "Napa Mermaid",
+    "Tofinis",
+    "Faros",
+    "Melpo Antia"
+   ],
+   "slug": "1bk8n0u7ummc",
+   "stripe_link": "REPLACE_CENTRE"
+  },
+  {
+   "id": "harbour",
+   "name": "Harbour and Kryou Nerou",
+   "ll": [
+    34.9822,
+    34.0055
+   ],
+   "hotels": [
+    "Limanaki Beach",
+    "Okeanos Beach",
+    "So White Club Resort",
+    "Sunwing Sandy Bay"
+   ],
+   "slug": "dycysj6oclow",
+   "stripe_link": "REPLACE_HARBOUR"
+  },
+  {
+   "id": "grecian",
+   "name": "Grecian Bay side",
+   "ll": [
+    34.9818,
+    34.012
+   ],
+   "hotels": [
+    "Grecian Bay",
+    "Grecian Sands",
+    "Alion Beach",
+    "Nelia Beach"
+   ],
+   "slug": "yfdrepmm6jsi",
+   "stripe_link": "REPLACE_GRECIAN"
+  },
+  {
+   "id": "nissi-avenue",
+   "name": "Nissi Avenue mid strip",
+   "ll": [
+    34.9855,
+    33.976
+   ],
+   "hotels": [
+    "Tasia Maris Beach",
+    "Anonymous Beach",
+    "Christofinia",
+    "Pavlo Napa Beach"
+   ],
+   "slug": "xxi1vidxsius",
+   "stripe_link": "REPLACE_NISSIAVE"
+  },
+  {
+   "id": "nissi-bay",
+   "name": "Nissi Bay",
+   "ll": [
+    34.988,
+    33.964
+   ],
+   "hotels": [
+    "Nissi Beach Resort",
+    "Adams Beach",
+    "Nissi Park",
+    "Vassos Nissi Plage"
+   ],
+   "slug": "ptpsxxiuuqie",
+   "stripe_link": "REPLACE_NISSIBAY"
+  },
+  {
+   "id": "makronissos",
+   "name": "Makronissos and the west end",
+   "ll": [
+    34.9858,
+    33.95
+   ],
+   "hotels": [
+    "Asterias Beach",
+    "Olympic Lagoon Resort",
+    "Atlantica Mare Village",
+    "Makronissos Village"
+   ],
+   "slug": "tcmvgeriylc1",
+   "stripe_link": "REPLACE_MAKRONISSOS"
+  }
+ ]
+}
