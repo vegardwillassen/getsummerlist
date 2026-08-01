@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Ayia Napa Food List · Jan Erik &amp; Katrine</title>
+<style>body{margin:0;background:linear-gradient(135deg,#FFDF9E,#FF7E5F);font-family:Georgia,serif;display:flex;align-items:center;justify-content:center;min-height:100vh;color:#101C2E}</style>
+</head>
+<body>
+<div id="ld" style="text-align:center"><div style="font-size:22px;font-style:italic">The Ayia Napa Food List</div><div style="font-family:monospace;font-size:12px;letter-spacing:2px;margin-top:8px">LOADING &middot; JAN ERIK &amp; KATRINE</div></div>
+<script>
+(async function(){
+  try{
+    var r = await fetch("https://vegardwillassen.github.io/sommer-26/food/index.html", {cache:"no-store"});
+    if(!r.ok) throw new Error("fetch " + r.status);
+    var h = await r.text();
+    h = h.replace('const PIN_HASH = { V:"vm6sv0", H:"zvaezz" };',
+                  'const PIN_HASH = { V:"bp415u", H:"dda7ic" };');
+    h = h.split(":napa26").join(":jk26aya");
+    h = h.split('<span class="avi">🍕</span>Vegard').join('<span class="avi">🥩</span>Jan Erik');
+    h = h.split('<span class="avi">🍨</span>Hanne').join('<span class="avi">🍹</span>Katrine');
+    h = h.split("Vegard").join("Jan Erik");
+    h = h.split("Hanne").join("Katrine");
+    document.open(); document.write(h); document.close();
+  }catch(e){
+    document.getElementById("ld").innerHTML = "Could not load the list. Check your connection and refresh.";
+  }
+})();
+</script>
+</body>
+</html>
