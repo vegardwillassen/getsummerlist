@@ -17,7 +17,7 @@
   --data:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --ui:system-ui,-apple-system,"Segoe UI",sans-serif;
 
-  --col:1180px;
+  --col:1080px;
 }
 @media (prefers-color-scheme:dark){
   :root{
@@ -41,504 +41,234 @@
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0; background:var(--bg); color:var(--text);
-  font-family:var(--serif); font-size:16px; line-height:1.62;
+  font-family:var(--serif); font-size:16px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:var(--col); margin:0 auto; padding:0 32px}
-@media (max-width:640px){ .wrap{padding:0 18px} }
+.wrap{max-width:var(--col); margin:0 auto; padding:0 28px}
+@media (max-width:640px){ .wrap{padding:0 16px} }
 
-/* ---------- shared type ---------- */
-.kicker{
-  font-family:var(--mono); font-size:11px; letter-spacing:.20em;
-  text-transform:uppercase; color:var(--accent); font-weight:700;
-}
-.label{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.17em;
-  text-transform:uppercase; color:var(--muted); font-weight:700;
-}
+.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.20em; text-transform:uppercase; color:var(--accent); font-weight:700}
+.label{font-family:var(--mono); font-size:10.5px; letter-spacing:.17em; text-transform:uppercase; color:var(--muted); font-weight:700}
 h1,h2,h3{font-weight:400; text-wrap:balance; margin:0}
-h1{font-size:clamp(30px,4.4vw,50px); line-height:1.1; letter-spacing:-.012em}
-h2{font-size:clamp(23px,2.7vw,32px); line-height:1.2; letter-spacing:-.008em; max-width:22ch}
-h3{font-size:18px; line-height:1.3}
+h1{font-size:clamp(27px,4vw,42px); line-height:1.12; letter-spacing:-.012em}
+h2{font-size:clamp(21px,2.4vw,27px); line-height:1.25}
 p{margin:0}
-.lede{color:var(--muted); max-width:64ch; font-size:16.5px}
 .num{font-family:var(--data); font-variant-numeric:tabular-nums}
-b,strong{font-weight:700}
 a{color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-
-/* ---------- frame bands ---------- */
-.band{background:var(--band); border-top:1px solid var(--hair); border-bottom:1px solid var(--hair)}
+button{border-radius:0}
 
 /* ---------- masthead ---------- */
-.masthead{padding:26px 0 0}
+.band{background:var(--band); border-bottom:1px solid var(--hair)}
+.masthead{padding:22px 0 30px}
 .mast-row{display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap;
-  padding-bottom:12px; border-bottom:1px solid var(--rule)}
+  padding-bottom:11px; border-bottom:1px solid var(--rule); margin-bottom:26px}
 .themebtn{
   font-family:var(--mono); font-size:10.5px; letter-spacing:.17em; text-transform:uppercase;
-  background:none; border:1px solid var(--line); color:var(--muted);
-  padding:5px 11px; cursor:pointer; border-radius:0;
+  background:none; border:1px solid var(--line); color:var(--muted); padding:5px 11px; cursor:pointer;
 }
 .themebtn:hover{border-color:var(--accent); color:var(--accent)}
+.hero-grid{display:grid; grid-template-columns:1fr 250px; gap:44px; align-items:end}
+@media (max-width:820px){ .hero-grid{grid-template-columns:1fr; gap:24px} }
+.hero-grid .lede{color:var(--muted); max-width:60ch; margin-top:14px; font-size:15.5px; font-family:var(--ui); line-height:1.6}
+.overall .big{font-size:52px; line-height:1; display:block; margin:6px 0 10px}
+.progbar{height:4px; background:var(--line); position:relative}
+.progbar i{position:absolute; inset:0 auto 0 0; background:var(--accent); display:block; transition:width .25s ease}
 
-.hero{padding:44px 0 40px; display:grid; grid-template-columns:1.35fr 1fr; gap:52px; align-items:start}
-@media (max-width:900px){ .hero{grid-template-columns:1fr; gap:32px} }
-.hero p{margin-top:18px}
-.stamp{border-left:2px solid var(--rule); padding:2px 0 2px 18px}
-.stamp .big{font-size:60px; line-height:1; display:block; margin:4px 0 6px}
-
-/* ---------- metric strip ---------- */
-.metrics{display:grid; grid-template-columns:repeat(6,1fr); gap:0; border-top:1px solid var(--line)}
-@media (max-width:900px){ .metrics{grid-template-columns:repeat(3,1fr)} }
-@media (max-width:520px){ .metrics{grid-template-columns:repeat(2,1fr)} }
-.metric{padding:20px 20px 22px; border-right:1px solid var(--hair); border-bottom:1px solid var(--hair)}
-.metric:last-child{border-right:none}
-.metric .v{font-size:34px; line-height:1; display:block; margin:9px 0 7px; font-variant-numeric:tabular-nums}
-.metric .v.bad{color:var(--crit-t)}
-.metric .c{font-size:12.5px; color:var(--muted); line-height:1.42; font-family:var(--ui)}
-
-/* ---------- sections ---------- */
-section{padding:56px 0; border-top:1px solid var(--hair)}
-.sec-head{margin-bottom:30px}
-.sec-head h2{margin-top:11px}
-.sec-head .lede{margin-top:14px}
-
-/* ---------- generic panel ---------- */
-.panel{background:var(--card); border:1px solid var(--hair); padding:22px 24px}
-.note{border-left:2px solid var(--rule); background:var(--card); padding:20px 24px}
-.note h3{margin-bottom:9px}
-.note p{color:var(--muted); max-width:72ch}
-
-/* ---------- two column compare ---------- */
-.compare{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--hair)}
-@media (max-width:760px){ .compare{grid-template-columns:1fr} }
-.compare>div{padding:22px 24px}
-.compare>div+div{border-left:1px solid var(--hair)}
-@media (max-width:760px){ .compare>div+div{border-left:none; border-top:1px solid var(--hair)} }
-.compare ul{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:12px}
-.compare li{padding-left:16px; position:relative; font-size:15px; color:var(--muted); line-height:1.5}
-.compare li::before{content:""; position:absolute; left:0; top:.62em; width:7px; height:1px; background:var(--accent)}
-.compare li b{color:var(--text); font-weight:700}
-
-/* ---------- funnel ---------- */
-.funnel{display:flex; align-items:stretch; border:1px solid var(--hair); background:var(--card); overflow-x:auto}
-.fstep{flex:1 1 0; min-width:132px; padding:18px 20px; border-right:1px solid var(--hair)}
-.fstep:last-child{border-right:none}
-.fstep .fv{font-size:29px; line-height:1; display:block; margin:8px 0 5px; font-variant-numeric:tabular-nums}
-.fstep .fd{font-family:var(--ui); font-size:11.5px; color:var(--muted)}
-.fstep.paid{background:var(--well)}
-.fstep.paid .fv{color:var(--accent)}
-
-/* ---------- calculator ---------- */
-.calc{display:grid; grid-template-columns:340px 1fr; gap:0; border:1px solid var(--hair); margin-top:20px}
-@media (max-width:860px){ .calc{grid-template-columns:1fr} }
-.inputs{background:var(--well); padding:22px 24px; border-right:1px solid var(--hair)}
-@media (max-width:860px){ .inputs{border-right:none; border-bottom:1px solid var(--hair)} }
-.field{display:block; margin-bottom:16px}
-.field:last-child{margin-bottom:0}
-.field .frow{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:6px}
-.field .fval{font-family:var(--data); font-size:14px; font-variant-numeric:tabular-nums; color:var(--text)}
-input[type=range]{
-  -webkit-appearance:none; appearance:none; width:100%; height:2px;
-  background:var(--line); outline-offset:6px; cursor:pointer;
+/* ---------- sequence map ---------- */
+.seqmap{display:grid; grid-template-columns:repeat(8,1fr); gap:6px; margin-top:26px}
+@media (max-width:820px){ .seqmap{grid-template-columns:repeat(4,1fr)} }
+.node{
+  display:block; width:100%; text-align:left; background:var(--card); border:1px solid var(--hair);
+  padding:10px 11px 11px; cursor:pointer; color:var(--text); font-family:inherit; text-decoration:none;
 }
-input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none; appearance:none; width:13px; height:13px;
-  background:var(--accent); border:none; border-radius:0; cursor:pointer;
-}
-input[type=range]::-moz-range-thumb{
-  width:13px; height:13px; background:var(--accent); border:none; border-radius:0; cursor:pointer;
-}
-.results{padding:22px 24px; background:var(--card)}
-.rgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair)}
-@media (max-width:560px){ .rgrid{grid-template-columns:repeat(2,1fr)} }
-.rcell{background:var(--card); padding:15px 16px}
-.rcell .rv{font-size:24px; line-height:1; display:block; margin:7px 0 4px; font-variant-numeric:tabular-nums}
-.rcell .rc{font-family:var(--ui); font-size:11px; color:var(--muted)}
-.verdict{margin-top:18px; padding:16px 18px; border-left:2px solid var(--rule); background:var(--well)}
-.verdict .vhead{font-size:20px; margin-bottom:6px}
-.verdict p{font-size:14.5px; color:var(--muted); font-family:var(--ui); line-height:1.55; max-width:70ch}
-.pos{color:var(--ok-t)} .neg{color:var(--crit-t)}
+.node:hover{border-color:var(--accent)}
+.node .nn{font-family:var(--serif); font-size:24px; line-height:1; display:block}
+.node .nt{font-family:var(--ui); font-size:10.5px; color:var(--muted); display:block; margin-top:5px; line-height:1.3; min-height:27px}
+.node .ns{font-family:var(--mono); font-size:8.5px; letter-spacing:.13em; text-transform:uppercase; display:block; margin-top:7px; font-weight:700}
+.node .nbar{height:3px; background:var(--line); margin-top:5px; position:relative}
+.node .nbar i{position:absolute; inset:0 auto 0 0; background:var(--accent)}
+.node.st-done{border-color:var(--accent)}
+.node.st-done .nn{color:var(--accent)}
+.node.st-done .ns{color:var(--ok-t)}
+.node.st-active .ns{color:var(--accent)}
+.node.st-ready .ns{color:var(--text)}
+.node.st-blocked{opacity:.62}
+.node.st-blocked .ns{color:var(--crit-t)}
 
-/* ---------- board ---------- */
-.boardbar{display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:22px}
+/* ---------- sticky bar ---------- */
+.sticky{
+  position:sticky; top:0; z-index:20; background:var(--band);
+  border-bottom:1px solid var(--hair); padding:9px 0;
+}
+.sticky .in{display:flex; align-items:center; gap:18px}
+.sticky .sp{flex:0 0 170px}
+@media (max-width:640px){ .sticky .sp{flex-basis:110px} }
+.sticky .sp .progbar{margin-top:4px}
+.sticky .snext{flex:1 1 auto; min-width:0; font-family:var(--ui); font-size:13px; color:var(--muted);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.sticky .snext b{color:var(--text); font-weight:700}
+.sticky .label{font-size:9.5px}
+
+/* ---------- next up ---------- */
+.nextup{padding:38px 0 8px}
+.nextup .sec-head{margin-bottom:18px}
+.lanes{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+@media (max-width:760px){ .lanes{grid-template-columns:1fr} }
+.lane{border:1px solid var(--hair); border-left:2px solid var(--rule); background:var(--card); padding:14px 17px;
+  display:flex; flex-direction:column; gap:6px; cursor:pointer; text-align:left; color:var(--text); font-family:inherit}
+.lane:hover{border-color:var(--accent); border-left-color:var(--rule)}
+.lane .lrow{display:flex; justify-content:space-between; gap:12px; align-items:baseline}
+.lane .lt{font-size:16px; line-height:1.35}
+.lane .ld{font-family:var(--ui); font-size:12.5px; color:var(--muted); line-height:1.45}
+.alldone{border:1px solid var(--hair); border-left:2px solid var(--rule); background:var(--card); padding:16px 18px;
+  font-family:var(--ui); font-size:14px; color:var(--muted)}
+
+/* ---------- filters ---------- */
+.controls{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+  padding:26px 0 4px}
 .filters{display:flex; gap:8px; flex-wrap:wrap}
 .fbtn{
   font-family:var(--mono); font-size:10.5px; letter-spacing:.15em; text-transform:uppercase;
-  background:none; border:1px solid var(--line); color:var(--muted);
-  padding:6px 12px; cursor:pointer; border-radius:0;
+  background:none; border:1px solid var(--line); color:var(--muted); padding:6px 12px; cursor:pointer;
 }
 .fbtn[aria-pressed="true"]{border-color:var(--accent); color:var(--accent); background:var(--well)}
-.prog{min-width:230px}
-.progbar{height:3px; background:var(--line); margin-top:8px; position:relative}
-.progbar i{position:absolute; inset:0 auto 0 0; background:var(--accent); display:block; transition:width .25s ease}
 
-.phase{margin-bottom:34px}
-.phase-head{display:flex; align-items:baseline; gap:14px; padding-bottom:9px; border-bottom:1px solid var(--rule); margin-bottom:0; flex-wrap:wrap}
-.phase-head h3{flex:1 1 auto; min-width:200px}
-.phase-head .pcount{font-family:var(--data); font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums}
+/* ---------- deliverables ---------- */
+.dlv{padding:34px 0 6px; border-top:1px solid var(--hair); margin-top:26px; scroll-margin-top:64px}
+.dlv:first-of-type{border-top:none; margin-top:0}
+.dlv-head{display:grid; grid-template-columns:74px 1fr; gap:22px; align-items:start}
+@media (max-width:640px){ .dlv-head{grid-template-columns:52px 1fr; gap:14px} }
+.dlv-num{font-size:58px; line-height:.92; color:var(--muted); opacity:.55}
+@media (max-width:640px){ .dlv-num{font-size:40px} }
+.dlv.is-done .dlv-num,.dlv.is-active .dlv-num{color:var(--accent); opacity:1}
+.dlv-title-row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;
+  border-bottom:1px solid var(--rule); padding-bottom:10px}
+.dlv.is-blocked .dlv-title-row{border-bottom-color:var(--line)}
+.statuschip{font-family:var(--mono); font-size:9.5px; letter-spacing:.15em; text-transform:uppercase;
+  padding:4px 10px; border:1px solid var(--line); white-space:nowrap; font-weight:700; color:var(--muted)}
+.statuschip.done{background:var(--accent); border-color:var(--accent); color:var(--bg)}
+.statuschip.active{border-color:var(--accent); color:var(--accent)}
+.statuschip.ready{border-color:var(--text); color:var(--text)}
+.statuschip.blocked{border-color:var(--crit-t); color:var(--crit-t)}
+.dlv-why{font-family:var(--ui); font-size:13.5px; color:var(--muted); line-height:1.55; margin-top:10px; max-width:74ch}
+.dlv-gate{font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--crit-t); margin-top:8px; font-weight:700}
+.dlv-meta{display:flex; gap:18px; align-items:center; margin-top:12px; flex-wrap:wrap}
+.dlv-meta .progbar{width:150px}
+.dlv-meta .pc{font-family:var(--data); font-size:12px; color:var(--muted)}
 
-.task{display:grid; grid-template-columns:26px 1fr 116px 74px; gap:16px; align-items:start;
-  padding:15px 4px; border-bottom:1px solid var(--hair)}
-@media (max-width:720px){
-  .task{grid-template-columns:26px 1fr; gap:10px}
-  .task .owner,.task .est{grid-column:2; margin-top:-6px}
+.tasks{margin-top:6px}
+.task{display:grid; grid-template-columns:26px 1fr 112px; gap:14px; align-items:start;
+  padding:13px 2px; border-bottom:1px solid var(--hair)}
+.task:last-child{border-bottom:none}
+@media (max-width:640px){
+  .task{grid-template-columns:26px 1fr}
+  .task .owner{grid-column:2; margin-top:-4px}
 }
-.task.done .tt,.task.done .td{opacity:.42; text-decoration:line-through; text-decoration-thickness:1px}
-.task.done .td{text-decoration:none}
+.task.done .tt{opacity:.4; text-decoration:line-through; text-decoration-thickness:1px}
+.task.done .td{opacity:.4}
+.task.gated{opacity:.55}
 input[type=checkbox]{
-  -webkit-appearance:none; appearance:none; width:15px; height:15px; margin:5px 0 0;
-  border:1px solid var(--line); background:none; cursor:pointer; border-radius:0; position:relative;
+  -webkit-appearance:none; appearance:none; width:15px; height:15px; margin:4px 0 0;
+  border:1px solid var(--line); background:none; cursor:pointer; position:relative;
 }
 input[type=checkbox]:checked{background:var(--accent); border-color:var(--accent)}
 input[type=checkbox]:checked::after{
   content:""; position:absolute; left:4px; top:1px; width:4px; height:8px;
   border:solid var(--bg); border-width:0 1.5px 1.5px 0; transform:rotate(42deg);
 }
-.tid{font-family:var(--mono); font-size:10.5px; letter-spacing:.13em; color:var(--accent); font-weight:700}
-.tt{font-size:16.5px; margin:3px 0 5px; display:block; line-height:1.35}
-.td{font-family:var(--ui); font-size:13.5px; color:var(--muted); line-height:1.5; max-width:70ch}
-.chip{
-  font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase;
-  border:1px solid var(--line); padding:3px 8px; display:inline-block; color:var(--muted); white-space:nowrap;
-}
+input[type=checkbox]:disabled{opacity:.4; cursor:not-allowed}
+.tid{font-family:var(--mono); font-size:10px; letter-spacing:.13em; color:var(--accent); font-weight:700}
+.tt{font-size:16px; margin:2px 0 4px; display:block; line-height:1.35}
+.td{font-family:var(--ui); font-size:13px; color:var(--muted); line-height:1.5; max-width:66ch}
+.owner{text-align:right}
+@media (max-width:640px){ .owner{text-align:left} }
+.chip{font-family:var(--mono); font-size:9px; letter-spacing:.13em; text-transform:uppercase;
+  border:1px solid var(--line); padding:3px 8px; display:inline-block; color:var(--muted); white-space:nowrap}
 .chip.v{border-color:var(--crit-t); color:var(--crit-t)}
-.est{font-family:var(--data); font-size:12px; color:var(--muted); text-align:right; font-variant-numeric:tabular-nums; padding-top:3px}
-@media (max-width:720px){ .est{text-align:left} }
-
-/* ---------- pipeline ---------- */
-.pipe{border:1px solid var(--hair)}
-.prow{display:grid; grid-template-columns:190px 1fr; gap:0; border-bottom:1px solid var(--hair)}
-.prow:last-child{border-bottom:none}
-@media (max-width:640px){ .prow{grid-template-columns:1fr} }
-.pname{padding:18px 20px; border-right:1px solid var(--hair); background:var(--well)}
-@media (max-width:640px){ .pname{border-right:none; border-bottom:1px solid var(--hair)} }
-.pstages{display:flex; align-items:stretch}
-.pstage{flex:1 1 0; padding:16px 18px; border-right:1px solid var(--hair)}
-.pstage:last-child{border-right:none}
-.pstage .pv{font-size:23px; line-height:1; display:block; margin:7px 0 3px; font-variant-numeric:tabular-nums}
-.pstage .pl{font-family:var(--ui); font-size:11px; color:var(--muted)}
-.pstage.empty .pv{color:var(--muted); opacity:.5}
-
-/* ---------- decisions ---------- */
-.dec{border:1px solid var(--hair); padding:20px 22px; margin-bottom:14px; background:var(--card)}
-.dec .dq{font-size:19px; margin:9px 0 12px; max-width:44ch}
-.opts{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:13px}
-.opt{
-  font-family:var(--ui); font-size:13px; background:none; color:var(--text);
-  border:1px solid var(--line); padding:7px 14px; cursor:pointer; border-radius:0; text-align:left;
-}
-.opt:hover{border-color:var(--accent)}
-.opt[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--bg); font-weight:700}
-.rec{font-family:var(--ui); font-size:13.5px; color:var(--muted); line-height:1.55; max-width:74ch}
-.rec b{color:var(--text)}
-.decstate{font-family:var(--mono); font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted)}
-.decstate.set{color:var(--accent)}
-
-/* ---------- risks ---------- */
-.risks{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair)}
-@media (max-width:760px){ .risks{grid-template-columns:1fr} }
-.risk{background:var(--card); padding:20px 22px}
-.risk h3{font-size:17px; margin:8px 0 8px; max-width:34ch}
-.risk p{font-family:var(--ui); font-size:13.5px; color:var(--muted); line-height:1.55}
+.chip.b{border-color:var(--gold-deep); color:var(--accent)}
 
 /* ---------- footer ---------- */
-footer{padding:30px 0 44px; border-top:1px solid var(--rule)}
+footer{padding:34px 0 44px; border-top:1px solid var(--rule); margin-top:44px}
 footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:80ch}
 .resetbtn{
   font-family:var(--mono); font-size:10px; letter-spacing:.15em; text-transform:uppercase;
-  background:none; border:1px solid var(--line); color:var(--muted); padding:6px 12px;
-  cursor:pointer; border-radius:0; margin-top:16px;
+  background:none; border:1px solid var(--line); color:var(--muted); padding:6px 12px; cursor:pointer; margin-top:16px;
 }
 .resetbtn:hover{border-color:var(--crit-t); color:var(--crit-t)}
 
-@media print{ .themebtn,.resetbtn,.filters{display:none} body{background:#fff; color:#000} }
-@media (prefers-reduced-motion:reduce){ *{transition:none !important} }
+@media print{ .themebtn,.resetbtn,.filters,.sticky{display:none} body{background:#fff; color:#000} }
+@media (prefers-reduced-motion:reduce){ *{transition:none !important} html{scroll-behavior:auto} }
 </style>
 
 <div class="band">
   <div class="wrap masthead">
     <div class="mast-row">
-      <span class="kicker">The Summer List &middot; Project State &middot; 4 August 2026</span>
+      <span class="kicker">The Summer List &middot; Delivery Board &middot; Ayia Napa</span>
       <button class="themebtn" id="themebtn" type="button">Theme</button>
     </div>
-
-    <div class="hero">
+    <div class="hero-grid">
       <div>
-        <h1>The season deadline passed yesterday, and the product has never been able to take money.</h1>
-        <p class="lede">Six zone pages build clean at 39.5 KB. All six Stripe links still read
-        <span class="num">REPLACE_</span>, so <span class="num">npm run check</span> fails and no buyer has ever
-        reached a checkout. Face to face selling ended with the flight home. Paid ads are now the only channel,
-        and that reverses a rejection written into CLAUDE.md.</p>
+        <h1>Eight deliverables in sequence. Do the open lanes, in order, until the map is gold.</h1>
+        <p class="lede">Deliverables 1 to 4 run in parallel: two are research only you can do, two are code.
+        The ad campaign in 5 needs all four. Everything after 6 exists only if the campaign says yes.
+        Tick a task and the whole board recomputes.</p>
       </div>
-      <div class="stamp">
-        <span class="label">Deadline, 3 August 2026</span>
-        <span class="big num">+1</span>
-        <span class="label">Day past. Selling in person is over</span>
+      <div class="overall">
+        <span class="label">Overall</span>
+        <span class="big num" id="bigprog">0%</span>
+        <div class="progbar"><i id="bigfill" style="width:0%"></i></div>
+        <span class="label" style="display:block; margin-top:8px"><span class="num" id="bigcount">0 of 36</span> tasks done</span>
       </div>
     </div>
+    <nav class="seqmap" id="seqmap" aria-label="Deliverable sequence"></nav>
+  </div>
+</div>
+
+<div class="sticky" id="stickybar" hidden>
+  <div class="wrap in">
+    <div class="sp">
+      <span class="label">Overall <span class="num" id="stickytext">0%</span></span>
+      <div class="progbar"><i id="stickyfill" style="width:0%"></i></div>
+    </div>
+    <div class="snext" id="stickynext"></div>
   </div>
 </div>
 
 <div class="wrap">
-  <div class="metrics">
-    <div class="metric"><span class="label">Sales</span><span class="v num bad">0</span><span class="c">No checkout has ever existed</span></div>
-    <div class="metric"><span class="label">Stripe links live</span><span class="v num bad">0 / 6</span><span class="c">Six placeholders in zones.json</span></div>
-    <div class="metric"><span class="label">Places written</span><span class="v num">51</span><span class="c">12 verdict, 10 unlock, 29 shortlist</span></div>
-    <div class="metric"><span class="label">Missing bus number</span><span class="v num bad">37</span><span class="c">Harmless today, blocking under the quiz</span></div>
-    <div class="metric"><span class="label">Missing price</span><span class="v num bad">1</span><span class="c">Napa Plaza spa, shortlist tier</span></div>
-    <div class="metric"><span class="label">Heaviest page</span><span class="v num">39.5<span style="font-size:16px"> KB</span></span><span class="c">Ceiling is 40. Half a kilobyte spare</span></div>
+
+  <div class="nextup">
+    <div class="sec-head">
+      <span class="kicker">Next up</span>
+      <h2 style="margin-top:9px">The front task of every open lane, right now.</h2>
+    </div>
+    <div class="lanes" id="lanes"></div>
   </div>
 
-  <!-- ===================== THE CALL ===================== -->
-  <section>
-    <div class="sec-head">
-      <span class="kicker">The call</span>
-      <h2>Geofence the resort, sell to people standing in it, and stop pre-building by hotel alone.</h2>
-      <p class="lede">CLAUDE.md rejected Meta ads because 300 to 500 NOK per destination never exits the
-      learning phase. That objection holds for cold national targeting and it does not hold here. An audience
-      of tourists physically inside Ayia Napa is small, cheap to reach, and it is the only place on earth where
-      the ad is literally true. The quiz is what makes the click worth paying for: the visitor answers four
-      questions and sees their own twelve before they are asked for anything.</p>
+  <div class="controls">
+    <div class="filters" role="group" aria-label="Filter tasks">
+      <button class="fbtn" data-filter="all" aria-pressed="true" type="button">All</button>
+      <button class="fbtn" data-filter="Vegard" aria-pressed="false" type="button">Vegard</button>
+      <button class="fbtn" data-filter="Claude Code" aria-pressed="false" type="button">Claude Code</button>
+      <button class="fbtn" data-filter="open" aria-pressed="false" type="button">Not done</button>
     </div>
+    <span class="label" id="filternote"></span>
+  </div>
 
-    <div class="compare">
-      <div>
-        <span class="label">What the pivot changes</span>
-        <ul>
-          <li><b>Personalisation axis.</b> Hotel zone only becomes hotel zone plus stated taste.</li>
-          <li><b>Pages built.</b> Six becomes thirty six, six zones by six taste profiles, still static.</li>
-          <li><b>Quality bar.</b> Twelve places had to be right. Now all fifty one do.</li>
-          <li><b>Channel.</b> A conversation on a sunbed becomes a geofenced Meta campaign.</li>
-          <li><b>Price.</b> EUR 29 was held to protect ten in person sales that can no longer happen.</li>
-        </ul>
-      </div>
-      <div>
-        <span class="label">What survives untouched</span>
-        <ul>
-          <li><b>No backend, no dependencies.</b> The quiz scores client side, the pages are pre-built.</li>
-          <li><b>Instant delivery.</b> Stripe redirects straight to the page. No email, no wait.</li>
-          <li><b>Buyer pages stay noindex.</b> Thirty six URLs instead of six, same headers.</li>
-          <li><b>No Tripadvisor, anywhere.</b> The check already fails the build on the string.</li>
-          <li><b>Twelve shown, not fifty one.</b> The cut is the product. The quiz only changes which twelve.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="note" style="margin-top:20px">
-      <h3>The hidden cost, and it is the expensive part</h3>
-      <p>Personalisation promotes the shortlist to the front page. Only 14 of 51 places carry both a bus
-      number and a price today, which is harmless while 37 of them sit in a tier nobody sees. Under the quiz
-      any of them can be the first entry a buyer reads. Three of those gaps are already in the verdict twelve
-      and pass the check only because their mode is walk. Thirty eight missing fields move from optional to
-      blocking, and only Vegard can close them. Every engineering task in Phase 1 ships into a product that
-      stays wrong until that research lands.</p>
-    </div>
-  </section>
-
-  <!-- ===================== ECONOMICS ===================== -->
-  <section>
-    <div class="sec-head">
-      <span class="kicker">Unit economics &middot; live</span>
-      <h2>Paid traffic only works if roughly five in every hundred quiz finishers pay.</h2>
-      <p class="lede">Nothing here has converted yet, so every rate below is a guess until 300 clicks say
-      otherwise. Move the inputs and watch the break even move. This is the number that decides whether the
-      ad channel is a business or a donation.</p>
-    </div>
-
-    <div class="funnel" id="funnel">
-      <div class="fstep"><span class="label">Ad spend</span><span class="fv num" id="f0">EUR 150</span><span class="fd">Test budget</span></div>
-      <div class="fstep"><span class="label">Clicks</span><span class="fv num" id="f1">300</span><span class="fd">Geofenced, cold</span></div>
-      <div class="fstep"><span class="label">Quiz finished</span><span class="fv num" id="f2">135</span><span class="fd">Four questions, no signup</span></div>
-      <div class="fstep paid"><span class="label">Paid</span><span class="fv num" id="f3">11</span><span class="fd">Stripe redirect, instant</span></div>
-    </div>
-
-    <div class="calc">
-      <div class="inputs">
-        <span class="label">Assumptions</span>
-        <div style="height:14px"></div>
-        <label class="field">
-          <span class="frow"><span class="label">Ad budget</span><span class="fval" id="v_budget">EUR 150</span></span>
-          <input type="range" id="i_budget" min="50" max="1000" step="10" value="150">
-        </label>
-        <label class="field">
-          <span class="frow"><span class="label">Cost per click</span><span class="fval" id="v_cpc">EUR 0.50</span></span>
-          <input type="range" id="i_cpc" min="10" max="200" step="5" value="50">
-        </label>
-        <label class="field">
-          <span class="frow"><span class="label">Click to quiz finished</span><span class="fval" id="v_q">45 %</span></span>
-          <input type="range" id="i_q" min="10" max="90" step="1" value="45">
-        </label>
-        <label class="field">
-          <span class="frow"><span class="label">Quiz finished to paid</span><span class="fval" id="v_c">8.0 %</span></span>
-          <input type="range" id="i_c" min="5" max="250" step="5" value="80">
-        </label>
-        <label class="field">
-          <span class="frow"><span class="label">Price</span><span class="fval" id="v_price">EUR 29</span></span>
-          <input type="range" id="i_price" min="9" max="99" step="1" value="29">
-        </label>
-        <label class="field">
-          <span class="frow"><span class="label">VAT, blended OSS</span><span class="fval" id="v_vat">21 %</span></span>
-          <input type="range" id="i_vat" min="0" max="27" step="1" value="21">
-        </label>
-      </div>
-
-      <div class="results">
-        <span class="label">Result on this budget</span>
-        <div style="height:14px"></div>
-        <div class="rgrid">
-          <div class="rcell"><span class="label">Buyers</span><span class="rv num" id="r_buyers">10</span><span class="rc">Per test budget</span></div>
-          <div class="rcell"><span class="label">Net per sale</span><span class="rv num" id="r_net">EUR 23</span><span class="rc">After VAT and Stripe</span></div>
-          <div class="rcell"><span class="label">Cost per buyer</span><span class="rv num" id="r_cac">EUR 14</span><span class="rc">Ad spend divided by buyers</span></div>
-          <div class="rcell"><span class="label">Contribution</span><span class="rv num" id="r_profit">EUR 101</span><span class="rc">Net revenue less ad spend</span></div>
-          <div class="rcell"><span class="label">Margin per sale</span><span class="rv num" id="r_margin">EUR 9</span><span class="rc">What each buyer is worth</span></div>
-          <div class="rcell"><span class="label">Break even</span><span class="rv num" id="r_be">4.8 %</span><span class="rc">Of quiz finishers, minimum</span></div>
-        </div>
-        <div class="verdict">
-          <span class="label">Verdict</span>
-          <div class="vhead" id="r_head">The channel pays for itself</div>
-          <p id="r_body">At these rates the campaign returns more than it costs. The number to defend is the
-          break even: that share of quiz finishers has to reach for a card.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== BOARD ===================== -->
-  <section>
-    <div class="sec-head">
-      <span class="kicker">The board</span>
-      <h2>Nineteen tasks in four phases, and the first five are all yours.</h2>
-      <p class="lede">Nothing in Phase 1 earns a euro until Phase 0 lands, because a page without a Stripe
-      link cannot take money no matter how well it is personalised. Ticks are saved in this browser.</p>
-    </div>
-
-    <div class="boardbar">
-      <div class="filters">
-        <button class="fbtn" data-filter="all" aria-pressed="true" type="button">All</button>
-        <button class="fbtn" data-filter="Vegard" aria-pressed="false" type="button">Vegard only</button>
-        <button class="fbtn" data-filter="Claude Code" aria-pressed="false" type="button">Claude Code only</button>
-        <button class="fbtn" data-filter="open" aria-pressed="false" type="button">Not done</button>
-      </div>
-      <div class="prog">
-        <div style="display:flex; justify-content:space-between; align-items:baseline">
-          <span class="label">Complete</span>
-          <span class="num" id="progtext" style="font-size:12.5px">0 of 19</span>
-        </div>
-        <div class="progbar"><i id="progfill" style="width:0%"></i></div>
-      </div>
-    </div>
-
-    <div id="board"></div>
-  </section>
-
-  <!-- ===================== PIPELINE ===================== -->
-  <section>
-    <div class="sec-head">
-      <span class="kicker">Research pipeline</span>
-      <h2>The claim in the copy has to be a number the data can prove.</h2>
-      <p class="lede">The pitch is 400 screened and 12 won. The repo can currently evidence 51 written
-      entries and nothing about the 400. Put the screened count in zones.json, render it from there, and let
-      the check fail the build when the page and the data disagree. That is task P3.2.</p>
-    </div>
-
-    <div class="pipe">
-      <div class="prow">
-        <div class="pname"><span class="label">Live</span><h3 style="margin-top:7px">Ayia Napa</h3></div>
-        <div class="pstages">
-          <div class="pstage"><span class="label">Screened</span><span class="pv num">400</span><span class="pl">Claimed, not yet in data</span></div>
-          <div class="pstage"><span class="label">Written up</span><span class="pv num">51</span><span class="pl">In places.json</span></div>
-          <div class="pstage"><span class="label">Fully verified</span><span class="pv num">14</span><span class="pl">Bus and price on the record</span></div>
-          <div class="pstage"><span class="label">Shown to a buyer</span><span class="pv num">12</span><span class="pl">Per quiz result</span></div>
-        </div>
-      </div>
-      <div class="prow">
-        <div class="pname"><span class="label">Frozen, D12</span><h3 style="margin-top:7px">Rhodes</h3></div>
-        <div class="pstages">
-          <div class="pstage empty"><span class="label">Screened</span><span class="pv num">0</span><span class="pl">Not started</span></div>
-          <div class="pstage empty"><span class="label">Written up</span><span class="pv num">0</span><span class="pl">Reopens after P2</span></div>
-          <div class="pstage empty"><span class="label">Fully verified</span><span class="pv num">0</span><span class="pl">&nbsp;</span></div>
-          <div class="pstage empty"><span class="label">Shown to a buyer</span><span class="pv num">0</span><span class="pl">&nbsp;</span></div>
-        </div>
-      </div>
-      <div class="prow">
-        <div class="pname"><span class="label">Frozen, D12</span><h3 style="margin-top:7px">Albufeira</h3></div>
-        <div class="pstages">
-          <div class="pstage empty"><span class="label">Screened</span><span class="pv num">0</span><span class="pl">Not started</span></div>
-          <div class="pstage empty"><span class="label">Written up</span><span class="pv num">0</span><span class="pl">Reopens after P2</span></div>
-          <div class="pstage empty"><span class="label">Fully verified</span><span class="pv num">0</span><span class="pl">&nbsp;</span></div>
-          <div class="pstage empty"><span class="label">Shown to a buyer</span><span class="pv num">0</span><span class="pl">&nbsp;</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="note" style="margin-top:20px">
-      <h3>What makes destination two cheap</h3>
-      <p>Three hardcoded Ayia Napa strings sit in scripts/build.mjs and both data files are flat at the repo
-      root. Move them to a folder per destination and the build stops caring which resort it is rendering.
-      After that, adding Rhodes costs research time and zero engineering time, which is the only version of
-      scalable that matters here. The quiz taxonomy carries over unchanged, and it already covers a food list
-      as well as an activity list: the /jk page proves the same eight categories work for restaurants.</p>
-    </div>
-  </section>
-
-  <!-- ===================== DECISIONS ===================== -->
-  <section>
-    <div class="sec-head">
-      <span class="kicker">Waiting on Vegard</span>
-      <h2>Five calls only you can make, each with a recommendation attached.</h2>
-      <p class="lede">Pick one per row. The answer is stored in this browser so the board reflects it next
-      time you open the page.</p>
-    </div>
-    <div id="decisions"></div>
-  </section>
-
-  <!-- ===================== RISKS ===================== -->
-  <section>
-    <div class="sec-head">
-      <span class="kicker">What breaks this</span>
-      <h2>Four ways the plan fails, ranked by how likely they are.</h2>
-    </div>
-    <div class="risks">
-      <div class="risk">
-        <span class="label">Most likely</span>
-        <h3>Nobody pays, and the ads make that expensive to learn</h3>
-        <p>Face to face, a rejection cost a conversation. Paid, it costs the click. The break even sits near
-        five percent of quiz finishers at EUR 29 and EUR 0.50 a click. Write the kill rule before the spend
-        starts: stop at 300 clicks with zero sales, and treat that as an answer rather than a setback.</p>
-      </div>
-      <div class="risk">
-        <span class="label">Near certain</span>
-        <h3>The research debt gates everything downstream</h3>
-        <p>Thirty seven bus numbers and one price, and no amount of code closes them. Build the quiz anyway,
-        because the check will refuse to ship the campaign until the fields are filled, which turns a list of
-        things to remember into a build that fails loudly.</p>
-      </div>
-      <div class="risk">
-        <span class="label">Structural</span>
-        <h3>A geofence over one resort saturates in days</h3>
-        <p>Ayia Napa holds tens of thousands of tourists at peak, not millions. Frequency climbs fast, the
-        creative burns out, and the season ends regardless. Treat the campaign as a short sharp test of
-        willingness to pay, not as a channel that runs all year.</p>
-      </div>
-      <div class="risk">
-        <span class="label">Accepted for now</span>
-        <h3>Two buyers with the same hotel and the same taste share a URL</h3>
-        <p>Under face to face selling that leak was small. Under ads it scales with the campaign. C6 in
-        CLAUDE.md, a signed per buyer slug issued by a Netlify Function, was parked until the first ten
-        sales. That trigger is unchanged. It stays parked.</p>
-      </div>
-    </div>
-  </section>
+  <div id="board"></div>
 
   <footer>
-    <span class="kicker">Live against the repo, 4 August 2026</span>
-    <p style="margin-top:12px">Numbers read from data/places.json, data/zones.json and a clean build of dist/
-    on branch claude/summerlist-project-manager-ec36c1. Ticks and decisions are stored in this browser only,
-    so they do not follow you to another device. Re-run npm run build and npm run check before trusting the
-    weight and validation figures again.</p>
+    <span class="kicker">How to read this board</span>
+    <p style="margin-top:12px">Ticks are saved in this browser only. A deliverable is BLOCKED until every
+    task in the deliverables it depends on is ticked; its checkboxes stay locked so the sequence cannot be
+    faked. READY means you can start it today. The next up panel always shows the first open task of every
+    startable deliverable, which is the answer to the only daily question that matters: what do I do now.
+    Repo facts behind the task notes were read from data/places.json, data/zones.json and a clean build on
+    4 August 2026.</p>
     <button class="resetbtn" id="reset" type="button">Clear saved progress</button>
   </footer>
 </div>
@@ -547,7 +277,7 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
 (function(){
   "use strict";
 
-  /* ---------------- storage, degrades quietly ---------------- */
+  /* ---------------- storage ---------------- */
   var mem = {};
   var store = {
     get:function(k){ try{ return localStorage.getItem(k); }catch(e){ return k in mem ? mem[k] : null; } },
@@ -557,8 +287,8 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
 
   /* ---------------- theme ---------------- */
   var root = document.documentElement;
-  var saved = store.get('sl.theme');
-  if (saved) root.setAttribute('data-theme', saved);
+  var savedTheme = store.get('sl.theme');
+  if (savedTheme) root.setAttribute('data-theme', savedTheme);
   document.getElementById('themebtn').addEventListener('click', function(){
     var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     var cur = root.getAttribute('data-theme') || (dark ? 'dark' : 'light');
@@ -567,191 +297,265 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
     store.set('sl.theme', next);
   });
 
-  /* ---------------- economics ---------------- */
-  var E = {
-    budget:document.getElementById('i_budget'), cpc:document.getElementById('i_cpc'),
-    q:document.getElementById('i_q'), c:document.getElementById('i_c'),
-    price:document.getElementById('i_price'), vat:document.getElementById('i_vat')
-  };
-  function eur(n, dp){ return 'EUR ' + n.toFixed(dp === undefined ? 0 : dp); }
-
-  function calc(){
-    var budget = +E.budget.value;
-    var cpc    = +E.cpc.value / 100;
-    var qRate  = +E.q.value / 100;
-    var cRate  = +E.c.value / 10 / 100;
-    var price  = +E.price.value;
-    var vat    = +E.vat.value / 100;
-
-    var stripe  = price * 0.015 + 0.25;
-    var net     = price / (1 + vat) - stripe;
-    var clicks  = budget / cpc;
-    var quiz    = clicks * qRate;
-    var buyers  = quiz * cRate;
-    var revenue = buyers * net;
-    var profit  = revenue - budget;
-    var cac     = buyers > 0 ? budget / buyers : Infinity;
-    var margin  = net - cac;
-    var be      = net > 0 && qRate > 0 ? (cpc / (net * qRate)) * 100 : Infinity;
-
-    document.getElementById('v_budget').textContent = eur(budget);
-    document.getElementById('v_cpc').textContent    = eur(cpc, 2);
-    document.getElementById('v_q').textContent      = (qRate*100).toFixed(0) + ' %';
-    document.getElementById('v_c').textContent      = (cRate*100).toFixed(1) + ' %';
-    document.getElementById('v_price').textContent  = eur(price);
-    document.getElementById('v_vat').textContent    = (vat*100).toFixed(0) + ' %';
-
-    document.getElementById('f0').textContent = eur(budget);
-    document.getElementById('f1').textContent = Math.round(clicks).toLocaleString('en-GB');
-    document.getElementById('f2').textContent = Math.round(quiz).toLocaleString('en-GB');
-    document.getElementById('f3').textContent = Math.round(buyers).toLocaleString('en-GB');
-
-    document.getElementById('r_buyers').textContent = Math.round(buyers).toLocaleString('en-GB');
-    document.getElementById('r_net').textContent    = eur(net, 2);
-    document.getElementById('r_cac').textContent    = isFinite(cac) ? eur(cac, 2) : 'no buyers';
-    document.getElementById('r_be').textContent     = isFinite(be) ? be.toFixed(1) + ' %' : 'never';
-
-    var p = document.getElementById('r_profit');
-    p.textContent = (profit >= 0 ? '' : '-') + eur(Math.abs(profit));
-    p.className = 'rv num ' + (profit >= 0 ? 'pos' : 'neg');
-
-    var m = document.getElementById('r_margin');
-    m.textContent = isFinite(margin) ? (margin >= 0 ? '' : '-') + eur(Math.abs(margin), 2) : 'no buyers';
-    m.className = 'rv num ' + (margin >= 0 ? 'pos' : 'neg');
-
-    var head = document.getElementById('r_head');
-    var body = document.getElementById('r_body');
-    var actual = cRate * 100;
-    if (profit >= 0) {
-      head.textContent = 'The channel pays for itself';
-      head.className = 'vhead pos';
-      body.textContent = 'Every buyer is worth ' + eur(margin, 2) + ' after the click that found them. You are '
-        + (actual - be).toFixed(1) + ' points above break even, which is ' + be.toFixed(1)
-        + ' percent of quiz finishers. Nothing has converted yet, so treat that gap as a hypothesis and spend '
-        + eur(budget) + ' to test it.';
-    } else {
-      head.textContent = 'The channel loses money on every sale';
-      head.className = 'vhead neg';
-      body.textContent = 'A buyer costs ' + (isFinite(cac) ? eur(cac, 2) : 'more than the budget')
-        + ' and is worth ' + eur(net, 2) + '. You need ' + (isFinite(be) ? be.toFixed(1) + ' percent' : 'more')
-        + ' of quiz finishers to pay and the model assumes ' + actual.toFixed(1)
-        + '. Raise the price, cut the click cost, or do not run the campaign.';
-    }
-  }
-  Object.keys(E).forEach(function(k){ E[k].addEventListener('input', calc); });
-
-  /* ---------------- board ---------------- */
-  var PHASES = [
-    {
-      id:'P0', name:'Phase 0. Make it sellable at all',
-      note:'No task below this line earns anything until these are done.',
+  /* ---------------- data ----------------
+     owner: 'Vegard' | 'Claude Code' | 'Both'
+     deps: deliverable numbers that must be 100% done first
+  */
+  var DLV = [
+    { n:1, short:'Take money', title:'A product that can take money', deps:[],
+      why:'Six zone pages exist but no checkout does. All six Stripe links still read REPLACE_ and npm run check fails on exactly those six errors. Nothing downstream earns a euro until this closes.',
       tasks:[
-        {id:'P0.1', owner:'Vegard', est:'40 min', t:'Create six Stripe Payment Links and paste them into zones.json',
-         d:'Every one of the six still reads REPLACE_, and npm run check fails on all six today. Success URL points at the zone page. Turn Stripe Tax on and add the required checkbox: I want access immediately and I understand I lose my 14 day right to cancel once I have it.'},
-        {id:'P0.2', owner:'Vegard', est:'1 day', t:'Register for VAT OSS before a single euro of ad spend',
-         d:'A Norwegian AS selling digital goods to EU consumers. D10 always assumed this happens before scaling. Paid ads are scaling.'},
-        {id:'P0.3', owner:'Vegard', est:'2 h', t:'Verify the six zone centroids and their hotel lists',
-         d:'zones.json still carries the note that the centroids are estimates. Every walking time on every page is computed from them at 80 metres per minute, so one wrong centroid is wrong on 22 entries at once.'},
-        {id:'P0.4', owner:'Vegard', est:'4 h', t:'Fill bus numbers on the 37 places that have none',
-         d:'Harmless while those places sit in shortlist. Blocking the moment the quiz can promote any of them into a buyer first twelve. This is the single biggest item on the board.'},
-        {id:'P0.5', owner:'Vegard', est:'10 min', t:'Fill typical_eur on the one place that has none',
-         d:'Napa Plaza spa, currently shortlist tier. Price in euros is one of the three things every entry has to answer, and the quiz can promote a shortlist place into somebody first twelve. The other 50 places already carry a number, including the free ones at zero.'}
-      ]
-    },
-    {
-      id:'P1', name:'Phase 1. Build the quiz funnel',
-      note:'The pivot itself. Static, no backend, no new dependencies.',
+        {id:'1.1', owner:'Vegard', t:'Create six Stripe Payment Links, one per zone, EUR 29, Stripe Tax on',
+         d:'One product, The Summer List Ayia Napa, six links. Price decision for the ads comes later in 5.5; these can be repriced in Stripe without touching the site.'},
+        {id:'1.2', owner:'Vegard', t:'Add the 14 day waiver checkbox to each link',
+         d:'Required custom text at checkout: I want access immediately and I understand I lose my 14 day right to cancel once I have it. This is what makes instant delivery legal in the EU.'},
+        {id:'1.3', owner:'Vegard', t:'Point each success URL at its zone page',
+         d:'https://getsummerlist.com/l/<slug>/ per zone. The redirect is the delivery, there is no email step.'},
+        {id:'1.4', owner:'Both', t:'Paste the six links into zones.json and get npm run check green',
+         d:'The check currently fails on six REPLACE_ placeholders. Green here is the definition of done for this deliverable.'},
+        {id:'1.5', owner:'Vegard', t:'Register for VAT OSS before any ad spend',
+         d:'A Norwegian AS selling digital goods to EU consumers. D10 assumed this happens before scaling, and paid ads are scaling.'}
+      ]},
+    { n:2, short:'Verify data', title:'Verified Ayia Napa data, all 51 places', deps:[],
+      why:'The quiz promotes shortlist places to the front page, so all 51 places need verdict quality, not just the 12. Today only 14 of 51 carry both a bus number and a price.',
       tasks:[
-        {id:'P1.1', owner:'Claude Code', est:'2 h', t:'Map the eight categories to a four question quiz',
-         d:'beach, water, sight, boat, daytrip, food, night, well. Four taps, no free text, no signup, finished in under fifteen seconds on a phone held in one hand.'},
-        {id:'P1.2', owner:'Claude Code', est:'4 h', t:'Score all 51 places against taste and zone, then cut to twelve',
-         d:'Weight by stated preference, then by distance from the zone centroid. Force a spread so no profile ever returns twelve beaches, and keep book_ahead entries near the top since they are time sensitive.'},
-        {id:'P1.3', owner:'Claude Code', est:'3 h', t:'Pre-build zone by profile pages, six by six is thirty six files',
-         d:'Extends D4 by one axis instead of breaking it. Keeps the static build, keeps instant delivery on the Stripe redirect, keeps every page inside the weight budget, and adds no runtime.'},
-        {id:'P1.4', owner:'Claude Code', est:'3 h', t:'Put the quiz on the landing page and carry the answers in the URL',
-         d:'No cookies and no backend, so the buyer can send the finished link to their partner and it renders the same list on the other phone. That is a cheap partial answer to C7.'},
-        {id:'P1.5', owner:'Claude Code', est:'2 h', t:'Show three of the twelve before payment, hold nine behind Stripe',
-         d:'The demo is the argument. The visitor sees their own list, with their own hotel walking times, before being asked for anything. That is the moment Google Maps cannot reproduce.'},
-        {id:'P1.6', owner:'Claude Code', est:'1 h', t:'Raise npm run check from 22 places to all 51',
-         d:'Any place can now surface in somebody twelve, so every place needs a bus number, a typical_eur and a verdict line. Turn the research debt into a build that fails loudly.'},
-        {id:'P1.7', owner:'Claude Code', est:'2 h', t:'Get the zone page back under the weight ceiling',
-         d:'39.5 KB against a 40 KB budget leaves half a kilobyte. 9.9 KB of CSS and 6.6 KB of JS are inlined into every page. Move both to shared files the browser caches once across all thirty six.'}
-      ]
-    },
-    {
-      id:'P2', name:'Phase 2. Run the ads',
-      note:'Small, geofenced, with the kill rule written down first.',
+        {id:'2.1', owner:'Vegard', t:'Verify the six zone centroids and hotel lists',
+         d:'zones.json still says the centroids are estimates. Every walking time on every page is computed from them at 80 metres per minute, so one wrong centroid is wrong on 22 entries at once.'},
+        {id:'2.2', owner:'Vegard', t:'Fill bus numbers on the 37 places that have none',
+         d:'The single biggest item on the board. Harmless while those places sit in shortlist, blocking the moment the quiz can put any of them in a buyer first twelve.'},
+        {id:'2.3', owner:'Vegard', t:'Fill typical_eur on the Napa Plaza spa',
+         d:'The one place of 51 with no price. Ten minutes.'},
+        {id:'2.4', owner:'Vegard', t:'Re-check the verdict twelve',
+         d:'Three of the current twelve have no bus number and pass validation only because their mode is walk. Confirm walk is genuinely the answer from every zone, or add the number.'},
+        {id:'2.5', owner:'Claude Code', t:'Extend npm run check from 22 places to all 51',
+         d:'Every place needs a bus number or walk mode, a typical_eur and a verdict line, because any place can now surface. Turns the research debt into a build that fails loudly.'}
+      ]},
+    { n:3, short:'Quiz funnel', title:'The quiz funnel', deps:[],
+      why:'The pivot itself: four taste questions in front, a tailored twelve behind payment. Static, no backend, no new dependencies. Can be built in parallel with 1 and 2.',
       tasks:[
-        {id:'P2.1', owner:'Claude Code', est:'1 h', t:'Fire a Meta purchase event on the page Stripe redirects to',
-         d:'Without a purchase signal the campaign optimises for clicks and spends the budget on browsers. The redirect target is the only place a static site can observe a completed sale.'},
-        {id:'P2.2', owner:'Vegard', est:'1 h', t:'Build a geofence over Ayia Napa, one to two kilometres',
-         d:'Target people physically inside the resort, in English and Norwegian. Small audience, low cost per click, and the only geography where the ad claim is true.'},
-        {id:'P2.3', owner:'Vegard and Claude Code', est:'2 h', t:'Write three ads out of the entry format itself',
-         d:'The product line is the ad line: what it is, what it costs in euros, how you get there from your hotel. Blue Lagoon boat trip, EUR 25 each, bus 101 from the strip. Nothing else needs saying.'},
-        {id:'P2.4', owner:'Vegard', est:'20 min', t:'Commit EUR 150 with a written kill rule',
-         d:'Stop at 300 clicks with zero sales. Decide the rule before the spend rather than during it, because a live campaign is the worst place to argue with yourself about sunk cost.'}
-      ]
-    },
-    {
-      id:'P3', name:'Phase 3. Make destination two cheap',
-      note:'Only worth starting once Phase 2 has produced real numbers.',
+        {id:'3.1', owner:'Claude Code', t:'Map the eight categories to four tap-only questions',
+         d:'beach, water, sight, boat, daytrip, food, night, well. No free text, no signup, finished in under fifteen seconds on a phone held in one hand.'},
+        {id:'3.2', owner:'Claude Code', t:'Build the scoring: taste, then distance, then spread',
+         d:'Weight by stated preference, then by distance from the zone centroid. Force a category spread so no profile returns twelve beaches, and surface book_ahead entries early.'},
+        {id:'3.3', owner:'Claude Code', t:'Pre-build the 36 pages, six zones by six profiles',
+         d:'Extends the per-zone decision by one axis instead of breaking it. Keeps the static build and the instant Stripe redirect.'},
+        {id:'3.4', owner:'Claude Code', t:'Put the quiz on the landing page, answers carried in the URL',
+         d:'No cookies, no backend. The buyer sends the finished link to their partner and it renders the same list on the other phone.'},
+        {id:'3.5', owner:'Claude Code', t:'Show three of the twelve free, hold nine behind Stripe',
+         d:'The demo is the argument: the visitor sees their own list with their own hotel walking times before being asked for anything.'},
+        {id:'3.6', owner:'Claude Code', t:'Move inlined CSS and JS to shared cached files',
+         d:'Pages sit at 39.5 KB against a 40 KB ceiling with 16.5 KB inlined into every page. Shared files fix the budget once for all 36 pages.'}
+      ]},
+    { n:4, short:'Sale signal', title:'Sale tracking without a backend', deps:[],
+      why:'Ads cannot optimise blind. The page Stripe redirects to is the only place a static site observes a completed purchase.',
       tasks:[
-        {id:'P3.1', owner:'Claude Code', est:'3 h', t:'Take Ayia Napa out of the build',
-         d:'Three hardcoded strings in scripts/build.mjs and two flat data files at the repo root. Move to a folder per destination so adding a resort costs research time and no engineering time.'},
-        {id:'P3.2', owner:'Claude Code', est:'1 h', t:'Put the screened count in the data and let the check enforce it',
-         d:'If the landing page claims 400 screened, that number has to come from zones.json meta, and the build has to fail when the page and the data disagree. A marketing claim nobody can audit is a liability.'},
-        {id:'P3.3', owner:'Vegard', est:'after P2', t:'Pick destination two from where the clicks were cheap',
-         d:'Rhodes and Albufeira are frozen under D12 because nothing had converted. Reopen with campaign evidence, not with a flight schedule.'}
-      ]
-    }
+        {id:'4.1', owner:'Claude Code', t:'Fire a Meta purchase event on the redirect page',
+         d:'Without a purchase signal the campaign optimises for clicks and spends the budget on browsers.'},
+        {id:'4.2', owner:'Both', t:'Confirm the event lands in Meta Events Manager',
+         d:'One test purchase end to end: ad click, quiz, Stripe, redirect, event visible. Vegard runs the card, Claude Code reads the log.'},
+        {id:'4.3', owner:'Claude Code', t:'Keep the /api/e Netlify function as the backup log',
+         d:'It already exists and costs nothing. If Meta undercounts, the raw event log is the tiebreak.'}
+      ]},
+    { n:5, short:'Run ads', title:'The ad campaign', deps:[1,2,3,4],
+      why:'Small, geofenced, with the kill rule written before the spend. This is where the four parallel lanes converge, and nothing here can start until all of them are done.',
+      tasks:[
+        {id:'5.1', owner:'Vegard', t:'Decide the price: hold 29 or test 49',
+         d:'The face to face reason for 29 expired with the flight home. Break even drops from about 4.8 to about 2.8 percent of quiz finishers at 49. Recommendation: test 49.'},
+        {id:'5.2', owner:'Vegard', t:'Build a 1 to 2 km geofence over Ayia Napa in Meta Ads Manager',
+         d:'People physically inside the resort. Small audience, cheap clicks, and the only geography where the ad claim is literally true.'},
+        {id:'5.3', owner:'Both', t:'Write three ads straight out of the entry format',
+         d:'What it is, price in euros, how you get there. Blue Lagoon boat trip, EUR 25 each, bus 101 from the strip. Nothing else needs saying.'},
+        {id:'5.4', owner:'Vegard', t:'Set language targeting, English and Norwegian',
+         d:'Two ad sets, same creative logic, so the readout in 6 can compare them.'},
+        {id:'5.5', owner:'Vegard', t:'Commit EUR 150 with the kill rule written down',
+         d:'Stop at 300 clicks with zero sales. Decide the rule before the spend, because a live campaign is the worst place to argue with sunk cost.'}
+      ]},
+    { n:6, short:'Readout', title:'Campaign readout', deps:[5],
+      why:'The point of the spend is an answer, not revenue. Everything after this deliverable only exists if the answer is yes.',
+      tasks:[
+        {id:'6.1', owner:'Vegard', t:'Track clicks, quiz completions and purchases daily',
+         d:'Three numbers against the calculator assumptions: click to quiz, quiz to paid, cost per click.'},
+        {id:'6.2', owner:'Vegard', t:'Compare actual rates against break even',
+         d:'At EUR 29 and EUR 0.50 a click the campaign needs roughly 4.8 percent of quiz finishers to pay. Above it, scale. Below it, adjust or kill.'},
+        {id:'6.3', owner:'Vegard', t:'Make the call: scale, adjust, or kill per the rule',
+         d:'The rule from 5.5 decides. Zero sales at 300 clicks is an answer about willingness to pay, not a setback.'},
+        {id:'6.4', owner:'Vegard', t:'Decide the post-season channel',
+         d:'Trickle ads, QR cards with a bar on revenue share, or park until next season. This choice also decides whether 7 and 8 are worth building.'}
+      ]},
+    { n:7, short:'De-hardcode', title:'A destination-agnostic build', deps:[6],
+      why:'Only worth doing once the readout shows something converts. After this, adding a resort costs research time and zero engineering time.',
+      tasks:[
+        {id:'7.1', owner:'Claude Code', t:'Remove the three hardcoded Ayia Napa strings from build.mjs',
+         d:'Title, kicker and footer all carry the resort name today. They come from zones.json meta instead.'},
+        {id:'7.2', owner:'Claude Code', t:'Restructure to a folder per destination',
+         d:'data/ayia-napa/places.json and zones.json, and the build loops destinations. Rhodes becomes a folder, not a fork.'},
+        {id:'7.3', owner:'Claude Code', t:'Put the screened count in the data and enforce it in check',
+         d:'If the page claims 400 screened, the number comes from meta and the build fails when page and data disagree. A claim nobody can audit is a liability.'},
+        {id:'7.4', owner:'Claude Code', t:'Confirm the taxonomy carries to food lists',
+         d:'The /jk page already runs the same categories over restaurants. Verify the quiz scoring needs no changes for a food destination.'}
+      ]},
+    { n:8, short:'Resort two', title:'Destination two', deps:[7],
+      why:'Pure research cost if 7 landed. Rhodes and Albufeira are the frozen candidates; the campaign data picks, not the flight schedule.',
+      tasks:[
+        {id:'8.1', owner:'Vegard', t:'Pick the resort from where the clicks were cheap',
+         d:'Reopen the D12 freeze with campaign evidence: cost per click and conversion by audience from the readout.'},
+        {id:'8.2', owner:'Vegard', t:'Screen the long list and write up about 50 places',
+         d:'Same bar as Ayia Napa after deliverable 2: verdict line, price in euros, bus or walk from every zone.'},
+        {id:'8.3', owner:'Vegard', t:'Define zones, centroids and hotel lists, create Stripe links',
+         d:'The deliverable 1 and 2 checklist again, for the new resort, in a fraction of the time because the build no longer cares which resort it is.'},
+        {id:'8.4', owner:'Both', t:'Launch a copy of the geofence campaign over the new resort',
+         d:'Same creative logic, same kill rule, new geography.'}
+      ]}
   ];
 
-  var filter = 'all';
-  var board = document.getElementById('board');
+  var ALL = [];
+  DLV.forEach(function(d){ d.tasks.forEach(function(t){ t.dlv = d.n; ALL.push(t); }); });
 
-  function key(id){ return 'sl.task.' + id; }
+  function key(id){ return 'sl.t.' + id; }
   function isDone(id){ return store.get(key(id)) === '1'; }
+  function dlvDone(d){ return d.tasks.every(function(t){ return isDone(t.id); }); }
+  function dlvCount(d){ return d.tasks.filter(function(t){ return isDone(t.id); }).length; }
+  function isBlocked(d){
+    return d.deps.some(function(n){ return !dlvDone(DLV[n-1]); });
+  }
+  function status(d){
+    if (dlvDone(d)) return 'done';
+    if (isBlocked(d)) return 'blocked';
+    if (dlvCount(d) > 0) return 'active';
+    return 'ready';
+  }
+  var STATUS_TEXT = { done:'Done', active:'In progress', ready:'Ready', blocked:'Blocked' };
 
-  function render(){
+  var filter = 'all';
+
+  /* ---------------- sequence map ---------------- */
+  function renderMap(){
+    var map = document.getElementById('seqmap');
+    map.textContent = '';
+    DLV.forEach(function(d){
+      var st = status(d);
+      var a = document.createElement('a');
+      a.className = 'node st-' + st;
+      a.href = '#d' + d.n;
+      var pct = dlvCount(d) / d.tasks.length * 100;
+      var nn = document.createElement('span'); nn.className='nn'; nn.textContent = d.n;
+      var nt = document.createElement('span'); nt.className='nt'; nt.textContent = d.short;
+      var ns = document.createElement('span'); ns.className='ns'; ns.textContent = STATUS_TEXT[st];
+      var nb = document.createElement('span'); nb.className='nbar';
+      var nbi = document.createElement('i'); nbi.style.width = pct + '%'; nb.appendChild(nbi);
+      a.appendChild(nn); a.appendChild(nt); a.appendChild(ns); a.appendChild(nb);
+      map.appendChild(a);
+    });
+  }
+
+  /* ---------------- next up ---------------- */
+  function renderNext(){
+    var lanes = document.getElementById('lanes');
+    lanes.textContent = '';
+    var found = [];
+    DLV.forEach(function(d){
+      var st = status(d);
+      if (st === 'done' || st === 'blocked') return;
+      var t = d.tasks.filter(function(x){ return !isDone(x.id); })[0];
+      if (t) found.push({d:d, t:t});
+    });
+
+    if (!found.length) {
+      var doneAll = ALL.every(function(t){ return isDone(t.id); });
+      var msg = document.createElement('div');
+      msg.className = 'alldone';
+      msg.textContent = doneAll
+        ? 'Everything on the board is done. Destination two is live. Go sell destination three.'
+        : 'No lane is startable right now, which should be impossible. Clear a blocked dependency above.';
+      lanes.appendChild(msg);
+      return;
+    }
+
+    found.forEach(function(f){
+      var b = document.createElement('a');
+      b.className = 'lane'; b.href = '#d' + f.d.n;
+      var row = document.createElement('div'); row.className = 'lrow';
+      var id = document.createElement('span'); id.className = 'tid'; id.textContent = 'Deliverable ' + f.d.n + ' · task ' + f.t.id;
+      var chip = document.createElement('span');
+      chip.className = 'chip' + (f.t.owner === 'Vegard' ? ' v' : f.t.owner === 'Both' ? ' b' : '');
+      chip.textContent = f.t.owner;
+      row.appendChild(id); row.appendChild(chip);
+      var lt = document.createElement('span'); lt.className = 'lt'; lt.textContent = f.t.t;
+      var ld = document.createElement('span'); ld.className = 'ld';
+      ld.textContent = f.d.short + ': ' + dlvCount(f.d) + ' of ' + f.d.tasks.length + ' done';
+      b.appendChild(row); b.appendChild(lt); b.appendChild(ld);
+      lanes.appendChild(b);
+    });
+
+    var first = found[0];
+    document.getElementById('stickynext').innerHTML = '';
+    var sn = document.getElementById('stickynext');
+    var lbl = document.createElement('span'); lbl.className = 'label'; lbl.textContent = 'Next: ';
+    var bb = document.createElement('b'); bb.textContent = first.t.t;
+    sn.appendChild(lbl); sn.appendChild(bb);
+    sn.appendChild(document.createTextNode(' (' + first.t.owner + ')'));
+  }
+
+  /* ---------------- board ---------------- */
+  function renderBoard(){
+    var board = document.getElementById('board');
     board.textContent = '';
-    PHASES.forEach(function(ph){
-      var visible = ph.tasks.filter(function(t){
-        if (filter === 'all') return true;
+
+    DLV.forEach(function(d){
+      var st = status(d);
+      var visible = d.tasks.filter(function(t){
         if (filter === 'open') return !isDone(t.id);
-        return t.owner.indexOf(filter) === 0 || t.owner === filter;
+        if (filter === 'all') return true;
+        return t.owner === filter || t.owner === 'Both';
       });
-      if (!visible.length) return;
+      if (!visible.length && filter !== 'all') return;
 
-      var sec = document.createElement('div');
-      sec.className = 'phase';
+      var sec = document.createElement('section');
+      sec.className = 'dlv is-' + st;
+      sec.id = 'd' + d.n;
 
-      var head = document.createElement('div');
-      head.className = 'phase-head';
-      var h = document.createElement('h3');
-      h.textContent = ph.name;
-      var cnt = document.createElement('span');
-      var doneN = ph.tasks.filter(function(t){ return isDone(t.id); }).length;
-      cnt.className = 'pcount';
-      cnt.textContent = doneN + ' of ' + ph.tasks.length + ' done';
-      head.appendChild(h); head.appendChild(cnt);
-      sec.appendChild(head);
+      var head = document.createElement('div'); head.className = 'dlv-head';
+      var num = document.createElement('div'); num.className = 'dlv-num num'; num.textContent = d.n;
+      var body = document.createElement('div');
 
-      var sub = document.createElement('p');
-      sub.className = 'td';
-      sub.style.margin = '10px 0 6px';
-      sub.textContent = ph.note;
-      sec.appendChild(sub);
+      var tr = document.createElement('div'); tr.className = 'dlv-title-row';
+      var h = document.createElement('h2'); h.textContent = d.title;
+      var chip = document.createElement('span'); chip.className = 'statuschip ' + st;
+      chip.textContent = STATUS_TEXT[st];
+      tr.appendChild(h); tr.appendChild(chip);
+      body.appendChild(tr);
 
+      var why = document.createElement('p'); why.className = 'dlv-why'; why.textContent = d.why;
+      body.appendChild(why);
+
+      if (st === 'blocked') {
+        var open = d.deps.filter(function(n){ return !dlvDone(DLV[n-1]); });
+        var gate = document.createElement('p'); gate.className = 'dlv-gate';
+        gate.textContent = 'Locked until ' + (open.length > 1 ? 'deliverables ' : 'deliverable ') + open.join(', ') + ' complete';
+        body.appendChild(gate);
+      }
+
+      var meta = document.createElement('div'); meta.className = 'dlv-meta';
+      var pb = document.createElement('div'); pb.className = 'progbar';
+      var pbi = document.createElement('i'); pbi.style.width = (dlvCount(d)/d.tasks.length*100) + '%';
+      pb.appendChild(pbi);
+      var pc = document.createElement('span'); pc.className = 'pc';
+      pc.textContent = dlvCount(d) + ' of ' + d.tasks.length + ' done';
+      meta.appendChild(pb); meta.appendChild(pc);
+      body.appendChild(meta);
+
+      var list = document.createElement('div'); list.className = 'tasks';
       visible.forEach(function(t){
         var row = document.createElement('div');
-        row.className = 'task' + (isDone(t.id) ? ' done' : '');
+        var gated = st === 'blocked';
+        row.className = 'task' + (isDone(t.id) ? ' done' : '') + (gated ? ' gated' : '');
 
         var cb = document.createElement('input');
-        cb.type = 'checkbox'; cb.checked = isDone(t.id);
-        cb.setAttribute('aria-label', 'Mark ' + t.id + ' complete');
+        cb.type = 'checkbox'; cb.checked = isDone(t.id); cb.disabled = gated;
+        cb.setAttribute('aria-label', 'Mark task ' + t.id + ' complete');
         cb.addEventListener('change', function(){
           if (cb.checked) store.set(key(t.id), '1'); else store.del(key(t.id));
-          render();
+          renderAll();
         });
 
         var mid = document.createElement('div');
@@ -761,106 +565,63 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
         mid.appendChild(idEl); mid.appendChild(tt); mid.appendChild(td);
 
         var own = document.createElement('div'); own.className = 'owner';
-        var chip = document.createElement('span');
-        chip.className = 'chip' + (t.owner.indexOf('Vegard') === 0 ? ' v' : '');
-        chip.textContent = t.owner;
-        own.appendChild(chip);
+        var oc = document.createElement('span');
+        oc.className = 'chip' + (t.owner === 'Vegard' ? ' v' : t.owner === 'Both' ? ' b' : '');
+        oc.textContent = t.owner;
+        own.appendChild(oc);
 
-        var est = document.createElement('div'); est.className = 'est'; est.textContent = t.est;
-
-        row.appendChild(cb); row.appendChild(mid); row.appendChild(own); row.appendChild(est);
-        sec.appendChild(row);
+        row.appendChild(cb); row.appendChild(mid); row.appendChild(own);
+        list.appendChild(row);
       });
+      body.appendChild(list);
 
+      head.appendChild(num); head.appendChild(body);
+      sec.appendChild(head);
       board.appendChild(sec);
     });
-
-    var all = PHASES.reduce(function(a, p){ return a.concat(p.tasks); }, []);
-    var n = all.filter(function(t){ return isDone(t.id); }).length;
-    document.getElementById('progtext').textContent = n + ' of ' + all.length;
-    document.getElementById('progfill').style.width = (n / all.length * 100).toFixed(1) + '%';
   }
 
+  /* ---------------- totals ---------------- */
+  function renderTotals(){
+    var n = ALL.filter(function(t){ return isDone(t.id); }).length;
+    var pct = Math.round(n / ALL.length * 100);
+    document.getElementById('bigprog').textContent = pct + '%';
+    document.getElementById('bigfill').style.width = pct + '%';
+    document.getElementById('bigcount').textContent = n + ' of ' + ALL.length;
+    document.getElementById('stickytext').textContent = pct + '%';
+    document.getElementById('stickyfill').style.width = pct + '%';
+
+    var vOpen = ALL.filter(function(t){ return !isDone(t.id) && (t.owner === 'Vegard' || t.owner === 'Both'); }).length;
+    var cOpen = ALL.filter(function(t){ return !isDone(t.id) && (t.owner === 'Claude Code' || t.owner === 'Both'); }).length;
+    document.getElementById('filternote').textContent = 'Open: ' + vOpen + ' Vegard, ' + cOpen + ' Claude Code';
+  }
+
+  function renderAll(){ renderMap(); renderNext(); renderBoard(); renderTotals(); }
+
+  /* ---------------- filters ---------------- */
   Array.prototype.forEach.call(document.querySelectorAll('.fbtn'), function(b){
     b.addEventListener('click', function(){
       filter = b.getAttribute('data-filter');
       Array.prototype.forEach.call(document.querySelectorAll('.fbtn'), function(o){
         o.setAttribute('aria-pressed', String(o === b));
       });
-      render();
+      renderBoard();
     });
   });
 
-  /* ---------------- decisions ---------------- */
-  var DECISIONS = [
-    { id:'price', q:'Hold EUR 29, or test EUR 49?',
-      opts:['Hold 29','Test 49'],
-      rec:'<b>Test 49.</b> CLAUDE.md held 29 to protect the first ten face to face sales, and those can no longer happen. Under paid traffic the price sets the break even directly: at 29 you need roughly 4.8 percent of quiz finishers to pay, at 49 you need about 2.8 percent. Same traffic, nearly half the burden of proof.' },
-    { id:'quiz', q:'Does the quiz run before payment, or after?',
-      opts:['Before, free preview','After, on the paid page'],
-      rec:'<b>Before.</b> C2 already argued this: a live personalised result in front of the visitor is the one thing Google Maps and free ChatGPT cannot do at that moment. Show three of the twelve with real walking times from their own hotel, hold nine behind Stripe.' },
-    { id:'weight', q:'Hold the 40 KB page ceiling, or raise it?',
-      opts:['Hold 40 KB','Raise to 60 KB'],
-      rec:'<b>Hold 40 and move the assets out.</b> Buyers are on roaming data and the pages are at 39.5 KB with half a kilobyte to spare. 16.5 KB of that is CSS and JS inlined into every single page. Shared cached files fix it once for all thirty six pages, which is the honest fix rather than a bigger allowance.' },
-    { id:'access', q:'Keep the twelve month access promise on the landing page?',
-      opts:['Keep it','Drop it'],
-      rec:'<b>Keep it.</b> The copy is already written and the cost is a Netlify site staying deployed until July 2027, which is a hosting line item and not a project. It also makes the EUR 29 easier to say out loud.' },
-    { id:'after', q:'What happens to the channel now that you have flown home?',
-      opts:['Kill until next season','Cards with a bar, revenue share','Let the ads trickle'],
-      rec:'<b>Let the ads trickle.</b> This decision used to be optional and it is now the whole business, because a geofenced campaign is the only thing that sells while you are not standing there. It also decides whether Phase 3 is worth starting: no channel after August means no destination two.' }
-    ];
-
-  var decWrap = document.getElementById('decisions');
-  DECISIONS.forEach(function(d){
-    var box = document.createElement('div'); box.className = 'dec';
-    var k = 'sl.dec.' + d.id;
-
-    var top = document.createElement('div');
-    top.style.cssText = 'display:flex; justify-content:space-between; gap:16px; align-items:baseline; flex-wrap:wrap';
-    var kick = document.createElement('span'); kick.className = 'label'; kick.textContent = 'Decision';
-    var state = document.createElement('span'); state.className = 'decstate';
-    top.appendChild(kick); top.appendChild(state);
-
-    var q = document.createElement('h3'); q.className = 'dq'; q.textContent = d.q;
-    var opts = document.createElement('div'); opts.className = 'opts';
-    var rec = document.createElement('p'); rec.className = 'rec'; rec.innerHTML = d.rec;
-
-    function paint(){
-      var cur = store.get(k);
-      Array.prototype.forEach.call(opts.children, function(b){
-        b.setAttribute('aria-pressed', String(b.textContent === cur));
-      });
-      state.textContent = cur ? 'Decided: ' + cur : 'Not decided';
-      state.className = 'decstate' + (cur ? ' set' : '');
-    }
-
-    d.opts.forEach(function(o){
-      var b = document.createElement('button');
-      b.type = 'button'; b.className = 'opt'; b.textContent = o;
-      b.addEventListener('click', function(){
-        if (store.get(k) === o) store.del(k); else store.set(k, o);
-        paint();
-      });
-      opts.appendChild(b);
-    });
-
-    box.appendChild(top); box.appendChild(q); box.appendChild(opts); box.appendChild(rec);
-    decWrap.appendChild(box);
-    paint();
-  });
+  /* ---------------- sticky visibility ---------------- */
+  var sticky = document.getElementById('stickybar');
+  var mast = document.querySelector('.band');
+  window.addEventListener('scroll', function(){
+    sticky.hidden = window.scrollY < mast.offsetHeight;
+  }, {passive:true});
 
   /* ---------------- reset ---------------- */
   document.getElementById('reset').addEventListener('click', function(){
-    PHASES.forEach(function(p){ p.tasks.forEach(function(t){ store.del(key(t.id)); }); });
-    DECISIONS.forEach(function(d){ store.del('sl.dec.' + d.id); });
-    render();
-    Array.prototype.forEach.call(decWrap.querySelectorAll('.opt'), function(b){ b.setAttribute('aria-pressed','false'); });
-    Array.prototype.forEach.call(decWrap.querySelectorAll('.decstate'), function(s){
-      s.textContent = 'Not decided'; s.className = 'decstate';
-    });
+    ALL.forEach(function(t){ store.del(key(t.id)); });
+    renderAll();
   });
 
-  calc();
-  render();
+  renderAll();
 })();
 </script>
