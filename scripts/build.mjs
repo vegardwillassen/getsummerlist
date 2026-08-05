@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -122,6 +122,7 @@ function landing() {
 const dist = join(root, 'dist');
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist, { recursive: true });
+cpSync(join(root, 'jk'), join(dist, 'jk'), { recursive: true });
 writeFileSync(join(dist, 'index.html'), landing());
 mkdirSync(join(dist, 'an'), { recursive: true });
 writeFileSync(join(dist, 'an', 'index.html'),
