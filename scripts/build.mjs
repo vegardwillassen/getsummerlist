@@ -49,6 +49,9 @@ function trim(text, max) {
 }
 
 const CATLAB = { beach: 'Beach', water: 'Water fun', sight: 'Sight', boat: 'Boat trip', daytrip: 'Day trip', food: 'Food & drink', night: 'Nightlife', well: 'Wellness' };
+const IMG_LIST = [];
+const IMG_IDX = {};
+for (const p of places) if (p.img) { IMG_IDX[p.id] = IMG_LIST.length; IMG_LIST.push(p.img); }
 const MODE_LAB = { walk: 'Walk', bus: 'Bus', taxi: 'Taxi', boat: 'Boat' };
 
 /* Taste profiles. classic is the human cut and bypasses scoring entirely. */
@@ -132,7 +135,7 @@ function zonePage(zone, key, sel, assets) {
     '<header><div class="wrap">' +
     '<span class="kicker">Ayia Napa · Cyprus · ' + esc(zone.name) + '</span>' +
     '<h1>The Summer List</h1>' +
-    '<p class="sub">The 12 things worth doing, what each costs, how you get there from your hotel. Distances measured for ' + esc(zone.hotels.join(', ')) + ' and neighbours.</p>' +
+    '<p class="sub">The 12 things worth doing, what each costs, how you get there from your hotel. Distances measured for ' + esc(zone.hotels.slice(0, 4).join(', ')) + ' and neighbours.</p>' +
     '<div class="progress"><div class="row"><span class="nums"><b id="nDone">0</b> done</span><span class="nums" id="nTotal">0 / 12</span></div>' +
     '<div class="bar"><i id="barFill"></i></div></div>' +
     '</div>' + wave + '</header>' +
@@ -157,25 +160,21 @@ function zonePage(zone, key, sel, assets) {
     '</body></html>';
 }
 
-/* Landing: zone buttons plus the quiz data payload. */
-function landing(pre) {
-  const zoneButtons = zonesFile.zones.map(z => {
-    const href = z.stripe_link.startsWith('REPLACE_') ? '#' : z.stripe_link;
-    const dis = z.stripe_link.startsWith('REPLACE_') ? ' data-soon="1"' : '';
-    return '<a class="zbtn" href="' + esc(href) + '"' + dis + '><b>' + esc(z.name) + '</b><span>' + esc(z.hotels.slice(0, 3).join(', ')) + '…</span></a>';
-  }).join('');
-  const protos = {};
-  for (const [k, v] of Object.entries(PROFILES)) if (v) protos[k] = v.w;
+/* Landing: quiz data payload. The example card and the detail modal are
+   rendered client-side from det[topPickId], with the hotel-relative line
+   computed live, so the moat is real and zone-varying before payment. */
+function landing(pre, det) {
+  const protos = {}, labels = {};
+  for (const [k, v] of Object.entries(PROFILES)) if (v) { protos[k] = v.w; labels[k] = v.label; }
   const payload = {
-    price: PRICE_EUR,
+    price: PRICE_EUR, labels, imgs: IMG_LIST, mpm: MPM, harbour: HARBOUR,
     zones: zonesFile.zones.map(z => ({
-      s: z.slug, n: z.name, h: z.hotels.slice(0, 3).join(', '),
+      s: z.slug, n: z.name, h: z.hotels.slice(0, 3).join(', '), hl: z.hotels, ll: z.ll,
       u: z.stripe_link.startsWith('REPLACE_') ? null : z.stripe_link,
     })),
-    protos, pre,
+    protos, pre, det,
   };
   return landingTpl
-    .replace('<!--ZONES-->', zoneButtons)
     .replace('<!--QUIZDATA-->', '<script>const SL=' + JSON.stringify(payload) + ';</script>');
 }
 
@@ -183,6 +182,7 @@ const dist = join(root, 'dist');
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist, { recursive: true });
 cpSync(join(root, 'jk'), join(dist, 'jk'), { recursive: true });
+cpSync(join(root, 'src/og.png'), join(dist, 'og.png'));
 
 const hash = s => createHash('sha1').update(s).digest('hex').slice(0, 8);
 const assets = { cssName: 's.' + hash(css) + '.css', jsName: 'z.' + hash(appJs) + '.js' };
@@ -195,13 +195,22 @@ writeFileSync(join(dist, 'an', 'index.html'),
   '<!DOCTYPE html><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=/"><title>The Summer List</title><a href="/">The Summer List</a>');
 
 const pre = {};
+const DET = {};  // distinct top picks, full detail for the client-rendered card + modal
 for (const zone of zonesFile.zones) {
   pre[zone.slug] = {};
   for (const key of Object.keys(PROFILES)) {
     const sel = pick(zone, key);
-    pre[zone.slug][key] = sel.twelve.slice(0, 3).map(p => ({
-      n: p.name, pr: p.price.band || p.price.text, fr: fromHotel(zone, p),
-    }));
+    const top = sel.twelve[0];
+    pre[zone.slug][key] = {
+      t: top.id,
+      g: sel.twelve.map(p => IMG_IDX[p.id] ?? -1),
+      gc: sel.twelve.map(p => CATLAB[p.cat] || p.cat),
+    };
+    if (!DET[top.id]) DET[top.id] = {
+      n: top.name, c: CATLAB[top.cat] || top.cat, cat: top.cat, v: top.verdict, d: top.detail,
+      tip: top.tip || null, pr: top.price.text, dur: top.duration,
+      ll: top.ll, mode: top.mode, bus: top.bus, i: IMG_IDX[top.id] ?? -1,
+    };
     const dir = key === 'classic' ? join(dist, 'l', zone.slug) : join(dist, 'l', zone.slug, key);
     mkdirSync(dir, { recursive: true });
     const html = zonePage(zone, key, sel, assets);
@@ -210,6 +219,15 @@ for (const zone of zonesFile.zones) {
     console.log('built ' + path + ' (' + zone.id + ') ' + (html.length / 1024).toFixed(1) + ' KB');
   }
 }
-writeFileSync(join(dist, 'index.html'), landing(pre));
-console.log('built landing ' + (landing(pre).length / 1024).toFixed(1) + ' KB');
+let home = landing(pre, DET);
+const homeCss = minCss(home.match(/<style>([\s\S]*?)<\/style>/)[1]);
+const homeJs = home.match(/<script>\s*(\(function\(\)[\s\S]*?\)\(\);?)\s*<\/script>\s*<\/div><\/section>/)[1];
+const homeAssets = { css: 'h.' + hash(homeCss) + '.css', js: 'h.' + hash(homeJs) + '.js' };
+writeFileSync(join(dist, 'a', homeAssets.css), homeCss);
+writeFileSync(join(dist, 'a', homeAssets.js), homeJs);
+home = home
+  .replace(/<style>[\s\S]*?<\/style>/, '<link rel="stylesheet" href="/a/' + homeAssets.css + '">')
+  .replace(/<script>\s*\(function\(\)[\s\S]*?\)\(\);?\s*<\/script>\s*<\/div><\/section>/, '<script defer src="/a/' + homeAssets.js + '"></script>\n</div></section>');
+writeFileSync(join(dist, 'index.html'), home);
+console.log('built landing ' + (home.length / 1024).toFixed(1) + ' KB (+ /a/' + homeAssets.css + ' ' + (homeCss.length / 1024).toFixed(1) + ' KB, /a/' + homeAssets.js + ' ' + (homeJs.length / 1024).toFixed(1) + ' KB)');
 console.log('assets /a/' + assets.cssName + ' ' + (css.length / 1024).toFixed(1) + ' KB, /a/' + assets.jsName + ' ' + (appJs.length / 1024).toFixed(1) + ' KB');

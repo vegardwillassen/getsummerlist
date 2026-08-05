@@ -3,116 +3,355 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>The Summer List · Ayia Napa · The 12 things worth doing</title>
-<meta name="description" content="The 12 things worth doing in Ayia Napa, what each costs, how you get there from your hotel. 300 checked, 12 won. EUR 29, yours the second you pay.">
+<title>The Summer List · The 12 things worth doing · Ayia Napa live now</title>
+<meta name="description" content="One honest list per destination: the 12 things worth doing, what each costs, how you get there from your hotel. Ayia Napa live now, EUR 29, yours the second you pay.">
 <meta name="referrer" content="no-referrer">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Summer List">
 <meta property="og:title" content="The 12 things worth doing in Ayia Napa">
-<meta property="og:description" content="What each costs, how you get there from your hotel. 300 checked, 12 won. Answer four questions and see three of your twelve free. EUR 29, yours the second you pay.">
+<meta property="og:description" content="What each costs, how you get there from your hotel. 400+ researched, 51 made the list, 12 headline picks. Answer four questions and see three of your twelve free. EUR 29, yours the second you pay.">
 <meta property="og:url" content="https://getsummerlist.com/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://getsummerlist.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The 12 things worth doing in Ayia Napa">
 <meta name="twitter:description" content="What each costs, how you get there from your hotel. EUR 29, yours the second you pay.">
+<meta name="twitter:image" content="https://getsummerlist.com/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101C2E'/%3E%3Ccircle cx='32' cy='26' r='11' fill='%23FFB36B'/%3E%3Cpath d='M12 46c6-6 14-6 20 0s14 6 20 0v10H12z' fill='%23C9A24B'/%3E%3C/svg%3E">
 <style>
   :root{
-    --navy:#101C2E; --cream:#F7F1E3; --coral:#FF6B57; --coral-d:#E5533E;
-    --ink:#1F3A4D; --soft:#5B7386; --line:#E5D9C2; --gold:#C9A24B;
+    --sand:#FBF3E4; --ink:#1F3A4D; --soft:#5B7386; --line:#EBDFC9;
+    --sea:#0FA3B1; --deep:#0C7489; --din:#8757C9; --warm:#E07A3F; --green:#2FA36B;
+    --coral:#FF6B57; --coral-d:#E5533E; --navy:#12222F; --brown:#7A4B2A;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink);line-height:1.55;}
-  .wrap{max-width:820px;margin:0 auto;padding:0 22px;}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--sand);color:var(--ink);line-height:1.55;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px;}
   .kick{font-family:'Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
-  .hero{background:linear-gradient(165deg,#FFDF9E 0%,#FFB36B 45%,#FF7E5F 100%);padding:56px 0 48px;}
-  .hero .kick{color:#7A3D22;}
-  .hero h1{font-size:clamp(30px,5.5vw,50px);font-style:italic;color:var(--navy);margin:12px 0 16px;line-height:1.12;}
-  .hero p.sub{font-size:clamp(16px,2.2vw,19px);color:#4A2E1E;max-width:52ch;margin-bottom:10px;}
-  .hero .micro{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.06em;color:#7A3D22;}
-  section{padding:44px 0;}
-  h2{font-size:clamp(22px,4vw,30px);font-style:italic;color:var(--navy);margin-bottom:12px;}
-  .sample{background:#fff;border:1px solid var(--line);border-left:5px solid var(--coral);border-radius:10px;padding:18px 20px;margin:16px 0;font-size:16px;}
-  .sample .cat{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);}
-  .zgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px;}
-  .zbtn{display:block;background:#fff;border:2px solid var(--navy);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--ink);}
-  .zbtn:hover{background:var(--navy);color:var(--cream);}
-  .zbtn b{display:block;font-style:italic;font-size:16px;margin-bottom:3px;}
-  .zbtn span{font-size:12.5px;color:inherit;opacity:.75;}
-  .zbtn[data-soon]{opacity:.65;cursor:default;}
-  .price{font-family:'Courier New',monospace;font-weight:700;letter-spacing:.08em;font-size:14px;color:var(--coral-d);}
+  h2{font-size:clamp(24px,4vw,34px);font-style:italic;color:var(--ink);margin-bottom:12px;}
+  section{padding:46px 0;}
+
+  /* hero */
+  .hero{background:linear-gradient(165deg,#FFDF9E 0%,#FFB36B 42%,#FF7E5F 100%);padding:64px 0 56px;position:relative;overflow:hidden;}
+  .hero .sun{position:absolute;right:6%;top:30px;width:240px;height:240px;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle,#FFF6CE 0%,#FFD456 55%,rgba(255,212,86,0) 72%);}
+  .hero .wrap{position:relative;}
+  .hero .kick{color:#fff;background:rgba(255,255,255,.28);display:inline-block;padding:6px 16px;border-radius:999px;}
+  .hero h1{font-size:clamp(32px,5.8vw,54px);font-style:italic;color:var(--navy);margin:16px 0 16px;line-height:1.08;max-width:19ch;text-wrap:pretty;}
+  .hero p.sub{font-size:clamp(16px,2.2vw,19px);color:#4A2E1E;max-width:52ch;margin-bottom:12px;}
+  .hero .micro{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.06em;color:var(--brown);font-weight:700;}
+
+  .chip{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;border-radius:999px;padding:5px 14px;}
+  .chip.price{background:#FFF1D0;color:#8A6200;}
+  .chip.go{background:var(--sand);color:var(--deep);}
+
+  /* ayia napa featured */
+  #napa{padding-top:54px;}
+
+  /* quiz */
+  .qq{margin:18px 0 0;}
+  .qq .ql{font-family:'Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brown);display:block;margin-bottom:8px;}
+  .qopts{display:flex;flex-wrap:wrap;gap:8px;}
+  .qbtn{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:14.5px;font-weight:600;background:#fff;border:2px solid transparent;
+    border-radius:999px;padding:10px 18px;cursor:pointer;color:var(--ink);box-shadow:0 6px 16px rgba(31,58,77,.08);}
+  .qbtn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:0 10px 26px rgba(31,58,77,.3);}
+  input#qhotel{font-family:Georgia,serif;font-size:16px;padding:13px 16px;border:2px solid var(--ink);border-radius:14px;background:#fff;color:var(--ink);width:100%;max-width:420px;display:block;}
+  input#qhotel::placeholder{color:var(--soft);font-style:italic;}
+  input#qhotel.picked{border-color:var(--green);}
+  #qsugg{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .hsug{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:600;background:#fff;border:2px solid transparent;
+    border-radius:999px;padding:9px 16px;cursor:pointer;color:var(--ink);box-shadow:0 6px 16px rgba(31,58,77,.08);text-align:left;}
+  .hsug span{color:var(--soft);font-weight:400;font-size:12.5px;}
+  .hsug:hover{border-color:var(--ink);}
+  #qareas{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  #qareas[hidden]{display:none;}
+  .hsug.alt{background:var(--sand);border:2px dashed var(--line);color:var(--brown);font-weight:700;}
+  #qareas .hsug{background:var(--sand);border:2px solid var(--line);}
+  .hmiss{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:13.5px;color:var(--soft);margin-top:10px;}
+  .paybtn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;
+    font-weight:800;font-size:17px;border-radius:999px;padding:16px 34px;margin-top:14px;box-shadow:0 16px 40px rgba(255,107,87,.4);}
+  .paybtn:hover{background:var(--coral-d);}
+  .pvmore{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:13px;color:var(--soft);margin-top:10px;}
+
+  .qhint{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:13.5px;color:var(--soft);margin-bottom:8px;}
+  .stickybuy{position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(255,255,255,.97);
+    box-shadow:0 -6px 20px rgba(31,58,77,.14);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding-bottom:calc(12px + env(safe-area-inset-bottom));}
+  .stickybuy .sbt{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:16px;color:var(--ink);}
+  .stickybuy .paybtn.sb{margin-top:0;font-size:15px;padding:12px 22px;box-shadow:none;}
+  @media(min-width:760px){.stickybuy{display:none !important;}}
+  .proofsub{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:15px;color:var(--soft);max-width:58ch;margin-bottom:6px;}
+  .proofrow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+  .proofrow > div{flex:1 1 340px;}
+  .proofrow .paybtn{margin-top:0;flex:0 0 auto;}
+  .tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px;}
+  @media(max-width:640px){.tgrid{grid-template-columns:repeat(3,1fr);gap:9px;}}
+  .tcard{background:#fff;border-radius:16px;padding:7px;box-shadow:0 8px 20px rgba(31,58,77,.12);}
+  .tcard .tm{position:relative;height:84px;border-radius:11px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;}
+  .tcard .tm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .tcard .tl{font-family:Georgia,serif;font-style:italic;font-size:30px;color:#fff;line-height:1;}
+  .tcard .tn{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:12px;font-weight:700;color:var(--ink);
+    margin-top:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;}
+  .tcard .tc{font-family:'Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--deep);text-align:center;margin-top:2px;}
+  .tcard.locked .tm,.tcard.locked .tn,.tcard.locked .tc{filter:blur(6px);}
+  .tcard.locked{overflow:hidden;}
+  .tcard.open{outline:3px solid var(--coral);outline-offset:-1px;}
+  .backlog{position:relative;margin:26px auto 6px;max-width:440px;height:96px;}
+  .backlog .bl2{position:absolute;inset:26px 34px 0;background:rgba(255,255,255,.45);border-radius:16px;}
+  .backlog .bl1{position:absolute;inset:13px 17px 0;background:rgba(255,255,255,.7);border-radius:16px;}
+  .backlog .bl0{position:absolute;inset:0 0 auto;height:72px;background:#fff;border-radius:16px;box-shadow:0 10px 26px rgba(31,58,77,.16);
+    display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:0 14px;}
+  .backlog .blbig{font-style:italic;font-weight:700;font-size:clamp(17px,3vw,22px);color:var(--ink);}
+  .backlog .blsub{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:12.5px;font-weight:600;color:var(--soft);}
+  .specnote{font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:14px;color:var(--soft);margin-top:16px;max-width:62ch;line-height:1.55;}
+
+  .tcard.open{cursor:pointer;}
+  /* per-card detail overlay, mirrors the zone page modal */
+  .specov{position:fixed;inset:0;background:rgba(12,40,60,.6);z-index:99;display:none;overflow-y:auto;padding:30px 16px;}
+  .specov.open{display:block;}
+  .specmodal{max-width:640px;margin:0 auto;background:#fff;border-radius:22px;overflow:hidden;position:relative;
+    font-family:'Avenir Next','Segoe UI','Helvetica Neue',system-ui,-apple-system,sans-serif;line-height:1.5;
+    box-shadow:0 24px 60px rgba(10,30,45,.35);}
+  .specclose{position:absolute;top:14px;right:14px;z-index:5;background:#fff;color:var(--ink);border:none;
+    font:inherit;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:9px 15px;
+    border-radius:999px;cursor:pointer;box-shadow:0 4px 12px rgba(10,30,45,.25);}
+  .specclose:hover{background:var(--coral);color:#fff;}
+  .smedia{position:relative;aspect-ratio:16/8;background:linear-gradient(160deg,#0C8B97 0%,#39C4CF 100%);overflow:hidden;}
+  .smedia img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .stag{position:absolute;z-index:3;top:12px;left:12px;background:#0FA3B1;color:#fff;font-size:10.5px;font-weight:800;
+    letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;}
+  .sinner{padding:26px 30px 30px;}
+  .skick{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--sand);color:var(--deep);padding:6px 12px;border-radius:999px;margin-bottom:12px;}
+  .sname{font-family:Georgia,serif;font-weight:bold;font-size:30px;line-height:1.1;margin-bottom:10px;color:var(--ink);}
+  .sblurb{font-size:16px;font-style:italic;color:var(--soft);margin-bottom:18px;}
+  .ssec{margin-top:16px;}
+  .ssec .slab,.sfacts .slab{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-bottom:5px;}
+  .ssec p{font-size:14.5px;line-height:1.6;color:#39566B;}
+  .sfacts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px;padding-top:16px;border-top:2px dashed var(--line);}
+  .sfacts div div{font-size:14.5px;color:var(--ink);}
+  @media(max-width:560px){.sfacts{grid-template-columns:1fr;}}
+
+  /* taste stage: visually distinct from the hotel step */
+  #tastes{background:#fff;border-radius:24px;padding:22px 24px 26px;margin-top:26px;box-shadow:0 10px 28px rgba(31,58,77,.1);}
+  .tastehead{font-size:clamp(19px,3vw,24px);font-style:italic;color:var(--ink);margin:6px 0 2px;}
+  #tastes .qq .ql{color:var(--soft);}
+  #tastes .qbtn{background:var(--sand);box-shadow:none;border:2px solid transparent;}
+  #tastes .qbtn:hover{border-color:var(--sea);}
+  #tastes .qbtn[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:#fff;box-shadow:0 10px 26px rgba(15,163,177,.35);}
+
   ol.how{margin:12px 0 0 20px;font-size:15.5px;}
   ol.how li{margin-bottom:8px;}
-  .band{background:#EFE7D4;}
-  footer{background:var(--navy);color:#B9C6D0;padding:34px 0;font-size:13px;}
-  footer p{margin-bottom:8px;max-width:70ch;}
-  .qq{margin:18px 0 0;}
-  .qq .ql{font-family:'Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:8px;}
-  .qopts{display:flex;flex-wrap:wrap;gap:8px;}
-  .qbtn{font-family:Georgia,serif;font-size:14.5px;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:8px 15px;cursor:pointer;color:var(--ink);}
-  .qbtn[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--cream);}
-  select#qzone{font-family:Georgia,serif;font-size:15px;padding:9px 12px;border:1.5px solid var(--navy);border-radius:8px;background:#fff;color:var(--ink);max-width:100%;}
-  #preview{margin-top:22px;}
-  #preview .pvhead{font-style:italic;font-size:clamp(18px,3vw,22px);color:var(--navy);margin-bottom:4px;}
-  #preview .pvsub{font-size:13.5px;color:var(--soft);margin-bottom:10px;}
-  .paybtn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-family:'Courier New',monospace;font-weight:700;letter-spacing:.08em;font-size:15px;padding:13px 22px;border-radius:10px;margin-top:12px;}
-  .paybtn:hover{background:var(--coral-d);}
-  .pvmore{font-size:13px;color:var(--soft);margin-top:8px;}
+  .band{background:#F3E9D2;}
+  html{scroll-behavior:smooth;}
+
+  /* footer */
+  footer{background:var(--navy);color:#8FA3B4;padding:52px 0 40px;
+    font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;font-size:13.5px;line-height:1.6;}
+  footer .fbrand{border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:22px;margin-bottom:26px;}
+  footer .fmark{display:block;font-family:Georgia,serif;font-style:italic;font-size:24px;color:var(--sand);}
+  footer .ftag{display:block;font-size:13.5px;color:#8FA3B4;margin-top:6px;}
+  footer .fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 24px;}
+  @media(max-width:720px){footer .fgrid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:420px){footer .fgrid{grid-template-columns:1fr;}}
+  footer .flab{display:block;font-family:'Courier New',monospace;font-size:10.5px;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  footer .fcol p{margin:0 0 8px;max-width:34ch;}
+  footer a{color:var(--sand);text-decoration:none;border-bottom:1px solid rgba(251,243,228,.35);}
+  footer a:hover{color:#fff;border-bottom-color:#fff;}
+  footer .frule{height:1px;background:rgba(255,255,255,.12);margin:30px 0 18px;}
+  footer .fcopy{font-family:'Courier New',monospace;font-size:11.5px;letter-spacing:.06em;color:#6E8194;margin:0;}
 </style>
 </head>
 <body>
-<div class="hero"><div class="wrap">
-  <p class="kick">The Summer List · Ayia Napa</p>
-  <h1>The 12 things worth doing, what each costs, how you get there from your hotel.</h1>
-  <p class="sub">We checked 300 places, opening hours and bus routes. These 12 won. Pick your hotel area, pay EUR 29, and your list opens on the very next screen.</p>
-  <p class="micro">Instant access · No app · Works as a saved page or PDF</p>
-</div></div>
 
-<section><div class="wrap">
-  <h2>Four taps, then see your first three</h2>
-  <p>Answer four questions and pick your hotel area. We show three of your twelve with real walking times before you pay a cent.</p>
+<div class="hero">
+  <div class="sun"></div>
+  <div class="wrap">
+    <p class="kick">The Summer List</p>
+    <h1>One honest list for the town you just landed in.</h1>
+    <p class="sub">The 12 things worth doing, what each costs, how you get there from your hotel. We do the research so the holiday does not feel like homework.</p>
+    <p class="micro">EUR 29 · Instant access · No app · Works as a saved page or PDF</p>
+  </div>
+</div>
 
-  <div class="qq"><span class="ql">1 · Most days you want to be</span>
+<section id="napa" class="band"><div class="wrap">
+  <h2>You say what you like. We hand you your 12.</h2>
+  <p style="margin-top:10px">Find your hotel and answer four quick questions. Your twelve appear before you pay a cent, first one open.</p>
+
+  <div class="qq"><span class="ql" style="color:var(--sea)">Step 1 · Your hotel</span>
+    <p class="qhint">Type two letters, then tap your hotel when it pops up.</p>
+    <input id="qhotel" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your hotel, like Napa or Adams" aria-label="Your hotel">
+    <div id="qsugg" role="listbox"></div>
+    <div id="qareas" hidden></div></div>
+
+  <div id="tastes" hidden>
+    <p class="kick" style="color:var(--sea)">Step 2 · Your kind of week</p>
+    <h3 class="tastehead">Now, what do you actually want?</h3>
+    <div class="qq"><span class="ql">Most days you want to be</span>
     <div class="qopts" data-q="1">
       <button class="qbtn" type="button" data-v='{"beach":3}'>On the beach</button>
       <button class="qbtn" type="button" data-v='{"water":3}'>In the water</button>
       <button class="qbtn" type="button" data-v='{"sight":2,"daytrip":2}'>Out seeing things</button>
       <button class="qbtn" type="button" data-v='{"well":2,"beach":1}'>By the pool, slowly</button>
     </div></div>
-  <div class="qq"><span class="ql">2 · Evenings are for</span>
+  <div class="qq"><span class="ql">Evenings are for</span>
     <div class="qopts" data-q="2">
       <button class="qbtn" type="button" data-v='{"night":3}'>Going out until late</button>
       <button class="qbtn" type="button" data-v='{"food":3}'>A good dinner</button>
       <button class="qbtn" type="button" data-v='{"beach":1,"well":1,"food":1}'>Sunset and a drink</button>
       <button class="qbtn" type="button" data-v='{"well":2}'>An early night</button>
     </div></div>
-  <div class="qq"><span class="ql">3 · One splurge this week</span>
+  <div class="qq"><span class="ql">One splurge this week</span>
     <div class="qopts" data-q="3">
       <button class="qbtn" type="button" data-v='{"boat":3}'>A boat day</button>
       <button class="qbtn" type="button" data-v='{"water":3}'>Waterpark or jet skis</button>
       <button class="qbtn" type="button" data-v='{"daytrip":3}'>A day trip away</button>
       <button class="qbtn" type="button" data-v='{"well":3}'>A spa afternoon</button>
     </div></div>
-  <div class="qq"><span class="ql">4 · You are travelling as</span>
+  <div class="qq"><span class="ql">You are travelling as</span>
     <div class="qopts" data-q="4">
       <button class="qbtn" type="button" data-v='{"food":1,"boat":1}'>A couple</button>
       <button class="qbtn" type="button" data-v='{"night":1,"water":1}'>Friends</button>
       <button class="qbtn" type="button" data-v='{"beach":1,"water":1}'>Family with kids</button>
       <button class="qbtn" type="button" data-v='{"sight":1,"daytrip":1}'>Solo</button>
     </div></div>
-  <div class="qq"><span class="ql">5 · Your hotel area</span>
-    <select id="qzone"><option value="">Pick your hotel area</option></select></div>
-
-  <div id="preview" hidden></div>
+  </div>
   <!--QUIZDATA-->
   <script>
   (function(){
     var picked = {1:null,2:null,3:null,4:null};
-    var zoneSel = document.getElementById('qzone');
-    var preview = document.getElementById('preview');
+    var hotelIn = document.getElementById('qhotel');
+    var suggBox = document.getElementById('qsugg');
+    var areaBox = document.getElementById('qareas');
+    var chosen = null;
+    var lastMiss = '';
+    var restoring = false;
+
+    var INDEX = [];
     SL.zones.forEach(function(z){
-      var o = document.createElement('option');
-      o.value = z.s; o.textContent = z.n + ' (' + z.h + ')';
-      zoneSel.appendChild(o);
+      z.hl.forEach(function(h){
+        INDEX.push({ h: h, s: z.s, a: z.n, k: h.toLowerCase().replace(/[^a-z0-9]/g, '') });
+      });
+    });
+    function norm(q){ return q.toLowerCase().replace(/[^a-z0-9]/g, ''); }
+
+    // the moat, computed in the browser: same logic as scripts/build.mjs
+    function haversine(a, b){
+      var R = 6371000, toR = function(d){ return d * Math.PI / 180; };
+      var dLat = toR(b[0] - a[0]), dLon = toR(b[1] - a[1]);
+      var h = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toR(a[0])) * Math.cos(toR(b[0])) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      return 2 * R * Math.asin(Math.sqrt(h));
+    }
+    function walkMin(from, to){ return Math.max(1, Math.round(haversine(from, to) / SL.mpm)); }
+    function fromHotel(zoneLl, d){
+      var w = walkMin(zoneLl, d.ll);
+      var km = (haversine(zoneLl, d.ll) / 1000).toFixed(1);
+      if (d.mode === 'boat') return 'Departs the harbour, ' + walkMin(zoneLl, SL.harbour) + ' min walk to the quay';
+      if (d.mode === 'walk' || w <= 25) return d.bus ? w + ' min walk, or bus ' + d.bus : w + ' min walk';
+      if (d.bus) return 'Bus ' + d.bus + ', ' + km + ' km away';
+      if (d.mode === 'taxi') return 'Taxi or organised pickup, ' + km + ' km away';
+      return km + ' km away, bus or taxi';
+    }
+
+    function pickHotel(name, slug){
+      chosen = { slug: slug, hotel: name };
+      hotelIn.value = name;
+      hotelIn.classList.add('picked');
+      suggBox.textContent = '';
+      areaBox.hidden = true;
+      document.getElementById('tastes').hidden = false;
+      render();
+    }
+    function buildAreas(){
+      areaBox.textContent = '';
+      SL.zones.forEach(function(z){
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'hsug';
+        b.textContent = 'Closest to ' + z.n.toLowerCase();
+        b.addEventListener('click', function(){ pickHotel(z.n, z.s); });
+        areaBox.appendChild(b);
+      });
+    }
+    buildAreas();
+
+    function miniLabel(text){
+      var l = document.createElement('p');
+      l.className = 'hmiss';
+      l.textContent = text;
+      return l;
+    }
+    function notListedChip(){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'hsug alt';
+      b.textContent = 'My hotel is not listed';
+      b.addEventListener('click', function(){
+        suggBox.textContent = '';
+        suggBox.appendChild(miniLabel('No problem. Tap the part of town your hotel is in:'));
+        areaBox.hidden = false;
+      });
+      return b;
+    }
+    var POPULAR = ['Napa Plaza', 'Nissi Beach Resort', 'Adams Beach', 'Grecian Bay', 'Tasia Maris Beach', 'Asterias Beach'];
+    function showPopular(){
+      suggBox.textContent = '';
+      areaBox.hidden = true;
+      suggBox.appendChild(miniLabel('Popular hotels, or just start typing yours:'));
+      POPULAR.forEach(function(name){
+        var e = INDEX.filter(function(x){ return x.h === name; })[0];
+        if (!e) return;
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'hsug';
+        b.appendChild(document.createTextNode(e.h + ' '));
+        var sp = document.createElement('span'); sp.textContent = '· ' + e.a;
+        b.appendChild(sp);
+        b.addEventListener('click', function(){ pickHotel(e.h, e.s); });
+        suggBox.appendChild(b);
+      });
+      suggBox.appendChild(notListedChip());
+    }
+    hotelIn.addEventListener('focus', function(){
+      if (!chosen && norm(hotelIn.value).length < 2) showPopular();
+    });
+
+    hotelIn.addEventListener('input', function(){
+      chosen = null;
+      hotelIn.classList.remove('picked');
+      suggBox.textContent = '';
+      var q = norm(hotelIn.value);
+      if (q.length < 2) { areaBox.hidden = true; if (q.length === 0) showPopular(); return; }
+      var hits = INDEX.filter(function(e){ return e.k.indexOf(q) === 0; });
+      if (hits.length < 6) {
+        INDEX.forEach(function(e){
+          if (e.k.indexOf(q) > 0 && hits.indexOf(e) === -1) hits.push(e);
+        });
+      }
+      hits = hits.slice(0, 6);
+      if (hits.length) {
+        areaBox.hidden = true;
+        suggBox.appendChild(miniLabel('Tap your hotel:'));
+        hits.forEach(function(e){
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'hsug'; b.setAttribute('role', 'option');
+          b.innerHTML = '';
+          b.appendChild(document.createTextNode(e.h + ' '));
+          var sp = document.createElement('span'); sp.textContent = '· ' + e.a;
+          b.appendChild(sp);
+          b.addEventListener('click', function(){ pickHotel(e.h, e.s); });
+          suggBox.appendChild(b);
+        });
+        suggBox.appendChild(notListedChip());
+      } else {
+        suggBox.appendChild(miniLabel('Not finding that name:'));
+        suggBox.appendChild(notListedChip());
+        if (q.length >= 3 && q !== lastMiss) {
+          lastMiss = q;
+          try { navigator.sendBeacon('/api/e', 'hotel-miss:' + hotelIn.value.slice(0, 80)); } catch(e){}
+        }
+      }
     });
     function vecSum(){
       var v = {};
@@ -137,24 +376,79 @@
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     function render(){
       var v = vecSum();
-      var slug = zoneSel.value;
-      if (!v || !slug) return;
-      var prof = match(v);
+      if (!v || !chosen) return;
+      reveal(chosen.slug, chosen.hotel, match(v));
+    }
+    function reveal(slug, hotel, prof){
+      chosen = { slug: slug, hotel: hotel };
       var zone = SL.zones.filter(function(z){ return z.s === slug; })[0];
+      if (!SL.pre[slug] || !SL.pre[slug][prof]) prof = 'classic';
       var rows = SL.pre[slug][prof];
       try { localStorage.setItem('sl-intent', JSON.stringify({ z: slug, p: prof })); } catch(e){}
       try { history.replaceState(null, '', '#z=' + slug + '&p=' + prof); } catch(e){}
-      var html = '<div class="pvhead">Your first three, measured from ' + esc(zone.h.split(',')[0]) + '</div>' +
-        '<div class="pvsub">Three of your twelve. The other nine open the second you pay.</div>';
-      rows.forEach(function(r){
-        html += '<div class="sample"><b>' + esc(r.n) + '.</b> ' + esc(r.pr) + '. ' + esc(r.fr) + '.</div>';
+      var proof = document.getElementById('proof');
+      proof.hidden = false;
+      document.getElementById('proofHead').textContent = SL.labels[prof]
+        ? 'You said ' + SL.labels[prof] + '. Here are your 12.'
+        : 'Here are your 12, the classic cut.';
+      var det = SL.det[rows.t];
+      var fromLine = fromHotel(zone.ll, det);
+      document.getElementById('proofSub').textContent =
+        'The 12 most relevant for you: matched to your answers, measured from your ' + zone.n.toLowerCase() +
+        ' area, picked from the 400+ we researched. The first is open, the other eleven unlock the second you pay.';
+      var TINTS = ['#39C4CF', '#2E9CB0', '#F98A75', '#F09B5F', '#55A2EE', '#A57DE3', '#E5B93F', '#6FCBA3', '#0C8B97', '#C33A28', '#C2571C'];
+      var grid = document.getElementById('tgrid');
+      grid.textContent = '';
+      document.getElementById('gridhint').textContent = 'Tap ' + det.n + ' to see everything one card holds.';
+      var open = document.createElement('div');
+      open.className = 'tcard open';
+      open.addEventListener('click', function(){ openSpec(det, fromLine); });
+      var tm = document.createElement('div'); tm.className = 'tm';
+      tm.style.background = 'linear-gradient(160deg,#0C8B97 0%,#39C4CF 100%)';
+      var tl = document.createElement('span'); tl.className = 'tl'; tl.textContent = det.n[0];
+      tm.appendChild(tl);
+      if (det.i >= 0) {
+        var im = document.createElement('img');
+        im.src = SL.imgs[det.i]; im.alt = det.n; im.loading = 'lazy';
+        im.onerror = function(){ this.remove(); };
+        tm.appendChild(im);
+      }
+      var tn = document.createElement('div'); tn.className = 'tn'; tn.textContent = det.n;
+      var tc = document.createElement('div'); tc.className = 'tc'; tc.textContent = det.c;
+      open.appendChild(tm); open.appendChild(tn); open.appendChild(tc);
+      grid.appendChild(open);
+      for (var k = 0; k < 11; k++) {
+        var lc = document.createElement('div');
+        lc.className = 'tcard locked';
+        var m = document.createElement('div'); m.className = 'tm';
+        m.style.background = 'linear-gradient(160deg,' + TINTS[k] + ' 0%,' + TINTS[(k + 4) % 11] + ' 100%)';
+        var l = document.createElement('span'); l.className = 'tl'; l.textContent = String.fromCharCode(65 + ((k * 7) % 26));
+        m.appendChild(l);
+        var gi = rows.g[k + 1];
+        if (gi >= 0) {
+          var gim = document.createElement('img');
+          gim.src = SL.imgs[gi]; gim.alt = ''; gim.loading = 'lazy';
+          gim.onerror = function(){ this.remove(); };
+          m.appendChild(gim);
+        }
+        var n2 = document.createElement('div'); n2.className = 'tn'; n2.textContent = 'Locked pick';
+        var c2 = document.createElement('div'); c2.className = 'tc'; c2.textContent = rows.gc[k + 1];
+        lc.appendChild(m); lc.appendChild(n2); lc.appendChild(c2);
+        grid.appendChild(lc);
+      }
+      ['proofCta', 'proofCtaTop'].forEach(function(id){
+        var pc = document.getElementById(id);
+        if (zone.u) {
+          pc.href = zone.u;
+          pc.textContent = 'Unlock all 12 for EUR ' + SL.price;
+          pc.hidden = false;
+        } else { pc.hidden = true; }
       });
-      html += zone.u
-        ? '<a class="paybtn" href="' + zone.u + '">Unlock all 12 for EUR ' + SL.price + '</a>'
-        : '<p class="pvmore">Checkout for this area opens shortly.</p>';
-      html += '<p class="pvmore">Instant access on the next screen. No app, no email wait.</p>';
-      preview.hidden = false;
-      preview.innerHTML = html;
+      var sticky = document.getElementById('stickybuy');
+      var scta = document.getElementById('stickyCta');
+      if (zone.u) { scta.href = zone.u; scta.textContent = 'Unlock for EUR ' + SL.price; sticky.hidden = false; }
+      else { sticky.hidden = true; }
+      if (!restoring) proof.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     document.querySelectorAll('.qopts').forEach(function(g){
       var q = g.getAttribute('data-q');
@@ -167,40 +461,132 @@
         });
       });
     });
-    zoneSel.addEventListener('change', render);
-    var m = location.hash.match(/z=([a-z0-9]+)&p=([a-z]+)/);
-    if (m && SL.pre[m[1]]) { zoneSel.value = m[1]; }
+    function escH(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    var CATBG = { beach:'#0FA3B1', water:'#1B62B5', sight:'#E07A3F', boat:'#0C7489', daytrip:'#C99114', food:'#E85D4A', night:'#8757C9', well:'#4CAF8D' };
+    function catColor(c){ return CATBG[c] || '#0C7489'; }
+    // the detail modal, from the real top pick with the live hotel-relative line
+    function openSpec(det, fromLine){
+      var ov = document.getElementById('specov');
+      if (!ov || !det) return;
+      var img = det.i >= 0
+        ? '<img src="' + escH(SL.imgs[det.i]) + '" alt="' + escH(det.n) + '" loading="lazy" onerror="this.remove()">'
+        : '';
+      var col = catColor(det.cat);
+      document.getElementById('specmedia').style.background = 'linear-gradient(160deg,' + col + ' 0%,' + col + 'bb 100%)';
+      document.getElementById('specmedia').innerHTML = img + '<span class="stag" style="background:' + col + '">' + escH(det.c) + '</span>';
+      document.getElementById('specinner').innerHTML =
+        '<span class="skick">' + escH(det.c) + '</span>' +
+        '<div class="sname">' + escH(det.n) + '</div>' +
+        '<p class="sblurb">' + escH(det.v) + '</p>' +
+        '<div class="ssec"><span class="slab">The story</span><p>' + escH(det.d) + '</p></div>' +
+        (det.tip ? '<div class="ssec"><span class="slab">Tip</span><p>' + escH(det.tip) + '</p></div>' : '') +
+        '<div class="sfacts">' +
+        '<div><span class="slab">Price</span><div>' + escH(det.pr) + '</div></div>' +
+        '<div><span class="slab">Time it takes</span><div>' + escH(det.dur) + '</div></div>' +
+        '<div><span class="slab">From your area</span><div>' + escH(fromLine) + '</div></div>' +
+        '</div>';
+      if (!ov.dataset.wired) {
+        ov.dataset.wired = '1';
+        ov.addEventListener('click', function(e){ if (e.target === ov) ov.classList.remove('open'); });
+        document.getElementById('specclose').addEventListener('click', function(){ ov.classList.remove('open'); });
+      }
+      ov.classList.add('open');
+    }
+
+    var booted = false;
+    function boot(){
+      if (booted) return;
+      if (!document.getElementById('proof')) return; // DOM for the reveal not ready yet
+      booted = true;
+      // a bookmarked or shared link rebuilds the reveal; a plain visit always starts fresh
+      var m = location.hash.match(/z=([a-z0-9]+)&p=([a-z]+)/);
+      if (m && SL.pre[m[1]] && SL.pre[m[1]][m[2]]) {
+        var rz = SL.zones.filter(function(z){ return z.s === m[1]; })[0];
+        if (rz) {
+          hotelIn.value = rz.n; hotelIn.classList.add('picked');
+          document.getElementById('tastes').hidden = false;
+          restoring = true; reveal(rz.s, rz.n, m[2]); restoring = false;
+        }
+      }
+    }
+    boot();
+    document.addEventListener('DOMContentLoaded', boot);
+    window.addEventListener('load', boot);
   })();
   </script>
 </div></section>
 
-<section class="band"><div class="wrap">
-  <h2>Every entry looks like this</h2>
-  <div class="sample">
-    <span class="cat">Boat trip</span><br>
-    <b>Blue Lagoon cruise.</b> About EUR 25 per person. Departs the harbour, 6 min walk from centre hotels. Book a day ahead in high season.
+<section id="proof" hidden><div class="wrap">
+  <div class="proofrow">
+    <div>
+      <p class="kick" style="color:var(--brown)">What you get</p>
+      <h2 id="proofHead">Here are your 12.</h2>
+      <p class="proofsub" id="proofSub">The 12 most relevant for you, matched to your answers and picked from the 400+ we researched. The first is open, the other eleven unlock the second you pay.</p>
+    </div>
+    <a class="paybtn" id="proofCtaTop" href="#" hidden>Unlock all 12</a>
   </div>
-  <p>What it is, what it costs in euros, how you get there from your hotel. Twelve of those, plus ten more behind two free reveals when the twelve are ticked off. No browsing, no stars, no scrolling through 200 options at the pool.</p>
+  <div class="tgrid" id="tgrid"></div>
+  <p class="pvmore" style="margin-top:12px" id="gridhint">Tap the open card to see everything one card holds.</p>
+  <div class="backlog">
+    <div class="bl2"></div><div class="bl1"></div>
+    <div class="bl0"><span class="blbig">+39 in the backlog, included</span><span class="blsub">the rest of the 51 place list ships with your 12, for when plans change</span></div>
+  </div>
+  <p class="specnote" style="margin-top:22px">Every card gives what it is, what it costs in euros, and how you get there from your area. Ten more open behind two free reveals when the twelve are ticked off.</p>
+  <a class="paybtn" id="proofCta" href="#" hidden>Unlock all 12</a>
+  <p class="pvmore">Instant access on the next screen. No app, no email wait. Less than two sunbeds with umbrellas.</p>
 </div></section>
 
-<section><div class="wrap">
-  <h2>Skip the quiz: pick your hotel area <span class="price">· EUR 29</span></h2>
-  <p>Walking times and bus lines are measured from your part of town, not from a generic map pin.</p>
-  <div class="zgrid"><!--ZONES--></div>
-</div></section>
+<div class="stickybuy" id="stickybuy" hidden>
+  <span class="sbt">Your 12 is ready</span>
+  <a class="paybtn sb" id="stickyCta" href="#">Unlock for EUR 29</a>
+</div>
+
+<div class="specov" id="specov"><div class="specmodal">
+  <button class="specclose" id="specclose" type="button">Close</button>
+  <div class="smedia" id="specmedia"></div>
+  <div class="sinner" id="specinner"></div>
+</div></div>
 
 <section><div class="wrap">
   <h2>How it works</h2>
   <ol class="how">
-    <li>Choose your hotel area above and pay with card or wallet. Checkout is by Stripe.</li>
-    <li>The paid page opens immediately on the next screen. That page is your list.</li>
-    <li>Bookmark it, add it to your home screen, or save it as a PDF for the beach. Your receipt email carries the same link as backup.</li>
+    <li>Type your hotel, tap it, and answer four quick questions about your kind of week.</li>
+    <li>Your twelve appear, first one open. Pay with card or wallet, checkout is by Stripe.</li>
+    <li>Your full list opens immediately on the next screen. Bookmark it, add it to your home screen, or save it as a PDF for the beach. Your receipt email carries the same link as backup.</li>
   </ol>
 </div></section>
 
-<footer><div class="wrap">
-  <p>The Summer List by Vegard · Ayia Napa EUR 29 · Rhodes and Albufeira next season.</p>
-  <p>We log page opens and taps on paid pages to improve the list. Nothing is sold or shared, and nothing identifies you beyond your link.</p>
-</div></footer>
+<footer>
+  <div class="wrap">
+    <div class="fbrand">
+      <span class="fmark">The Summer List</span>
+      <span class="ftag">The 12 things worth doing, priced and measured from your hotel.</span>
+    </div>
+    <div class="fgrid">
+      <div class="fcol">
+        <span class="flab">Seller</span>
+        <p>A product of Capital Control AS, registered in Norway.</p>
+      </div>
+      <div class="fcol">
+        <span class="flab">Payment and delivery</span>
+        <p>Payments and cards handled by Stripe. VAT calculated at checkout.</p>
+        <p>Delivered instantly as a hosted page, kept online for 12 months.</p>
+      </div>
+      <div class="fcol">
+        <span class="flab">Your rights</span>
+        <p>By buying you agree to immediate access and waive the 14 day right of withdrawal.</p>
+        <p>Questions, refunds and receipts: <a href="mailto:hello@getsummerlist.com">hello@getsummerlist.com</a></p>
+      </div>
+      <div class="fcol">
+        <span class="flab">Privacy</span>
+        <p>We log opens, taps and unmatched hotel searches to improve the list.</p>
+        <p>Nothing is sold or shared, and nothing identifies you.</p>
+      </div>
+    </div>
+    <div class="frule"></div>
+    <p class="fcopy">&copy; 2026 Capital Control AS. getsummerlist.com</p>
+  </div>
+</footer>
+
 </body>
 </html>

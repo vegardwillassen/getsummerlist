@@ -82,6 +82,18 @@ if (existsSync(distDir)) {
   console.log('note: dist/ not built yet, page checks skipped. Run npm run build first for full coverage.');
 }
 
+if (process.env.CHECK_IMAGES) {
+  const urls = [...new Set(places.filter(p => p.img).map(p => p.img))];
+  console.log('checking ' + urls.length + ' image URLs...');
+  const results = await Promise.all(urls.map(async u => {
+    try {
+      const r = await fetch(u, { method: 'HEAD', redirect: 'follow' });
+      return r.ok ? null : 'image: ' + r.status + ' for ' + u;
+    } catch (e) { return 'image: unreachable ' + u; }
+  }));
+  for (const r of results) if (r) errors.push(r);
+}
+
 if (errors.length) {
   console.error('CHECK FAILED, ' + errors.length + ' error(s):');
   for (const e of errors) console.error('  ✗ ' + e);

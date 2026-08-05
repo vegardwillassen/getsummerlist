@@ -205,7 +205,7 @@
   "getting": "Bus 102 to its Waterpark terminus, about 20 minutes, €2; the park is the end of the line. Taxi €12 to 15.",
   "maps": "https://www.google.com/maps/search/?api=1&query=WaterWorld%20Waterpark%20Ayia%20Napa",
   "web": "https://waterworldwaterpark.com",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Waterworld%20Waterpark%2C%20Ayia%20Napa%2C%20Cyprus.jpg?width=900"
  },
  {
   "id": "scuba",
@@ -231,7 +231,7 @@
   "getting": "Walk 5 minutes to the shop in the town centre; the centre arranges transport to the dive site.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Just%20Scuba%20Diving%20Centre%20Ayia%20Napa",
   "web": "https://napadiving.com",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Musan%20Underwater%20Sculpture%20Museum%3B%20Cyprus%3B%20Aiya%20Napa.jpg?width=900"
  },
  {
   "id": "kayak-caves",
@@ -439,7 +439,7 @@
   "getting": "Walk 10 to 12 minutes downhill straight down Makariou Avenue to the sea.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour%20Limanaki",
   "web": null,
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/FamagustaDistrict%2001-2017%20img11%20Agia%20Napa.jpg?width=900"
  },
  {
   "id": "luna-park",
@@ -543,7 +543,7 @@
   "getting": "Taxi €12 to 15, about 12 minutes. Or bus 102 toward the Waterpark end and walk 25 minutes along the coast path. Combines with the marina, a 15 minute walk away.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Thekla%20Chapel%20Ayia%20Napa",
   "web": null,
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/02%20Cyprus%20vacation%2C%20sandy%20beach%20of%20Ayia%20Thekla%2C%20Sotira%2C%20Cyprus.jpg?width=900"
  },
  {
   "id": "blue-lagoon-cruise",
@@ -621,7 +621,7 @@
   "getting": "Walk 10 minutes to the harbour; board by 10:00. Book online with CyCruises or at the quay.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour",
   "web": "https://cycruises.com/ayia-napa-boat-trips/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Famagusta-Varosha%202007.JPG?width=900"
  },
  {
   "id": "sunset-cruise",
@@ -647,7 +647,7 @@
   "getting": "Walk 10 minutes to the harbour; boarding usually 40 minutes before departure.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Harbour",
   "web": "https://famagustanapaboat.com/en-gb/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Ayia%20Napa%20from%20Cape%20Greco%202.jpg?width=900"
  },
  {
   "id": "fig-tree",
@@ -673,7 +673,7 @@
   "getting": "Walk 2 to 3 minutes to the 101/102 stop on Makariou Avenue or by the monastery; pay the driver. Get off at Fig Tree Bay or Protaras centre.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Fig%20Tree%20Bay%20Protaras",
   "web": "https://osea.com.cy/en/bus-routes/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Fig%20Tree%20Bay.jpg?width=900"
  },
  {
   "id": "larnaca",
@@ -699,7 +699,7 @@
   "getting": "Catch the Intercity bus at the stop by the monastery on Makariou Avenue, 3 to 5 minutes from the hotel. No booking, pay the driver.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Finikoudes%20Promenade%20Larnaca",
   "web": "https://intercity-buses.com/en/routes/larnaca-ayia-napa-paralimni-paralimni-ayia-napa-larnaca/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Larnaca%2001-2017%20img14%20Finikoudes.jpg?width=900"
  },
  {
   "id": "varosha",
@@ -725,7 +725,7 @@
   "getting": "Coach pickup at or near Napa Plaza; confirm the exact point when booking. Book at least 48 hours ahead. Passports required.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Varosha%20Famagusta",
   "web": "https://www.getyourguide.com/ayia-napa-l124743/from-ayia-napa-famagusta-salamis-full-day-tour-t787347/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Cyprus%20-%20Famagusta%20Varosha%2007.JPG?width=900"
  },
  {
   "id": "nicosia",
@@ -751,7 +751,7 @@
   "getting": "Board the Nicosia bus at the Makariou Avenue and monastery stops, 3 to 5 minutes from the hotel. Passport needed only to cross at Ledra Street.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Ledra%20Street%20Nicosia",
   "web": "https://intercity-buses.com/en/routes/nicosia-ayia-napa-paralimni-ayia-napa-paralimni-nicosia/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Nicosia%20Ledra%20street%20view%20from%20north.jpg?width=900"
  },
  {
   "id": "vassos",
@@ -777,7 +777,7 @@
   "getting": "Walk 10 to 12 minutes downhill via Makariou Avenue to the harbour.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Vassos%20Psarolimano%20Fish%20Tavern%20Ayia%20Napa",
   "web": "https://vassosfishtavern.com/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/FamagustaDistrict%2001-2017%20img11%20Agia%20Napa.jpg?width=900"
  },
  {
   "id": "sage",
@@ -829,7 +829,7 @@
   "getting": "Walk 4 to 5 minutes, just behind the monastery square.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Stamna%20Taverna%20Ayia%20Napa",
   "web": "https://stamnatavern.com/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Grilled%20haloumi%20cheese.jpg?width=900"
  },
  {
   "id": "kota",
@@ -855,7 +855,7 @@
   "getting": "Walk 4 to 5 minutes, near the Square area.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Kota%20Greek%20Souvlaki%20Ayia%20Napa",
   "web": null,
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Souvla.jpg?width=900"
  },
  {
   "id": "mexicanos",
@@ -959,7 +959,7 @@
   "getting": "Taxi 8 to 10 minutes, €5 to 8, or the Nissi Avenue bus 102.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Isola%20Beach%20Bar%20Nissi%20Beach%20Ayia%20Napa",
   "web": "https://www.isolabeachbar.com/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/2022_03_Nissi_beach_1.jpg?width=900"
  },
  {
   "id": "river-rock",
@@ -1063,7 +1063,7 @@
   "getting": "Walk 8 to 10 minutes to the harbour end of Pantachou beach; the operator confirms the exact meeting point when you book.",
   "maps": "https://www.google.com/maps/search/?api=1&query=MUSAN%20Underwater%20Museum%20Ayia%20Napa",
   "web": "https://musan.com.cy/",
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Musan%20Underwater%20Sculpture%20Museum%3B%20Cyprus%3B%20Aiya%20Napa.jpg?width=900"
  },
  {
   "id": "spa",
@@ -1115,7 +1115,7 @@
   "getting": "Central venues are a 3 to 10 minute walk; reception can point you to this week's host.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Ayia%20Napa%20Square",
   "web": null,
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Meze.jpg?width=900"
  },
  {
   "id": "potamos",
@@ -1141,7 +1141,7 @@
   "getting": "Taxi 12 to 15 minutes west. No direct bus; agree a pickup time with the driver or ask the taverna to call your return taxi.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Potamos%20Liopetriou",
   "web": null,
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Cyprus%20Potamos%20Liopetri%20Fish%20Tavern%20Traditional.jpg?width=900"
  },
  {
   "id": "horse-riding",
@@ -1245,7 +1245,7 @@
   "getting": "Walk 5 minutes via the square; the strip runs along Ayias Mavris.",
   "maps": "https://www.google.com/maps/search/?api=1&query=Bar%20Street%20Ayia%20Napa",
   "web": null,
-  "img": null
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Cyprus,_Ayia_Napa._2017-12-30.jpg?width=900"
  },
  {
   "id": "castle-club",

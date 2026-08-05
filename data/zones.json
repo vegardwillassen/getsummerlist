@@ -5,7 +5,7 @@
   "walk_metres_per_minute": 80,
   "price_eur": 29,
   "meta_pixel_id": null,
-  "note": "Zone centroids and hotel lists are estimates. Verify before selling (H2)."
+  "note": "Zone centroids and hotel lists are estimates. Hotel lists expanded from web research 5 Aug 2026; verify zone assignment of each hotel before selling (H2)."
  },
  "zones": [
   {
@@ -20,7 +20,28 @@
     "Napa Mermaid",
     "Tofinis",
     "Faros",
-    "Melpo Antia"
+    "Melpo Antia",
+    "Nestor",
+    "Stamatia",
+    "Anesis",
+    "Chrysland",
+    "Corfu",
+    "Cornelia",
+    "Bellini",
+    "Sancta Napa",
+    "Pambos Napa Rocks",
+    "River Rock",
+    "Senator Hotel Apartments",
+    "Christabelle Hotel Apartments",
+    "Tsokkos Holiday Hotel Apartments",
+    "Anthea Hotel Apartments",
+    "Paul Marie Hotel Apartments",
+    "Pavlinia Hotel",
+    "Summer's Hotel Apartments",
+    "Abacus Suites",
+    "Green Bungalows",
+    "Livas Hotel Apartments",
+    "Sea Cleonapa"
    ],
    "slug": "1bk8n0u7ummc",
    "stripe_link": "https://buy.stripe.com/test_5kQ6oH6BK1dZe4H4Gsawo01"
@@ -36,7 +57,9 @@
     "Limanaki Beach",
     "Okeanos Beach",
     "So White Club Resort",
-    "Sunwing Sandy Bay"
+    "Sunwing Sandy Bay",
+    "Blue Harbour Boutique Apartments",
+    "Christopher's Sandy Beach Suites"
    ],
    "slug": "dycysj6oclow",
    "stripe_link": "https://buy.stripe.com/test_14A28r1hqbSD7Gj3Coawo02"
@@ -52,7 +75,9 @@
     "Grecian Bay",
     "Grecian Sands",
     "Alion Beach",
-    "Nelia Beach"
+    "Nelia Beach",
+    "Kermia Beach Bungalow Hotel",
+    "Cape Serenity Resort"
    ],
    "slug": "yfdrepmm6jsi",
    "stripe_link": "https://buy.stripe.com/test_7sYdR92lu9KvgcPc8Uawo03"
@@ -68,7 +93,20 @@
     "Tasia Maris Beach",
     "Anonymous Beach",
     "Christofinia",
-    "Pavlo Napa Beach"
+    "Pavlo Napa Beach",
+    "Tasia Maris Oasis",
+    "Tasia Maris Gardens",
+    "Tasia Maris Seasons",
+    "Piere-Anne Beach",
+    "Anmaria Beach",
+    "Aktea Beach Village",
+    "Panas Holiday Village",
+    "Tsokkos Paradise Village",
+    "Cyprotel Florida",
+    "Mon Repos",
+    "Rio Gardens Aparthotel",
+    "Amethyst Napa Hotel & Spa",
+    "Cosmelenia Hotel Apartments"
    ],
    "slug": "xxi1vidxsius",
    "stripe_link": "https://buy.stripe.com/test_cNi8wPgcke0L7Gj2ykawo04"
@@ -84,7 +122,12 @@
     "Nissi Beach Resort",
     "Adams Beach",
     "Nissi Park",
-    "Vassos Nissi Plage"
+    "Vassos Nissi Plage",
+    "Adams Beach Deluxe Wing",
+    "Nissiblu Beach Resort",
+    "Nissiana Hotel & Bungalows",
+    "Tasia Maris Sands",
+    "Simos Magic Beach Hotel"
    ],
    "slug": "ptpsxxiuuqie",
    "stripe_link": "https://buy.stripe.com/test_eVqcN54tC09V5yb6OAawo05"
@@ -100,7 +143,12 @@
     "Asterias Beach",
     "Olympic Lagoon Resort",
     "Atlantica Mare Village",
-    "Makronissos Village"
+    "Makronissos Village",
+    "Atlantica Aeneas Resort",
+    "Makronissos Beach Villas",
+    "Dome Beach Marina Hotel & Resort",
+    "Chrysomare Beach Hotel & Resort",
+    "Cavo Zoe Seaside Hotel"
    ],
    "slug": "tcmvgeriylc1",
    "stripe_link": "https://buy.stripe.com/test_aFadR9bW49KvgcP7SEawo06"
