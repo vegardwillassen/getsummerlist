@@ -356,10 +356,10 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
          d:'Done: the preview renders three entries with real walking times from the chosen zone before payment, CTA is that zone payment link.'},
         {id:'3.6', owner:'Claude Code', done:true, t:'Move inlined CSS and JS to shared cached files',
          d:'Done: hashed files under /a/ with immutable caching. Zone pages dropped from 39.5 to about 23 KB, 16 KB of headroom back under the 40 KB ceiling.'},
-        {id:'3.7', owner:'Claude Code', t:'Make the landing ad-ready',
-         d:'The page every ad clicks through to. Open Graph and twitter tags for the link preview, a favicon, and one copy pass checking the first scroll answers price and instant delivery. No og image yet, that asset does not exist.'},
-        {id:'3.8', owner:'Claude Code', t:'Draft the three ad creatives',
-         d:'Written from the entry format itself, English and Norwegian: the Blue Lagoon proof ad, the 300 checked 12 won decision ad, and the see three before you pay mechanic ad. Loading them into Meta stays in 5.3.'}
+        {id:'3.7', owner:'Claude Code', done:true, t:'Make the landing ad-ready',
+         d:'Done: Open Graph and twitter tags, a favicon, and the first scroll confirmed to answer price and instant delivery with the quiz directly under the hero. Still open for later: an og image, no asset exists yet.'},
+        {id:'3.8', owner:'Claude Code', done:true, t:'Draft the three ad creatives',
+         d:'Done in plan/ads.md, English and Norwegian: the Blue Lagoon proof ad, the 300 checked 12 won decision ad, and the see three before you pay mechanic ad, with geofence targeting and the kill rule. Loading them into Meta stays in 5.3.'}
       ]},
     { n:4, short:'Sale signal', title:'Sale tracking without a backend', deps:[],
       why:'Ads cannot optimise blind. The page Stripe redirects to is the only place a static site observes a completed purchase. The code is wired and dormant; it emits nothing until the pixel id exists.',
