@@ -214,9 +214,9 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
     <div class="hero-grid">
       <div>
         <h1>Eight deliverables in sequence. Do the open lanes, in order, until the map is gold.</h1>
-        <p class="lede">The quiz funnel is built and browser-tested, checkout works in Stripe test mode, and
-        the sale signal is wired. Every open task before the ad campaign is now yours: four data fields, the
-        centroids, VAT OSS, live links and the Netlify cutover. Tick a task and the whole board recomputes.</p>
+        <p class="lede">The funnel is built and browser-tested, checkout works in Stripe test mode. The
+        agreed order to live: finish the landing, draft the ads, prove the whole chain in test mode on the
+        Netlify preview, and only then do the live links get created. Tick a task and the board recomputes.</p>
       </div>
       <div class="overall">
         <span class="label">Overall</span>
@@ -316,14 +316,16 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
          d:'Done. The check also now fails any production deploy that still carries a test_ link, so the sandbox cannot leak into the live site.'},
         {id:'1.5', owner:'Vegard', t:'Register for VAT OSS before any ad spend',
          d:'A Norwegian AS selling digital goods to EU consumers. D10 assumed this happens before scaling, and paid ads are scaling.'},
-        {id:'1.6', owner:'Vegard', t:'Create the six live-mode Payment Links',
-         d:'Live links are separate Stripe objects. Same spec as the sandbox six, success URLs on the real slugs from the start. The production guard blocks deploys until these are in zones.json.'},
+        {id:'1.6', owner:'Claude Code', t:'Create the six live-mode Payment Links',
+         d:'Claude does this via the Stripe API, but only after 1.10 passes: home page done, ads drafted, test-mode flow proven end to end. Prerequisite from Vegard: activate the live Stripe account and switch the session connector to it. Success URLs on the real slugs, verified by API before anything is pasted.'},
         {id:'1.7', owner:'Vegard', t:'Netlify: import the repo, prove a preview deploy',
          d:'Build command and publish dir come from netlify.toml, production branch main. The first production deploy fails on test links by design; a branch or preview deploy passes with warnings and proves the build.'},
         {id:'1.8', owner:'Vegard', t:'Point DNS at Netlify, then merge the cutover branch',
          d:'Add getsummerlist.com in Netlify, switch DNS at the registrar, upgrade to Personal with auto-recharge (D6). Merge claude/summerlist-project-manager-ec36c1 only after DNS moves; it removes CNAME and the stale root index.html.'},
         {id:'1.9', owner:'Vegard', t:'Disable GitHub Pages and make the repo private',
-         d:'Pages is why the repo is public, and a public repo publishes the paid product. Once Netlify serves the site, flip both. Restores non-negotiable 2.'}
+         d:'Pages is why the repo is public, and a public repo publishes the paid product. Once Netlify serves the site, flip both. Restores non-negotiable 2.'},
+        {id:'1.10', owner:'Both', t:'Prove the funnel end to end in test mode',
+         d:'On the Netlify preview from 1.7: Claude repoints one sandbox link success URL at the preview domain, then the full click-through runs like a buyer would, ad copy to landing to quiz to Stripe test checkout with card 4242 to the zone list. Revert the URL after. This is the gate in front of the live links in 1.6.'}
       ]},
     { n:2, short:'Verify data', title:'Verified Ayia Napa data, all 51 places', deps:[],
       why:'Better than feared. The mode-aware scan shows the real debt is four fields, not dozens: 25 of the bus-less places are walks, 4 taxi, 5 boat. The bigger remaining job is confirming those modes and the centroids are actually right, because every from-your-hotel line rests on them. CHECK_STRICT=1 npm run check lists the gaps.',
@@ -340,7 +342,7 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
          d:'Done: default run warns with a gap count, CHECK_STRICT=1 fails and lists them, and every built page must carry exactly 22 cards. Flip strict on once 2.2 and 2.3 land.'}
       ]},
     { n:3, short:'Quiz funnel', title:'The quiz funnel', deps:[],
-      why:'Shipped and browser-tested: 19 of 19 Playwright scenarios pass, including the Stripe handoff, partner link restore, pick persistence and a 390px phone viewport. Static, no backend, no new dependencies.',
+      why:'The funnel itself is shipped and browser-tested, 19 of 19 Playwright scenarios. Reopened for the ad landfall work: the landing needs link-preview tags and a final copy pass, and the ad creatives need drafting, because the go-live now waits on the whole chain being proven.',
       tasks:[
         {id:'3.1', owner:'Claude Code', done:true, t:'Map the eight categories to four tap-only questions',
          d:'Done: days, evenings, one splurge, travelling as. Each answer adds category weights; the nearest of five taste prototypes wins and flat vectors fall back to the classic twelve.'},
@@ -353,7 +355,11 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
         {id:'3.5', owner:'Claude Code', done:true, t:'Show three of the twelve free, hold nine behind Stripe',
          d:'Done: the preview renders three entries with real walking times from the chosen zone before payment, CTA is that zone payment link.'},
         {id:'3.6', owner:'Claude Code', done:true, t:'Move inlined CSS and JS to shared cached files',
-         d:'Done: hashed files under /a/ with immutable caching. Zone pages dropped from 39.5 to about 23 KB, 16 KB of headroom back under the 40 KB ceiling.'}
+         d:'Done: hashed files under /a/ with immutable caching. Zone pages dropped from 39.5 to about 23 KB, 16 KB of headroom back under the 40 KB ceiling.'},
+        {id:'3.7', owner:'Claude Code', t:'Make the landing ad-ready',
+         d:'The page every ad clicks through to. Open Graph and twitter tags for the link preview, a favicon, and one copy pass checking the first scroll answers price and instant delivery. No og image yet, that asset does not exist.'},
+        {id:'3.8', owner:'Claude Code', t:'Draft the three ad creatives',
+         d:'Written from the entry format itself, English and Norwegian: the Blue Lagoon proof ad, the 300 checked 12 won decision ad, and the see three before you pay mechanic ad. Loading them into Meta stays in 5.3.'}
       ]},
     { n:4, short:'Sale signal', title:'Sale tracking without a backend', deps:[],
       why:'Ads cannot optimise blind. The page Stripe redirects to is the only place a static site observes a completed purchase. The code is wired and dormant; it emits nothing until the pixel id exists.',
