@@ -26,6 +26,13 @@ for (const z of zonesFile.zones) {
   if (/REPLACE_/.test(z.stripe_link)) errors.push('stripe: zone "' + z.id + '" still has a placeholder stripe_link (H4)');
   if (!/^[a-z0-9]{12}$/.test(z.slug)) errors.push('slug: zone "' + z.id + '" slug is not 12 chars of [a-z0-9]');
   if (!Array.isArray(z.ll) || z.ll.length !== 2) errors.push('coords: zone "' + z.id + '" has no centroid');
+  if (/buy\.stripe\.com\/test_/.test(z.stripe_link)) {
+    if (process.env.CONTEXT === 'production') {
+      errors.push('stripe: zone "' + z.id + '" has a TEST-mode link in a production build. Live links are separate objects, recreate them in the live account.');
+    } else {
+      console.log('warning: zone "' + z.id + '" uses a test-mode stripe link. Fine locally, fails a production deploy.');
+    }
+  }
 }
 
 const sources = [
@@ -62,4 +69,4 @@ if (errors.length) {
   for (const e of errors) console.error('  ✗ ' + e);
   process.exit(1);
 }
-console.log('check passed: 12 verdict, 10 unlock, no placeholders, no banned strings, all pages under 30 KB.');
+console.log('check passed: 12 verdict, 10 unlock, no placeholders, no banned strings, all pages under 40 KB.');

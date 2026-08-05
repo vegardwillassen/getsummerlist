@@ -21,7 +21,7 @@
     "Melpo Antia"
    ],
    "slug": "1bk8n0u7ummc",
-   "stripe_link": "REPLACE_CENTRE"
+   "stripe_link": "https://buy.stripe.com/test_5kQ6oH6BK1dZe4H4Gsawo01"
   },
   {
    "id": "harbour",
@@ -37,7 +37,7 @@
     "Sunwing Sandy Bay"
    ],
    "slug": "dycysj6oclow",
-   "stripe_link": "REPLACE_HARBOUR"
+   "stripe_link": "https://buy.stripe.com/test_14A28r1hqbSD7Gj3Coawo02"
   },
   {
    "id": "grecian",
@@ -53,7 +53,7 @@
     "Nelia Beach"
    ],
    "slug": "yfdrepmm6jsi",
-   "stripe_link": "REPLACE_GRECIAN"
+   "stripe_link": "https://buy.stripe.com/test_7sYdR92lu9KvgcPc8Uawo03"
   },
   {
    "id": "nissi-avenue",
@@ -69,7 +69,7 @@
     "Pavlo Napa Beach"
    ],
    "slug": "xxi1vidxsius",
-   "stripe_link": "REPLACE_NISSIAVE"
+   "stripe_link": "https://buy.stripe.com/test_cNi8wPgcke0L7Gj2ykawo04"
   },
   {
    "id": "nissi-bay",
@@ -85,7 +85,7 @@
     "Vassos Nissi Plage"
    ],
    "slug": "ptpsxxiuuqie",
-   "stripe_link": "REPLACE_NISSIBAY"
+   "stripe_link": "https://buy.stripe.com/test_eVqcN54tC09V5yb6OAawo05"
   },
   {
    "id": "makronissos",
@@ -101,7 +101,7 @@
     "Makronissos Village"
    ],
    "slug": "tcmvgeriylc1",
-   "stripe_link": "REPLACE_MAKRONISSOS"
+   "stripe_link": "https://buy.stripe.com/test_aFadR9bW49KvgcP7SEawo06"
   }
  ]
 }
