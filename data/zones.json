@@ -3,6 +3,8 @@
   "destination": "Ayia Napa",
   "verified": "2026-07-20",
   "walk_metres_per_minute": 80,
+  "price_eur": 29,
+  "meta_pixel_id": null,
   "note": "Zone centroids and hotel lists are estimates. Verify before selling (H2)."
  },
  "zones": [

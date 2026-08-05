@@ -22,6 +22,20 @@ for (const p of unlocks) {
   if (p.price.typical_eur == null) errors.push('price: "' + p.id + '" is unlock tier with no typical_eur');
 }
 
+const gaps = [];
+for (const p of places) {
+  if (p.price == null || p.price.typical_eur == null) gaps.push(p.id + ': no typical_eur');
+  if (!p.verdict) gaps.push(p.id + ': no verdict line');
+  if (p.mode === 'bus' && p.bus == null) gaps.push(p.id + ': mode is bus with no bus number');
+}
+if (gaps.length) {
+  if (process.env.CHECK_STRICT) {
+    for (const g of gaps) errors.push('data: ' + g);
+  } else {
+    console.log('warning: ' + gaps.length + ' data gap(s) across all 51 places. Any place can surface under the quiz. Run CHECK_STRICT=1 npm run check to list and fail on them.');
+  }
+}
+
 for (const z of zonesFile.zones) {
   if (/REPLACE_/.test(z.stripe_link)) errors.push('stripe: zone "' + z.id + '" still has a placeholder stripe_link (H4)');
   if (!/^[a-z0-9]{12}$/.test(z.slug)) errors.push('slug: zone "' + z.id + '" slug is not 12 chars of [a-z0-9]');
@@ -59,6 +73,10 @@ if (existsSync(distDir)) {
   for (const [name, text] of pages) {
     const kb = Buffer.byteLength(text) / 1024;
     if (kb > 40) errors.push('weight: ' + name + ' is ' + kb.toFixed(1) + ' KB, budget is 40 KB (non-negotiable 5)');
+    if (/^dist\/l\//.test(name)) {
+      const cards = (text.match(/class="card"/g) || []).length;
+      if (cards !== 22) errors.push('cards: ' + name + ' has ' + cards + ' cards, expected 22 (12 picks plus 10 unlocks)');
+    }
   }
 } else {
   console.log('note: dist/ not built yet, page checks skipped. Run npm run build first for full coverage.');

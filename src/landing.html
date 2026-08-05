@@ -36,6 +36,18 @@
   .band{background:#EFE7D4;}
   footer{background:var(--navy);color:#B9C6D0;padding:34px 0;font-size:13px;}
   footer p{margin-bottom:8px;max-width:70ch;}
+  .qq{margin:18px 0 0;}
+  .qq .ql{font-family:'Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:8px;}
+  .qopts{display:flex;flex-wrap:wrap;gap:8px;}
+  .qbtn{font-family:Georgia,serif;font-size:14.5px;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:8px 15px;cursor:pointer;color:var(--ink);}
+  .qbtn[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--cream);}
+  select#qzone{font-family:Georgia,serif;font-size:15px;padding:9px 12px;border:1.5px solid var(--navy);border-radius:8px;background:#fff;color:var(--ink);max-width:100%;}
+  #preview{margin-top:22px;}
+  #preview .pvhead{font-style:italic;font-size:clamp(18px,3vw,22px);color:var(--navy);margin-bottom:4px;}
+  #preview .pvsub{font-size:13.5px;color:var(--soft);margin-bottom:10px;}
+  .paybtn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-family:'Courier New',monospace;font-weight:700;letter-spacing:.08em;font-size:15px;padding:13px 22px;border-radius:10px;margin-top:12px;}
+  .paybtn:hover{background:var(--coral-d);}
+  .pvmore{font-size:13px;color:var(--soft);margin-top:8px;}
 </style>
 </head>
 <body>
@@ -47,6 +59,113 @@
 </div></div>
 
 <section><div class="wrap">
+  <h2>Four taps, then see your first three</h2>
+  <p>Answer four questions and pick your hotel area. We show three of your twelve with real walking times before you pay a cent.</p>
+
+  <div class="qq"><span class="ql">1 · Most days you want to be</span>
+    <div class="qopts" data-q="1">
+      <button class="qbtn" type="button" data-v='{"beach":3}'>On the beach</button>
+      <button class="qbtn" type="button" data-v='{"water":3}'>In the water</button>
+      <button class="qbtn" type="button" data-v='{"sight":2,"daytrip":2}'>Out seeing things</button>
+      <button class="qbtn" type="button" data-v='{"well":2,"beach":1}'>By the pool, slowly</button>
+    </div></div>
+  <div class="qq"><span class="ql">2 · Evenings are for</span>
+    <div class="qopts" data-q="2">
+      <button class="qbtn" type="button" data-v='{"night":3}'>Going out until late</button>
+      <button class="qbtn" type="button" data-v='{"food":3}'>A good dinner</button>
+      <button class="qbtn" type="button" data-v='{"beach":1,"well":1,"food":1}'>Sunset and a drink</button>
+      <button class="qbtn" type="button" data-v='{"well":2}'>An early night</button>
+    </div></div>
+  <div class="qq"><span class="ql">3 · One splurge this week</span>
+    <div class="qopts" data-q="3">
+      <button class="qbtn" type="button" data-v='{"boat":3}'>A boat day</button>
+      <button class="qbtn" type="button" data-v='{"water":3}'>Waterpark or jet skis</button>
+      <button class="qbtn" type="button" data-v='{"daytrip":3}'>A day trip away</button>
+      <button class="qbtn" type="button" data-v='{"well":3}'>A spa afternoon</button>
+    </div></div>
+  <div class="qq"><span class="ql">4 · You are travelling as</span>
+    <div class="qopts" data-q="4">
+      <button class="qbtn" type="button" data-v='{"food":1,"boat":1}'>A couple</button>
+      <button class="qbtn" type="button" data-v='{"night":1,"water":1}'>Friends</button>
+      <button class="qbtn" type="button" data-v='{"beach":1,"water":1}'>Family with kids</button>
+      <button class="qbtn" type="button" data-v='{"sight":1,"daytrip":1}'>Solo</button>
+    </div></div>
+  <div class="qq"><span class="ql">5 · Your hotel area</span>
+    <select id="qzone"><option value="">Pick your hotel area</option></select></div>
+
+  <div id="preview" hidden></div>
+  <!--QUIZDATA-->
+  <script>
+  (function(){
+    var picked = {1:null,2:null,3:null,4:null};
+    var zoneSel = document.getElementById('qzone');
+    var preview = document.getElementById('preview');
+    SL.zones.forEach(function(z){
+      var o = document.createElement('option');
+      o.value = z.s; o.textContent = z.n + ' (' + z.h + ')';
+      zoneSel.appendChild(o);
+    });
+    function vecSum(){
+      var v = {};
+      for (var q in picked) {
+        if (!picked[q]) return null;
+        var add = JSON.parse(picked[q].getAttribute('data-v'));
+        for (var c in add) v[c] = (v[c] || 0) + add[c];
+      }
+      return v;
+    }
+    function match(v){
+      var best = 'classic', bs = 0, second = 0;
+      for (var k in SL.protos) {
+        var d = 0;
+        for (var c in v) d += v[c] * (SL.protos[k][c] || 0);
+        if (d > bs) { second = bs; bs = d; best = k; }
+        else if (d > second) { second = d; }
+      }
+      if (bs - second < 0.75) return 'classic';
+      return best;
+    }
+    function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function render(){
+      var v = vecSum();
+      var slug = zoneSel.value;
+      if (!v || !slug) return;
+      var prof = match(v);
+      var zone = SL.zones.filter(function(z){ return z.s === slug; })[0];
+      var rows = SL.pre[slug][prof];
+      try { localStorage.setItem('sl-intent', JSON.stringify({ z: slug, p: prof })); } catch(e){}
+      try { history.replaceState(null, '', '#z=' + slug + '&p=' + prof); } catch(e){}
+      var html = '<div class="pvhead">Your first three, measured from ' + esc(zone.h.split(',')[0]) + '</div>' +
+        '<div class="pvsub">Three of your twelve. The other nine open the second you pay.</div>';
+      rows.forEach(function(r){
+        html += '<div class="sample"><b>' + esc(r.n) + '.</b> ' + esc(r.pr) + '. ' + esc(r.fr) + '.</div>';
+      });
+      html += zone.u
+        ? '<a class="paybtn" href="' + zone.u + '">Unlock all 12 for EUR ' + SL.price + '</a>'
+        : '<p class="pvmore">Checkout for this area opens shortly.</p>';
+      html += '<p class="pvmore">Instant access on the next screen. No app, no email wait.</p>';
+      preview.hidden = false;
+      preview.innerHTML = html;
+    }
+    document.querySelectorAll('.qopts').forEach(function(g){
+      var q = g.getAttribute('data-q');
+      g.querySelectorAll('.qbtn').forEach(function(b){
+        b.setAttribute('aria-pressed', 'false');
+        b.addEventListener('click', function(){
+          picked[q] = b;
+          g.querySelectorAll('.qbtn').forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
+          render();
+        });
+      });
+    });
+    zoneSel.addEventListener('change', render);
+    var m = location.hash.match(/z=([a-z0-9]+)&p=([a-z]+)/);
+    if (m && SL.pre[m[1]]) { zoneSel.value = m[1]; }
+  })();
+  </script>
+</div></section>
+
+<section class="band"><div class="wrap">
   <h2>Every entry looks like this</h2>
   <div class="sample">
     <span class="cat">Boat trip</span><br>
@@ -55,8 +174,8 @@
   <p>What it is, what it costs in euros, how you get there from your hotel. Twelve of those, plus ten more behind two free reveals when the twelve are ticked off. No browsing, no stars, no scrolling through 200 options at the pool.</p>
 </div></section>
 
-<section class="band"><div class="wrap">
-  <h2>Pick your hotel area <span class="price">· EUR 29</span></h2>
+<section><div class="wrap">
+  <h2>Skip the quiz: pick your hotel area <span class="price">· EUR 29</span></h2>
   <p>Walking times and bus lines are measured from your part of town, not from a generic map pin.</p>
   <div class="zgrid"><!--ZONES--></div>
 </div></section>

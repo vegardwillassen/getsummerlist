@@ -1,3 +1,22 @@
+var PURCHASED = false;
+try {
+  if (document.referrer.indexOf('stripe.com') > -1 && !localStorage.getItem('sl-paid-' + ZONE)) {
+    localStorage.setItem('sl-paid-' + ZONE, '1');
+    PURCHASED = true;
+  }
+} catch (e) {}
+try {
+  if (typeof PROFILE === 'undefined' || PROFILE === 'classic') {
+    var intent = JSON.parse(localStorage.getItem('sl-intent') || 'null');
+    if (intent && intent.z === ZONE && intent.p && intent.p !== 'classic') {
+      localStorage.removeItem('sl-intent');
+      var dest = '/l/' + ZONE + '/' + intent.p + '/';
+      if (PURCHASED) { setTimeout(function () { location.replace(dest); }, 400); }
+      else { location.replace(dest); }
+    }
+  }
+} catch (e) {}
+
 var KEY = 'sl-' + ZONE;
 var CATLAB = { beach: 'Beach', water: 'Water fun', sight: 'Sight', boat: 'Boat trip', daytrip: 'Day trip', food: 'Food & drink', night: 'Nightlife', well: 'Wellness' };
 var state = {};
@@ -10,6 +29,14 @@ function ev(name, id) {
   } catch (e) {}
 }
 ev('open');
+if (PURCHASED) {
+  ev('purchase');
+  try {
+    if (window.fbq) fbq('track', 'Purchase',
+      { value: typeof PRICE !== 'undefined' ? PRICE : 29, currency: 'EUR' },
+      { eventID: 'sl-' + ZONE + '-' + Date.now() });
+  } catch (e) {}
+}
 
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 function cards() { return Array.prototype.slice.call(document.querySelectorAll('.card')); }
