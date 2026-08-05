@@ -214,15 +214,15 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
     <div class="hero-grid">
       <div>
         <h1>Eight deliverables in sequence. Do the open lanes, in order, until the map is gold.</h1>
-        <p class="lede">Deliverables 1 to 4 run in parallel: two are research only you can do, two are code.
-        The ad campaign in 5 needs all four. Everything after 6 exists only if the campaign says yes.
-        Tick a task and the whole board recomputes.</p>
+        <p class="lede">The quiz funnel is built and browser-tested, checkout works in Stripe test mode, and
+        the sale signal is wired. Every open task before the ad campaign is now yours: four data fields, the
+        centroids, VAT OSS, live links and the Netlify cutover. Tick a task and the whole board recomputes.</p>
       </div>
       <div class="overall">
         <span class="label">Overall</span>
         <span class="big num" id="bigprog">0%</span>
         <div class="progbar"><i id="bigfill" style="width:0%"></i></div>
-        <span class="label" style="display:block; margin-top:8px"><span class="num" id="bigcount">0 of 36</span> tasks done</span>
+        <span class="label" style="display:block; margin-top:8px"><span class="num" id="bigcount">0 of 40</span> tasks done</span>
       </div>
     </div>
     <nav class="seqmap" id="seqmap" aria-label="Deliverable sequence"></nav>
@@ -263,12 +263,13 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
 
   <footer>
     <span class="kicker">How to read this board</span>
-    <p style="margin-top:12px">Ticks are saved in this browser only. A deliverable is BLOCKED until every
-    task in the deliverables it depends on is ticked; its checkboxes stay locked so the sequence cannot be
-    faked. READY means you can start it today. The next up panel always shows the first open task of every
-    startable deliverable, which is the answer to the only daily question that matters: what do I do now.
-    Repo facts behind the task notes were read from data/places.json, data/zones.json and a clean build on
-    4 August 2026.</p>
+    <p style="margin-top:12px">Tasks Claude Code has shipped arrive pre-ticked; untick any you dispute and
+    your choice wins in this browser. A deliverable is BLOCKED until every task in the deliverables it
+    depends on is ticked; its checkboxes stay locked so the sequence cannot be faked. The next up panel
+    always shows the first open task of every startable deliverable, which is the answer to the only daily
+    question that matters: what do I do now. Repo facts behind the task notes come from a clean build,
+    npm run check and a 19 scenario Playwright run against the built site on 5 August 2026. Clear saved
+    progress returns the board to that shipped state, it does not zero it.</p>
     <button class="resetbtn" id="reset" type="button">Clear saved progress</button>
   </footer>
 </div>
@@ -303,58 +304,66 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
   */
   var DLV = [
     { n:1, short:'Take money', title:'A product that can take money', deps:[],
-      why:'Six zone pages exist but no checkout does. All six Stripe links still read REPLACE_ and npm run check fails on exactly those six errors. Nothing downstream earns a euro until this closes.',
+      why:'Checkout now works end to end in Stripe test mode: six sandbox links with the waiver checkbox, success URLs verified against the real page slugs, check green. What remains is the live cutover: the domain still points at GitHub Pages, which serves no zone pages at all, and live-mode links do not exist yet.',
       tasks:[
-        {id:'1.1', owner:'Vegard', t:'Create six Stripe Payment Links, one per zone, EUR 29, Stripe Tax on',
-         d:'One product, The Summer List Ayia Napa, six links. Price decision for the ads comes later in 5.5; these can be repriced in Stripe without touching the site.'},
-        {id:'1.2', owner:'Vegard', t:'Add the 14 day waiver checkbox to each link',
-         d:'Required custom text at checkout: I want access immediately and I understand I lose my 14 day right to cancel once I have it. This is what makes instant delivery legal in the EU.'},
-        {id:'1.3', owner:'Vegard', t:'Point each success URL at its zone page',
-         d:'https://getsummerlist.com/l/<slug>/ per zone. The redirect is the delivery, there is no email step.'},
-        {id:'1.4', owner:'Both', t:'Paste the six links into zones.json and get npm run check green',
-         d:'The check currently fails on six REPLACE_ placeholders. Green here is the definition of done for this deliverable.'},
+        {id:'1.1', owner:'Vegard', done:true, t:'Create six Stripe Payment Links, one per zone, EUR 29, Stripe Tax on',
+         d:'Done in the sandbox. All six verified via the Stripe API. Live-mode recreation is 1.6.'},
+        {id:'1.2', owner:'Vegard', done:true, t:'Add the 14 day waiver checkbox to each link',
+         d:'Done: required terms checkbox with the exact wording, confirmed on all six sandbox links. This is what makes instant delivery legal in the EU.'},
+        {id:'1.3', owner:'Vegard', done:true, t:'Point each success URL at its zone page',
+         d:'Done, after a real save: all six originally pointed at readable labels like /l/harbour/ and every buyer would have hit a 404. Corrected at source to the random slugs and re-verified.'},
+        {id:'1.4', owner:'Both', done:true, t:'Paste the six links into zones.json and get npm run check green',
+         d:'Done. The check also now fails any production deploy that still carries a test_ link, so the sandbox cannot leak into the live site.'},
         {id:'1.5', owner:'Vegard', t:'Register for VAT OSS before any ad spend',
-         d:'A Norwegian AS selling digital goods to EU consumers. D10 assumed this happens before scaling, and paid ads are scaling.'}
+         d:'A Norwegian AS selling digital goods to EU consumers. D10 assumed this happens before scaling, and paid ads are scaling.'},
+        {id:'1.6', owner:'Vegard', t:'Create the six live-mode Payment Links',
+         d:'Live links are separate Stripe objects. Same spec as the sandbox six, success URLs on the real slugs from the start. The production guard blocks deploys until these are in zones.json.'},
+        {id:'1.7', owner:'Vegard', t:'Netlify: import the repo, prove a preview deploy',
+         d:'Build command and publish dir come from netlify.toml, production branch main. The first production deploy fails on test links by design; a branch or preview deploy passes with warnings and proves the build.'},
+        {id:'1.8', owner:'Vegard', t:'Point DNS at Netlify, then merge the cutover branch',
+         d:'Add getsummerlist.com in Netlify, switch DNS at the registrar, upgrade to Personal with auto-recharge (D6). Merge claude/summerlist-project-manager-ec36c1 only after DNS moves; it removes CNAME and the stale root index.html.'},
+        {id:'1.9', owner:'Vegard', t:'Disable GitHub Pages and make the repo private',
+         d:'Pages is why the repo is public, and a public repo publishes the paid product. Once Netlify serves the site, flip both. Restores non-negotiable 2.'}
       ]},
     { n:2, short:'Verify data', title:'Verified Ayia Napa data, all 51 places', deps:[],
-      why:'The quiz promotes shortlist places to the front page, so all 51 places need verdict quality, not just the 12. Today only 14 of 51 carry both a bus number and a price.',
+      why:'Better than feared. The mode-aware scan shows the real debt is four fields, not dozens: 25 of the bus-less places are walks, 4 taxi, 5 boat. The bigger remaining job is confirming those modes and the centroids are actually right, because every from-your-hotel line rests on them. CHECK_STRICT=1 npm run check lists the gaps.',
       tasks:[
         {id:'2.1', owner:'Vegard', t:'Verify the six zone centroids and hotel lists',
          d:'zones.json still says the centroids are estimates. Every walking time on every page is computed from them at 80 metres per minute, so one wrong centroid is wrong on 22 entries at once.'},
-        {id:'2.2', owner:'Vegard', t:'Fill bus numbers on the 37 places that have none',
-         d:'The single biggest item on the board. Harmless while those places sit in shortlist, blocking the moment the quiz can put any of them in a buyer first twelve.'},
+        {id:'2.2', owner:'Vegard', t:'Fill bus numbers on Fig Tree Bay, Larnaca and Nicosia',
+         d:'The only three places whose mode is bus with no number. The other 34 bus-less places are walk, taxi or boat and legitimately need none. While filling these, spot-check that the walk, taxi and boat modes on the rest are honest.'},
         {id:'2.3', owner:'Vegard', t:'Fill typical_eur on the Napa Plaza spa',
          d:'The one place of 51 with no price. Ten minutes.'},
         {id:'2.4', owner:'Vegard', t:'Re-check the verdict twelve',
          d:'Three of the current twelve have no bus number and pass validation only because their mode is walk. Confirm walk is genuinely the answer from every zone, or add the number.'},
-        {id:'2.5', owner:'Claude Code', t:'Extend npm run check from 22 places to all 51',
-         d:'Every place needs a bus number or walk mode, a typical_eur and a verdict line, because any place can now surface. Turns the research debt into a build that fails loudly.'}
+        {id:'2.5', owner:'Claude Code', done:true, t:'Extend npm run check from 22 places to all 51',
+         d:'Done: default run warns with a gap count, CHECK_STRICT=1 fails and lists them, and every built page must carry exactly 22 cards. Flip strict on once 2.2 and 2.3 land.'}
       ]},
     { n:3, short:'Quiz funnel', title:'The quiz funnel', deps:[],
-      why:'The pivot itself: four taste questions in front, a tailored twelve behind payment. Static, no backend, no new dependencies. Can be built in parallel with 1 and 2.',
+      why:'Shipped and browser-tested: 19 of 19 Playwright scenarios pass, including the Stripe handoff, partner link restore, pick persistence and a 390px phone viewport. Static, no backend, no new dependencies.',
       tasks:[
-        {id:'3.1', owner:'Claude Code', t:'Map the eight categories to four tap-only questions',
-         d:'beach, water, sight, boat, daytrip, food, night, well. No free text, no signup, finished in under fifteen seconds on a phone held in one hand.'},
-        {id:'3.2', owner:'Claude Code', t:'Build the scoring: taste, then distance, then spread',
-         d:'Weight by stated preference, then by distance from the zone centroid. Force a category spread so no profile returns twelve beaches, and surface book_ahead entries early.'},
-        {id:'3.3', owner:'Claude Code', t:'Pre-build the 36 pages, six zones by six profiles',
-         d:'Extends the per-zone decision by one axis instead of breaking it. Keeps the static build and the instant Stripe redirect.'},
-        {id:'3.4', owner:'Claude Code', t:'Put the quiz on the landing page, answers carried in the URL',
-         d:'No cookies, no backend. The buyer sends the finished link to their partner and it renders the same list on the other phone.'},
-        {id:'3.5', owner:'Claude Code', t:'Show three of the twelve free, hold nine behind Stripe',
-         d:'The demo is the argument: the visitor sees their own list with their own hotel walking times before being asked for anything.'},
-        {id:'3.6', owner:'Claude Code', t:'Move inlined CSS and JS to shared cached files',
-         d:'Pages sit at 39.5 KB against a 40 KB ceiling with 16.5 KB inlined into every page. Shared files fix the budget once for all 36 pages.'}
+        {id:'3.1', owner:'Claude Code', done:true, t:'Map the eight categories to four tap-only questions',
+         d:'Done: days, evenings, one splurge, travelling as. Each answer adds category weights; the nearest of five taste prototypes wins and flat vectors fall back to the classic twelve.'},
+        {id:'3.2', owner:'Claude Code', done:true, t:'Build the scoring: taste, then distance, then spread',
+         d:'Done at build time: category weight plus tier nudge plus walk-time proximity plus book_ahead, capped at four per category. All 30 taste pages pass the spread and uniqueness checks.'},
+        {id:'3.3', owner:'Claude Code', done:true, t:'Pre-build the 36 pages, six zones by six profiles',
+         d:'Done: classic keeps the old URL so Stripe success links survive, taste pages live at /l/<slug>/<profile>/. All 36 build at 21.8 to 23.6 KB.'},
+        {id:'3.4', owner:'Claude Code', done:true, t:'Put the quiz on the landing page, answers carried in the URL',
+         d:'Done: result rides in the hash and localStorage, so the link restores on another phone and the choice survives the Stripe round trip.'},
+        {id:'3.5', owner:'Claude Code', done:true, t:'Show three of the twelve free, hold nine behind Stripe',
+         d:'Done: the preview renders three entries with real walking times from the chosen zone before payment, CTA is that zone payment link.'},
+        {id:'3.6', owner:'Claude Code', done:true, t:'Move inlined CSS and JS to shared cached files',
+         d:'Done: hashed files under /a/ with immutable caching. Zone pages dropped from 39.5 to about 23 KB, 16 KB of headroom back under the 40 KB ceiling.'}
       ]},
     { n:4, short:'Sale signal', title:'Sale tracking without a backend', deps:[],
-      why:'Ads cannot optimise blind. The page Stripe redirects to is the only place a static site observes a completed purchase.',
+      why:'Ads cannot optimise blind. The page Stripe redirects to is the only place a static site observes a completed purchase. The code is wired and dormant; it emits nothing until the pixel id exists.',
       tasks:[
-        {id:'4.1', owner:'Claude Code', t:'Fire a Meta purchase event on the redirect page',
-         d:'Without a purchase signal the campaign optimises for clicks and spends the budget on browsers.'},
-        {id:'4.2', owner:'Both', t:'Confirm the event lands in Meta Events Manager',
-         d:'One test purchase end to end: ad click, quiz, Stripe, redirect, event visible. Vegard runs the card, Claude Code reads the log.'},
-        {id:'4.3', owner:'Claude Code', t:'Keep the /api/e Netlify function as the backup log',
-         d:'It already exists and costs nothing. If Meta undercounts, the raw event log is the tiebreak.'}
+        {id:'4.1', owner:'Claude Code', done:true, t:'Fire a Meta purchase event on the redirect page',
+         d:'Done, dormant: pixel plus Purchase event with dedup, guarded by the Stripe referrer and a once flag. Emits nothing while meta_pixel_id in zones.json is null.'},
+        {id:'4.2', owner:'Both', t:'Set the pixel id, then confirm the event lands in Meta Events Manager',
+         d:'Vegard creates the pixel and puts its id in zones.json meta_pixel_id, then one test purchase end to end: quiz, Stripe, redirect, event visible in Events Manager.'},
+        {id:'4.3', owner:'Claude Code', done:true, t:'Keep the /api/e Netlify function as the backup log',
+         d:'Done: the page now also beacons a purchase event to /api/e under the same guard, so Meta undercounting has a tiebreak.'}
       ]},
     { n:5, short:'Run ads', title:'The ad campaign', deps:[1,2,3,4],
       why:'Small, geofenced, with the kill rule written before the spend. This is where the four parallel lanes converge, and nothing here can start until all of them are done.',
@@ -412,9 +421,14 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
   DLV.forEach(function(d){ d.tasks.forEach(function(t){ t.dlv = d.n; ALL.push(t); }); });
 
   function key(id){ return 'sl.t.' + id; }
-  function isDone(id){ return store.get(key(id)) === '1'; }
-  function dlvDone(d){ return d.tasks.every(function(t){ return isDone(t.id); }); }
-  function dlvCount(d){ return d.tasks.filter(function(t){ return isDone(t.id); }).length; }
+  function isDone(t){
+    var v = store.get(key(t.id));
+    if (v === '1') return true;
+    if (v === '0') return false;
+    return !!t.done;
+  }
+  function dlvDone(d){ return d.tasks.every(isDone); }
+  function dlvCount(d){ return d.tasks.filter(isDone).length; }
   function isBlocked(d){
     return d.deps.some(function(n){ return !dlvDone(DLV[n-1]); });
   }
@@ -456,12 +470,12 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
     DLV.forEach(function(d){
       var st = status(d);
       if (st === 'done' || st === 'blocked') return;
-      var t = d.tasks.filter(function(x){ return !isDone(x.id); })[0];
+      var t = d.tasks.filter(function(x){ return !isDone(x); })[0];
       if (t) found.push({d:d, t:t});
     });
 
     if (!found.length) {
-      var doneAll = ALL.every(function(t){ return isDone(t.id); });
+      var doneAll = ALL.every(isDone);
       var msg = document.createElement('div');
       msg.className = 'alldone';
       msg.textContent = doneAll
@@ -504,7 +518,7 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
     DLV.forEach(function(d){
       var st = status(d);
       var visible = d.tasks.filter(function(t){
-        if (filter === 'open') return !isDone(t.id);
+        if (filter === 'open') return !isDone(t);
         if (filter === 'all') return true;
         return t.owner === filter || t.owner === 'Both';
       });
@@ -548,13 +562,13 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
       visible.forEach(function(t){
         var row = document.createElement('div');
         var gated = st === 'blocked';
-        row.className = 'task' + (isDone(t.id) ? ' done' : '') + (gated ? ' gated' : '');
+        row.className = 'task' + (isDone(t) ? ' done' : '') + (gated ? ' gated' : '');
 
         var cb = document.createElement('input');
-        cb.type = 'checkbox'; cb.checked = isDone(t.id); cb.disabled = gated;
+        cb.type = 'checkbox'; cb.checked = isDone(t); cb.disabled = gated;
         cb.setAttribute('aria-label', 'Mark task ' + t.id + ' complete');
         cb.addEventListener('change', function(){
-          if (cb.checked) store.set(key(t.id), '1'); else store.del(key(t.id));
+          store.set(key(t.id), cb.checked ? '1' : '0');
           renderAll();
         });
 
@@ -583,7 +597,7 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
 
   /* ---------------- totals ---------------- */
   function renderTotals(){
-    var n = ALL.filter(function(t){ return isDone(t.id); }).length;
+    var n = ALL.filter(isDone).length;
     var pct = Math.round(n / ALL.length * 100);
     document.getElementById('bigprog').textContent = pct + '%';
     document.getElementById('bigfill').style.width = pct + '%';
@@ -591,8 +605,8 @@ footer p{font-family:var(--ui); font-size:12.5px; color:var(--muted); max-width:
     document.getElementById('stickytext').textContent = pct + '%';
     document.getElementById('stickyfill').style.width = pct + '%';
 
-    var vOpen = ALL.filter(function(t){ return !isDone(t.id) && (t.owner === 'Vegard' || t.owner === 'Both'); }).length;
-    var cOpen = ALL.filter(function(t){ return !isDone(t.id) && (t.owner === 'Claude Code' || t.owner === 'Both'); }).length;
+    var vOpen = ALL.filter(function(t){ return !isDone(t) && (t.owner === 'Vegard' || t.owner === 'Both'); }).length;
+    var cOpen = ALL.filter(function(t){ return !isDone(t) && (t.owner === 'Claude Code' || t.owner === 'Both'); }).length;
     document.getElementById('filternote').textContent = 'Open: ' + vOpen + ' Vegard, ' + cOpen + ' Claude Code';
   }
 
