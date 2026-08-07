@@ -1,10 +1,10 @@
 var PURCHASED = false;
-try {
-  if (document.referrer.indexOf('stripe.com') > -1 && !localStorage.getItem('sl-paid-' + ZONE)) {
-    localStorage.setItem('sl-paid-' + ZONE, '1');
-    PURCHASED = true;
-  }
-} catch (e) {}
+var SID = (location.search.match(/[?&]session_id=([^&]+)/) || [])[1] || null;
+if (SID) {
+  try {
+    if (!localStorage.getItem('sl-pur-' + SID)) { localStorage.setItem('sl-pur-' + SID, '1'); PURCHASED = true; }
+  } catch (e) { PURCHASED = true; }
+}
 try {
   if (typeof PROFILE === 'undefined' || PROFILE === 'classic') {
     var intent = JSON.parse(localStorage.getItem('sl-intent') || 'null');
@@ -32,9 +32,8 @@ ev('open');
 if (PURCHASED) {
   ev('purchase');
   try {
-    if (window.fbq) fbq('track', 'Purchase',
-      { value: typeof PRICE !== 'undefined' ? PRICE : 29, currency: 'EUR' },
-      { eventID: 'sl-' + ZONE + '-' + Date.now() });
+    if (window.slPx) window.slPx.track('Purchase',
+      { value: typeof PRICE !== 'undefined' ? PRICE : 29, currency: 'EUR' });
   } catch (e) {}
 }
 

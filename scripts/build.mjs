@@ -112,8 +112,33 @@ function entryHtml(zone, p, i, tier) {
     '</div></div>';
 }
 
-const pixelHead = PIXEL_ID ?
-  '<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","' + PIXEL_ID + '");fbq("track","PageView");</script>' : '';
+/* Consent-gated Meta pixel module, served from /a/ (immutable cached).
+   Nothing loads or fires until the visitor taps Allow. Decline is permanent.
+   window.slPx.track(event, params) queues pre-consent and drops on decline.
+   PageView auto-fires per page via window.SL_PAGE. */
+const pxJs = PIXEL_ID ? (
+  '(function(){var PID="' + PIXEL_ID + '",KEY="sl-consent",q=[],ready=false,declined=false;' +
+  'function g(){try{return localStorage.getItem(KEY)}catch(e){return null}}' +
+  'function s(v){try{localStorage.setItem(KEY,v)}catch(e){}}' +
+  'function flush(){for(var i=0;i<q.length;i++){try{fbq.apply(null,q[i])}catch(e){}}q=[]}' +
+  'function load(){if(ready)return;ready=true;' +
+  '!function(f,b,e,v,n,t,x){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;x=b.getElementsByTagName(e)[0];x.parentNode.insertBefore(t,x)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");' +
+  'fbq("init",PID);flush()}' +
+  'function track(){if(declined)return;var a=["track"].concat([].slice.call(arguments));if(ready&&window.fbq){try{fbq.apply(null,a)}catch(e){}}else q.push(a)}' +
+  'window.slPx={track:track};' +
+  'function bar(){if(document.getElementById("slConsent"))return;var d=document.createElement("div");d.id="slConsent";' +
+  'd.innerHTML=\'<span>We use cookies to measure our advertising. They load only if you accept, and share page views and purchases with Meta. See our <a href="/privacy/">privacy policy</a>.</span><span class="slC-b"><button type="button" id="slC-no">Reject</button><button type="button" id="slC-yes">Accept</button></span>\';' +
+  'var st=document.createElement("style");st.textContent="#slConsent{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#12222F;color:#D8E0E6;font-family:system-ui,-apple-system,sans-serif;font-size:13px;line-height:1.5;padding:14px 18px;display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;box-shadow:0 -6px 20px rgba(0,0,0,.25)}#slConsent a{color:#fff;text-decoration:underline}#slConsent .slC-b{display:flex;gap:10px;flex:0 0 auto}#slConsent button{font:inherit;font-weight:700;border-radius:999px;padding:9px 18px;cursor:pointer;border:none}#slC-no{background:none;color:#9FB0BC;border:1px solid rgba(255,255,255,.25)}#slC-yes{background:#FF6B57;color:#fff}";' +
+  'document.head.appendChild(st);document.body.appendChild(d);' +
+  'document.getElementById("slC-yes").onclick=function(){s("yes");d.remove();load()};' +
+  'document.getElementById("slC-no").onclick=function(){s("no");declined=true;q=[];d.remove()}}' +
+  'var c=g();if(c==="yes"){load()}else if(c==="no"){declined=true}else{if(document.body){bar()}else{document.addEventListener("DOMContentLoaded",bar)}}' +
+  'if(window.SL_PAGE)track("PageView")})();'
+) : '';
+let PX_NAME = null;
+function pixelTags(page) {
+  return PIXEL_ID ? '<script>window.SL_PAGE="' + page + '";</script><script src="/a/' + PX_NAME + '" defer></script>' : '';
+}
 
 function zonePage(zone, key, sel, assets) {
   const prof = PROFILES[key];
@@ -130,7 +155,7 @@ function zonePage(zone, key, sel, assets) {
     '<meta name="referrer" content="no-referrer">' +
     '<title>The Summer List · Ayia Napa · ' + esc(zone.name) + '</title>' +
     '<link rel="stylesheet" href="/a/' + assets.cssName + '">' +
-    (key === 'classic' ? pixelHead : '') +
+    pixelTags('zone') +
     '</head><body>' +
     '<header><div class="wrap">' +
     '<span class="kicker">Ayia Napa · Cyprus · ' + esc(zone.name) + '</span>' +
@@ -152,11 +177,11 @@ function zonePage(zone, key, sel, assets) {
     '<section class="unlock" id="u2"><button class="btn unlockBtn" data-unlock="u2" type="button">Show the last 5 from the shortlist</button>' +
     '<div class="grid upanel" hidden>' + u2.map((p, i) => entryHtml(zone, p, i, 'unlock')).join('') + '</div></section>' +
     '<div class="foot"><p>The Summer List by Vegard · Ayia Napa EUR ' + PRICE_EUR + ' · Rhodes and Albufeira next season · getsummerlist.com</p>' +
-    '<p class="privacy">We log page opens and taps on this page to improve the list. Nothing is sold or shared, and nothing identifies you beyond this link.</p></div>' +
+    '<p class="privacy">Our own logs of opens and taps stay anonymous and are never sold. With your consent we load Meta\'s pixel to measure our ads; decline and nothing goes to Meta. <a href="/privacy/">Privacy policy</a>.</p></div>' +
     '</main>' +
     '<div class="overlay" id="overlay"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>' +
-    '<script>const ZONE="' + zone.slug + '";const PROFILE="' + key + '";const PRICE=' + PRICE_EUR + ';</script>' +
-    '<script src="/a/' + assets.jsName + '"></script>' +
+    '<script>window.ZONE="' + zone.slug + '";window.PROFILE="' + key + '";window.PRICE=' + PRICE_EUR + ';</script>' +
+    '<script defer src="/a/' + assets.jsName + '"></script>' +
     '</body></html>';
 }
 
@@ -175,6 +200,7 @@ function landing(pre, det) {
     protos, pre, det,
   };
   return landingTpl
+    .replace('<!--PIXEL-->', pixelTags('landing'))
     .replace('<!--QUIZDATA-->', '<script>const SL=' + JSON.stringify(payload) + ';</script>');
 }
 
@@ -189,6 +215,10 @@ const assets = { cssName: 's.' + hash(css) + '.css', jsName: 'z.' + hash(appJs) 
 mkdirSync(join(dist, 'a'), { recursive: true });
 writeFileSync(join(dist, 'a', assets.cssName), css);
 writeFileSync(join(dist, 'a', assets.jsName), appJs);
+if (PIXEL_ID) {
+  PX_NAME = 'px.' + hash(pxJs) + '.js';
+  writeFileSync(join(dist, 'a', PX_NAME), pxJs);
+}
 
 mkdirSync(join(dist, 'an'), { recursive: true });
 writeFileSync(join(dist, 'an', 'index.html'),
@@ -231,3 +261,41 @@ home = home
 writeFileSync(join(dist, 'index.html'), home);
 console.log('built landing ' + (home.length / 1024).toFixed(1) + ' KB (+ /a/' + homeAssets.css + ' ' + (homeCss.length / 1024).toFixed(1) + ' KB, /a/' + homeAssets.js + ' ' + (homeJs.length / 1024).toFixed(1) + ' KB)');
 console.log('assets /a/' + assets.cssName + ' ' + (css.length / 1024).toFixed(1) + ' KB, /a/' + assets.jsName + ' ' + (appJs.length / 1024).toFixed(1) + ' KB');
+
+/* Privacy policy page, honest and complete enough for Meta ad review. */
+function privacyPage() {
+  const pixelLine = PIXEL_ID
+    ? 'When you accept on the cookie bar, we load Meta\'s advertising pixel. It sets a cookie and sends Meta three things: that you viewed a page, that you tapped an unlock button, and that you completed a purchase of EUR ' + PRICE_EUR + '. It never sends your name, email or card details. Reject on the bar, or clear this site\'s data in your browser, and nothing is sent to Meta. See Meta\'s own data policy at facebook.com/privacy.'
+    : 'We do not run any advertising or third party tracking on this site.';
+  const sec = (h, body) => '<h2>' + h + '</h2>' + body;
+  const body =
+    '<header><div class="wrap"><span class="kick">The Summer List</span><h1>Privacy policy</h1>' +
+    '<p class="upd">Last updated 2026</p></div></header>' +
+    '<main class="wrap">' +
+    sec('Who we are', '<p>The Summer List is a product of Capital Control AS, registered in Norway. Questions about your data: <a href="mailto:hello@getsummerlist.com">hello@getsummerlist.com</a>.</p>') +
+    sec('What we store on your device', '<p>To make the page work we keep a few things in your browser: your saved picks, the hotel you chose, and your answer to the cookie bar. This stays on your device, is never sold, and does not identify you. It is not shared with anyone.</p>') +
+    sec('Advertising cookies', '<p>' + pixelLine + '</p>') +
+    sec('Our own analytics', '<p>We record anonymous events, such as a page open or a tap, to improve the list. These carry no name, email or identifier, and are never sold or shared.</p>') +
+    sec('Payment', '<p>Checkout is handled by Stripe, which processes your card. We never see or store card details. Because delivery is instant, at checkout you agree to immediate access and waive the 14 day right of withdrawal.</p>') +
+    sec('Your choices', '<p>You can reject advertising cookies on the bar at any time, and clearing this site\'s data in your browser removes everything we have stored on your device. To reach us about any of this, email <a href="mailto:hello@getsummerlist.com">hello@getsummerlist.com</a>.</p>') +
+    '<p class="back"><a href="/">Back to The Summer List</a></p>' +
+    '</main>';
+  const style = 'body{margin:0;background:#FBF3E4;color:#1F3A4D;font-family:Georgia,serif;line-height:1.6}' +
+    '.wrap{max-width:720px;margin:0 auto;padding:0 22px}' +
+    'header{background:linear-gradient(165deg,#FFDF9E 0%,#FFB36B 42%,#FF7E5F 100%);padding:44px 0 34px}' +
+    '.kick{font-family:"Courier New",monospace;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.28);display:inline-block;padding:6px 14px;border-radius:999px}' +
+    'h1{font-size:clamp(30px,5vw,44px);font-style:italic;color:#101C2E;margin:14px 0 6px}' +
+    '.upd{font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;font-size:13px;color:#7A4B2A;margin:0}' +
+    'main{padding:34px 0 60px}' +
+    'h2{font-size:19px;font-style:italic;margin:28px 0 6px}' +
+    'p{font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;font-size:15px;color:#39566B;margin:0 0 10px}' +
+    'a{color:#E5533E}.back{margin-top:34px;font-weight:700}';
+  return '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+    '<title>Privacy policy · The Summer List</title>' +
+    '<style>' + style + '</style></head><body>' + body + '</body></html>';
+}
+mkdirSync(join(dist, 'privacy'), { recursive: true });
+const privHtml = privacyPage();
+writeFileSync(join(dist, 'privacy', 'index.html'), privHtml);
+console.log('built /privacy/ ' + (privHtml.length / 1024).toFixed(1) + ' KB');

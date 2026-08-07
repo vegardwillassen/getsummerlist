@@ -164,6 +164,7 @@
   footer .frule{height:1px;background:rgba(255,255,255,.12);margin:30px 0 18px;}
   footer .fcopy{font-family:'Courier New',monospace;font-size:11.5px;letter-spacing:.06em;color:#6E8194;margin:0;}
 </style>
+<!--PIXEL-->
 </head>
 <body>
 
@@ -450,6 +451,16 @@
       else { sticky.hidden = true; }
       if (!restoring) proof.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    // InitiateCheckout on an Unlock CTA, with a 150 ms hold so iOS Safari does not drop the beacon before Stripe
+    document.addEventListener('click', function(e){
+      var a = e.target.closest ? e.target.closest('.paybtn') : null;
+      if (!a || !window.slPx) return;
+      var href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      e.preventDefault();
+      try { slPx.track('InitiateCheckout', { value: SL.price, currency: 'EUR' }); } catch(err){}
+      setTimeout(function(){ location.href = href; }, 150);
+    });
     document.querySelectorAll('.qopts').forEach(function(g){
       var q = g.getAttribute('data-q');
       g.querySelectorAll('.qbtn').forEach(function(b){
@@ -579,8 +590,9 @@
       </div>
       <div class="fcol">
         <span class="flab">Privacy</span>
-        <p>We log opens, taps and unmatched hotel searches to improve the list.</p>
-        <p>Nothing is sold or shared, and nothing identifies you.</p>
+        <p>Our own logs of opens, taps and unmatched hotel searches stay anonymous, are never sold, and never identify you.</p>
+        <p>With your consent we also load Meta's pixel to measure our ads; it shares page views and purchases with Meta. Decline and nothing goes to Meta.</p>
+        <p><a href="/privacy/">Privacy policy</a></p>
       </div>
     </div>
     <div class="frule"></div>

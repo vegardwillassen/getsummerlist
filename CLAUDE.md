@@ -208,10 +208,28 @@ build reflects it.
 Stripe, per zone, six times:
 
 - Product: The Summer List, Ayia Napa. Price EUR 29.
-- After payment: redirect to `https://getsummerlist.com/l/<slug>/`
+- After payment: redirect to `https://getsummerlist.com/l/<slug>/?session_id={CHECKOUT_SESSION_ID}`
+  Paste `{CHECKOUT_SESSION_ID}` literally, Stripe substitutes it. **The `session_id` query
+  string is required**: the zone page fires the Meta `Purchase` event only when it is present,
+  and only once per session_id. Without it you get a pixel that measures traffic but not
+  revenue, and firing on plain load would count every shared zone link as a sale.
 - Custom text at checkout, required checkbox: *I want access immediately and I understand I
   lose my 14 day right to cancel once I have it.*
 - Stripe Tax on.
+
+## Meta pixel (added, consent-gated)
+
+- Pixel id lives in `data/zones.json` meta.meta_pixel_id. Set it to `null` and a rebuild
+  removes the pixel, the consent bar, and every event. That is the kill switch.
+- Nothing loads or fires before consent. A consent bar (built by `/a/px.<hash>.js`) offers
+  Allow or Decline. Decline is remembered forever and the page stays silent. `fbevents.js`
+  from Facebook is roughly 70 KB and loads only for consenting visitors, so it never touches
+  the 40 KB page budget (the pixel loader is a separate cached `/a/` file).
+- Three events: `PageView` on both page types after consent; `InitiateCheckout` when a landing
+  Unlock CTA is tapped, held 150 ms before navigating so iOS Safari does not drop the beacon;
+  `Purchase` EUR 29 on the zone page, only with `session_id` in the URL, deduped per session_id.
+- Conversions API (server side) is deliberately not built yet: browser pixel now, CAPI later
+  once there is volume worth recovering.
 
 ---
 
