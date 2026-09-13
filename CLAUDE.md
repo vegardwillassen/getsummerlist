@@ -5,11 +5,11 @@ delivered as a hosted page the second Stripe redirects. Static site, no backend,
 
 Owner: Vegard. Domain: `getsummerlist.com`. Host: Netlify.
 
-Plan revised **13 September 2026**. The first season deadline, 3 August 2026, passed with zero
-sales attempted: the Stripe links were never created and the site was never connected to the
-domain. This revision assumes the next selling window is **Ayia Napa, summer 2027**, with the
-landing page kept live in between. That assumption is decision 1 in §6 and is not yet made.
-Every date in §5 moves if it changes.
+Plan v3, revised **13 September 2026** after Vegard's review. Launch target: **Ayia Napa, late
+summer 2026**, launch-ready by 27 September, selling on the days Vegard is there (board task
+S1.1). The live task board with checkboxes is the artifact "Summer List Launch Board"; §5 here
+is the same plan in text. Claude does everything it can, including work inside Netlify and
+Stripe through a logged-in browser session Vegard opens.
 
 ---
 
@@ -24,7 +24,8 @@ The whole product compresses to one line per entry:
 > Blue Lagoon boat trip. EUR 25 pp. Bus 101 from the strip, or 14 min walk from Nissi hotels.
 
 Pitch line, use it verbatim in copy: **"The 12 things worth doing, what each costs, how you get
-there from your hotel."** Framing for the research labour: **"300 checked, 12 won."**
+there from your hotel."** Second line, Vegard's: **"Decided in a minute, with whoever you travel
+with."** Framing for the research labour: **"300 checked, 12 won."**
 
 The only competitive column this product owns is bundled, verified, priced, hotel-relative
 local logistics. Every feature request gets measured against that column. If it does not
@@ -39,16 +40,17 @@ strengthen it, it waits.
    string reappears in the data, the build fails, not warns. The validator enforces this.
 2. **The repo is private.** `vegardwillassen/sommer-26` is public and would expose buyer pages.
    This is a separate private repo. Never push buyer content to the public one.
-3. **Delivery is instant.** No email as the delivery mechanism, no waiting period, no SLA
+3. **getsummerlist.com is its own site.** Separate from sommer-26 in code, hosting and content.
+   The `/jk` page is a guest and must never leak into the product.
+4. **Delivery is instant.** No email as the delivery mechanism, no waiting period, no SLA
    language anywhere in the codebase or copy. Email exists only as a backup copy of a link the
    buyer already has.
-4. **No dependencies.** `npm run build` is `node scripts/build.mjs` and nothing else. Ask before
+5. **No dependencies.** `npm run build` is `node scripts/build.mjs` and nothing else. Ask before
    adding a single package.
-5. **Page weight budget: 40 KB per zone page.** Raised from 30 KB on 29 July 2026 when the
-   buyer pages adopted the sommer-26 card design. Pages sit at 39.5 to 39.6 KB today, so there
-   is about 400 bytes of headroom. Netlify gzips the transfer to about 11 KB. Buyers are on
-   roaming data. If a change pushes past 40 KB, say so before doing it.
-6. **Buyer pages are noindex.** `/l/*` carries `X-Robots-Tag: noindex, nofollow` and
+6. **Page weight budget: 80 KB per zone page.** Raised from 40 KB on 13 September 2026 to make
+   room for the 39 free unlocks and the save-link block. Pages sit at 39.5 KB today. Netlify
+   gzips the transfer. If a change pushes past 80 KB, say so before doing it.
+7. **Buyer pages are noindex.** `/l/*` carries `X-Robots-Tag: noindex, nofollow` and
    `Referrer-Policy: no-referrer`. Do not weaken this for SEO reasons.
 
 ---
@@ -56,7 +58,7 @@ strengthen it, it waits.
 ## 3. Stack and layout
 
 ```
-data/places.json        51 places. tier: verdict (12) | unlock (10) | shortlist (29)
+data/places.json        51 places. tier: verdict (12) | unlock (39, after S2.1; today 10 unlock + 29 shortlist)
 data/zones.json         6 hotel zones: coordinates, hotel list, slug, stripe_link
 src/styles.css          one stylesheet, print rules included
 src/app.js              unlocks, pick list, print. Vanilla, no framework
@@ -85,7 +87,7 @@ empty plan. Accepted for now, see §7.
 
 ```
 id, name, cat
-tier        'verdict' (the 12) | 'unlock' (the 10 behind free unlocks) | 'shortlist' (rest)
+tier        'verdict' (the 12) | 'unlock' (everything else, free to reveal)
 verdict     one-line judgement, the thing they paid for
 detail      supporting paragraph
 tip         optional
@@ -111,19 +113,21 @@ zones[]: id, name, ll [lat,lng], hotels[], slug, stripe_link
 
 | # | Decision | Why |
 |---|---|---|
-| D1 | 12 places, not 50, plus 10 behind two free unlocks of 5 | The decision is the product; browsing is the competition |
-| D2 | Price EUR 29 | At EUR 15, VAT plus Stripe plus labour leaves nothing |
+| D1 | 12 verdict places. The remaining 39 are free to unlock, mechanics per S1.3 | The decision is the product; the rest is a reward, not a catalogue |
+| D2 | Price EUR 29. EUR 49 is the second test, after the first ten sales | At EUR 15, VAT plus Stripe plus labour leaves nothing |
 | D3 | Delivery is a hosted URL, not an emailed HTML attachment | The wait is where conversion died |
 | D4 | Personalise per hotel zone, not per buyer | Turns 30 manual builds into 30 redirects to files that already exist |
 | D5 | Six zones, pre-built before any sale | Ayia Napa hotels collapse to a finite set of walking-distance clusters |
-| D6 | Netlify, Personal plan, auto-recharge on | 15 credits per production deploy; the free 300 will not survive launch week |
-| D7 | Offline via browser print-to-PDF button | Two taps on iOS, works everywhere, zero code |
+| D6 | Netlify. Plan and auto-recharge reassessed in S1.6 before launch | The free tier may hold for ten sales; the dashboard decides |
+| D7 | Offline via browser print-to-PDF button, plus a pre-rendered PDF per zone (S6.1) | Two taps on iOS, works everywhere |
 | D8 | Stripe Payment Links, one per zone, success URL to that zone's page | Instant delivery with no backend |
 | D9 | 14-day withdrawal waiver checkbox at checkout | Required for instant digital delivery in the EU |
-| D10 | Stripe Tax on, VAT OSS registration before scaling | B2C digital sales from a Norwegian AS |
+| D10 | Stripe Tax on, VAT OSS registration before the first sale | B2C digital sales from a Norwegian AS |
 | D11 | Entry copy format: what it is, price in EUR, how you get there from your hotel | The uncontested column, in every entry |
 | D12 | Freeze Rhodes and Albufeira | Nothing has converted yet |
-| D13 | The 2026 season is over. No sales are attempted until the decision in §6.1 is made | Selling remotely into an empty resort in September proves nothing |
+| D13 | Launch window is late summer 2026 in Ayia Napa, face to face | Decided 13 September 2026 |
+| D14 | 12 month access promise stays. Zone files stay deployed through September 2027 | Copy already promises it |
+| D15 | No post-departure channel. When Vegard flies home the QR cards come with him | Decided 13 September 2026 |
 
 ## Rejected. Do not propose these again.
 
@@ -133,150 +137,143 @@ zones[]: id, name, ll [lat,lng], hotels[], slug, stripe_link
 - Selling against Tripadvisor in any copy. The comparison flatters the free option.
 - Meta ads at 300 to 500 NOK per destination. Never exits the learning phase, proves nothing.
 - Any "delivered within one hour" language.
+- A partner bar or hotel carrying the cards on revenue share. Dropped 13 September 2026.
 
 ---
 
-## 5. The plan: seven streams, one milestone each
+## 5. The plan v3: seven streams, task IDs on the launch board
 
-The streams run in this order: 1, then 2 and 3 in parallel, then 4, 5 and 6 in parallel,
-then 7. Dates assume a June 2027 selling window and are placeholders until §6.1 is decided.
+Launch-ready by 27 September 2026. Sell in Ayia Napa on the dates Vegard is there (S1.1). The live board with checkboxes and the prompts to paste is the artifact "Summer List Launch Board". Owner codes: Claude does it, Question (Vegard answers on the board), Vegard does it. A Claude task marked browser needs a logged-in browser session and has its prompt on the board.
 
-### Stream 1. Go-to-market decision. Owner: Vegard. Due: 1 October 2026.
+### S1. Decisions. Due 16 Sep.
 
-Milestone: §6.1 answered in writing. Which window, which channel, which price. Nothing below
-gets a real date until this exists.
+Milestone: Every open question on this board answered. Nothing below gets a firm date before that.
 
-### Stream 2. Product data. Owner: Vegard, validator by Claude Code. Due: 15 May 2027.
+| ID | Owner | Task | Status |
+|---|---|---|---|
+| S1.1 | Question to Vegard | Launch window: which dates are you in Ayia Napa? Late summer 2026 is the target. The selling days are the days you are physically there. | Open |
+| S1.2 | Vegard | Price stays EUR 29. EUR 49 is the second test, later. | Done |
+| S1.3 | Question to Vegard | Unlock model for the 39 places behind the 12. You decided the rest of the list is free to unlock. The mechanics are open. | Open |
+| S1.4 | Vegard | Post-departure channel dropped. No partner bar, no hotel revenue share. | Done |
+| S1.5 | Claude | Page weight budget raised to 80 KB in CLAUDE.md and the validator. | Done |
+| S1.6 | Claude, browser | Reassess the Netlify plan (D6): credits, recharge, domain, Git link. The API still reports the free tier and only the netlify.app address. I read the dashboard and report back. | Open |
+| S1.7 | Question to Vegard | Stripe: will you log me in the same way as Netlify? | Open |
 
-Milestone: `npm run check` passes on real data and every walking time has been sanity checked
-on the ground.
+### S2. Product data. Due 20 Sep.
 
-| # | Task | Status 13 Sep 2026 |
-|---|---|---|
-| H1 | Bus numbers | Verdict tier passes: 9 of 12 have a bus, the 3 without are walk mode. Unlock tier: 2 non-walk places still have no bus. Shortlist: 10 non-walk places without a bus, tolerated |
-| H2 | Verify the six zone centroids and hotel lists | Not done. Still the July estimates. 4 to 5 hotels per zone |
-| H3 | Make the cut | Done in file: 12 verdict, 10 unlock, 29 shortlist. Confirm it is the real cut, not the first draft that happened to validate |
-| H5 | Re-verify prices and opening hours | New. Data was verified 20 July 2026 and will be a year old at the next sale. Two weeks before flying out, walk the 22 and update `meta.verified` |
-| H6 | Spa Afternoon at Napa Plaza has no `typical_eur` | Shortlist tier, so the validator lets it through. Fill it or cut the entry |
+Milestone: npm run check passes on real data: 12 verdict, 39 unlock, a bus number on every non-walk place a buyer can open.
 
-### Stream 3. Commerce and legal. Owner: Vegard. Due: 15 May 2027.
+| ID | Owner | Task | Status |
+|---|---|---|---|
+| S2.1 | Claude | Retier the data: 12 verdict, 39 unlock, no shortlist. Validator follows. Depends on S1.3 for the reveal mechanics. Tier counts, unlock batches and the bus rule in check.mjs all change. | Open |
+| S2.2 | Claude | Propose bus numbers for the 12 non-walk places that have none. From the OSEL Famagusta route maps: lines 101 and 102 cover the strip, Nissi and Cape Greco. I produce a list of 12 with the line and the stop. | Open |
+| S2.3 | Vegard | Confirm the 12 bus numbers from S2.2. Five minutes with the list. Tick, or correct the ones you know are wrong. | Open |
+| S2.4 | Claude | Recompute the six zone centroids from the hotel addresses. Geocode the 25 hotels, set each centroid to the mean of its hotels, rebuild, show the walk times that moved by more than 3 minutes. | Open |
+| S2.5 | Question to Vegard | Confirm the hotel lists per zone | Open |
+| S2.6 | Question to Vegard | Confirm the 12 verdict places | Open |
+| S2.7 | Claude | Fill typical_eur for Spa Afternoon at Napa Plaza, or cut the entry | Open |
+| S2.8 | Vegard | Re-verify prices and opening hours on your first day there, then tell me. Data was verified 20 July. I update meta.verified and the pages the same day you report. | Open |
 
-Milestone: a test purchase in each of the six zones lands on the right page.
+### S3. Commerce and legal. Due 24 Sep.
 
-| # | Task | Status |
-|---|---|---|
-| H4 | Six Stripe Payment Links pasted into `stripe_link` | Not done. All six are `REPLACE_` placeholders and the validator fails on them |
-| H7 | Stripe Tax on, waiver checkbox text, VAT OSS registration | Not started |
-| H8 | 12 month access promise | Keep it. It means the zone files stay deployed through the July after the last sale |
+Milestone: A test purchase in each of the six zones lands on the right page.
 
-### Stream 4. Homepage and hosting. Owner: Claude Code, decisions by Vegard. Due: 1 June 2027.
+| ID | Owner | Task | Status |
+|---|---|---|---|
+| S3.1 | Claude, browser | Create the six Stripe Payment Links. Depends on S1.7. One product, six links, each with its own success URL. | Open |
+| S3.2 | Claude | Paste the six links into zones.json, build, validator green | Open |
+| S3.3 | Claude, browser | Stripe Tax on, receipt email carries the zone link | Open |
+| S3.4 | Vegard | VAT OSS registration for the AS. Skatteetaten, needs BankID. Required before the first sale to an EU consumer. I write the checklist if you want it. | Open |
+| S3.5 | Claude, browser | Test-mode checkout for every zone | Open |
+| S3.6 | Vegard | One live EUR 29 purchase with your own card, then refund it. The only proof that Stripe, Tax, the redirect and the receipt work together in live mode. | Open |
 
-Milestone: a cold visitor understands the offer, sees the walk time recompute for their hotel
-before paying, and the site deploys from a push.
+### S4. Homepage and hosting. Due 24 Sep.
 
-| # | Task | Status |
-|---|---|---|
-| C2 | Live sample entry with a hotel dropdown that recomputes the walk time | Not done. Landing has a static sample and a zone picker |
-| C12 | Connect the Netlify site to this repo | New. Production is a manual CLI deploy from 29 July, two commits behind `main` |
-| C13 | Attach `getsummerlist.com` in Netlify | New. Only the `netlify.app` URL exists today |
-| C14 | Netlify Personal plan, auto-recharge on | New. Still on the free tier (D6) |
-| C15 | Video slot on the landing page, filled by stream 5 | New |
+Milestone: A cold visitor sees the walk time recompute for their hotel before paying, and a push deploys the site.
 
-### Stream 5. Marketing assets. Owner: Vegard, build assets by Claude Code. Due: 1 June 2027.
+| ID | Owner | Task | Status |
+|---|---|---|---|
+| S4.1 | Claude, browser | Link the Netlify project to this repo, production branch main | Open |
+| S4.2 | Claude, browser | Verify the domain: getsummerlist.com primary, www redirects, HTTPS on | Open |
+| S4.3 | Claude | Open the pull request from the plan branch to main | Open |
+| S4.4 | Question to Vegard | May I merge to main myself from now on? | Open |
+| S4.5 | Claude | Live sample entry on the landing page with a hotel dropdown that recomputes the walk time. The one moment Google Maps cannot replicate in front of a buyer. Was C2. | Open |
+| S4.6 | Claude | Landing copy pass: decided together in a minute, 12 plus 39 free, verified date. Your line: the things worth doing, which you and whoever you travel with can decide on in a minute. | Open |
+| S4.7 | Claude | Video slot on the landing page, filled when S5.3 lands | Open |
+| S4.8 | Claude, browser | Switch auto-recharge on, if S1.6 says so | Open |
 
-Milestone: video, QR card and pitch ready in the same week, and each tested on one stranger.
+### S5. Marketing assets. Due 27 Sep.
 
-| # | Task | Status |
-|---|---|---|
-| M1 | Marketing video, 30 to 60 seconds, phone footage from the resort | New. One entry being used: the list on screen, the walk, the place. Doubles as the landing hero and the reel for any partner |
-| C4 | Printable QR card from the build: `getsummerlist.com/an`, level H, matte, 3 cm minimum | Not done. The `/an` redirect exists, the QR asset does not |
-| M2 | The face-to-face pitch | Written, §1. Rehearse it out loud |
-| M3 | Partner channel: which hotel or bar carries the QR card after Vegard leaves | New. Depends on §6.4 |
+Milestone: Video, QR card and pitch ready in the same week, each tried on one stranger.
 
-### Stream 6. Delivery pack. Owner: Claude Code. Due: 1 June 2027.
+| ID | Owner | Task | Status |
+|---|---|---|---|
+| S5.1 | Claude | Script and shot list for the 30 to 60 second video. One entry being used: the list on the phone, the walk, the place, the price on screen. Vertical for the phone, landscape for the landing page. | Open |
+| S5.2 | Vegard | Film the clips on your phone in Ayia Napa, upload to the Drive folder. Eight clips of 5 to 10 seconds each from the shot list. Same afternoon as S2.8. | Open |
+| S5.3 | Claude | Cut the video: captions, price overlay, two exports. ffmpeg in the session, no editor needed. One vertical file, one landscape file. | Open |
+| S5.4 | Claude | QR card asset from the build: getsummerlist.com/an, level H, 3 cm minimum. QR encoder written into the repo, no package. Output a print-ready PDF and SVG. Was C4. | Open |
+| S5.5 | Vegard | Print the QR cards. Matte stock, 50 cards, I give you the file and the print spec. | Open |
+| S5.6 | Vegard | Say the pitch out loud to one stranger before the first sale | Open |
 
-Milestone: a buyer with no signal still has the list.
+### S6. Delivery pack. Due 27 Sep.
 
-| # | Task | Status |
-|---|---|---|
-| C3 | Pre-rendered PDF per zone written at build time, linked next to the print button | Not done |
-| C5 | `meta.verified` on every zone page | Done. Pages show "Verified 20 July 2026" |
-| C16 | Backup email with the link, sent from the Stripe receipt | New. Stripe's receipt email can carry the success URL, no code needed |
+Milestone: A buyer with no signal still has the list.
 
-### Stream 7. Launch rehearsal and the first ten. Owner: Vegard. Due: the selling window.
+| ID | Owner | Task | Status |
+|---|---|---|---|
+| S6.1 | Claude | Pre-rendered PDF per zone, linked next to the print button. Rendered with the session browser and committed. Was C3. | Open |
+| S6.2 | Claude | Verified date shown on every zone page | Done |
+| S6.3 | Claude | Save-this-link block on every zone page: copy button and mail-to-self. Email stays a backup of a link the buyer already has. Non-negotiable 3. | Open |
 
-Milestone: ten paid sales.
+### S7. Launch and the first ten. Due the window.
 
-1. Dry run: buy every zone yourself, open each page on a phone on roaming data, print one.
-2. Send five free copies to people at the hotel and watch whether they open the link.
-3. Sell face to face.
+Milestone: Ten paid sales in Ayia Napa.
 
-Only after ten sales:
+| ID | Owner | Task | Status |
+|---|---|---|---|
+| S7.1 | Vegard | Dry run: open every zone on your phone on roaming data, print one | Open |
+| S7.2 | Vegard | Five free copies to people at the hotel, watch whether they open the link. Zero opens tells you more than zero sales. I read the opens off the Netlify function log. | Open |
+| S7.3 | Vegard | Sell. Ten sales at EUR 29. | Open |
+| S7.4 | Claude | After the tenth sale: per-buyer slugs, pick sync, analytics view. Parked until then. Was C6, C7, C8. | Open |
 
-| # | Improvement | Why it waits |
-|---|---|---|
-| C6 | Unique per-buyer slug via a Netlify Function on the Stripe webhook | Sharing is a revenue leak, not a security hole |
-| C7 | Pick sync across two phones, port the PIN sync from `sommer-26/food` | Couples are the buyer, but there are no couples yet |
-| C8 | Analytics view on top of the `/api/e` sink | The sink exists and logs. Nothing to look at until something converts |
-
-Deferred, unchanged: C9 tap-to-plan, C10 service worker, C11 more than six zones.
-
-### Done
-
-| # | Improvement |
-|---|---|
-| C1 | `npm run check`: tier counts, bus on non-walk verdict places, `typical_eur` on verdict and unlock, placeholder Stripe links, Tripadvisor strings, 40 KB budget. Runs in the Netlify build command |
-| C5 | Verified date on every zone page |
+Deferred, unchanged: tap-to-plan, service worker, more than six zones.
 
 ---
 
-## 6. Your call. I am not deciding these for you.
+## 6. Open questions
 
-1. **When and where is the next sale?** Options: Ayia Napa summer 2027 face to face, the same
-   as planned for 2026; leave the landing page live now and see if anything trickles in; or
-   park it. Recommendation: summer 2027 face to face, and keep the page live meanwhile at zero
-   cost. The plan above assumes this. It is the one decision that dates everything else.
+All of them live on the launch board as Question tasks with a text field and, where a yes is
+enough, a Yes button: S1.1 launch dates, S1.3 unlock mechanics, S1.7 Stripe access, S2.5 hotel
+lists, S2.6 the 12, S4.4 merge rights. Answer there and Claude reads it back.
 
-2. **Price: hold EUR 29, or test EUR 49?**
-   Recommendation: hold 29 for the first 10 face-to-face sales. Change one variable. Keep 49
-   ready as the second test if 29 converts.
-
-3. **The two free unlocks: keep, or drop?**
-   Recommendation: keep. They make the 12 feel like a cut rather than a shortage, and the
-   content is already researched.
-
-4. **Post-departure channel.** Kill it when you fly home, leave the QR cards with a hotel or a
-   bar on a revenue share, or let the landing page trickle. This decides whether C6 and C8 are
-   ever worth building, and it decides M3.
-
-5. **Give 20 lists away first?**
-   Recommendation: no, not instead of selling. Send 5 free copies and watch the opens. Zero
-   opens tells you more than zero sales does. This is step 2 of stream 7.
+Closed on 13 September 2026: price (29), unlocks (keep, all 39 free), 12 month access (keep),
+post-departure channel (dropped), window (late summer 2026).
 
 ---
 
 ## 7. Known trade-offs, already accepted
 
-- **Zone slugs, not buyer slugs.** Two buyers at the same hotel share a URL. Fix is C6.
-- **Picks are device-local.** The partner sees an empty plan. Fix is C7.
-- **PDF is the browser print dialog.** Fix is C3.
-- **No analytics.** The `/api/e` sink logs to Netlify function logs only. Fix is C8.
-- **Production lags the repo.** The live site is the 29 July CLI deploy. Fix is C12.
+- **Zone slugs, not buyer slugs.** Two buyers at the same hotel share a URL. Fix is S7.4.
+- **Picks are device-local.** The partner sees an empty plan. Fix is S7.4.
+- **No analytics.** The `/api/e` sink logs to Netlify function logs only. Fix is S7.4.
+- **Production lags the repo** until S4.1 links Netlify to Git.
 
 ---
 
 ## 8. Deploy
 
-State on 13 September 2026: Netlify site `getsummerlist` exists on the free plan, deployed once
-by CLI on 29 July, not connected to Git, no custom domain, one function live.
+State on 13 September 2026: Netlify site `getsummerlist` on team `vegard-willassen`, deployed
+once by CLI on 29 July, not linked to Git. The API reports the free tier and only the
+`netlify.app` address; Vegard reports the custom domain is attached. S1.6 and S4.2 settle it
+from the dashboard.
 
-1. Netlify: link the site to the private repo. Build command and publish directory come from
-   `netlify.toml`. The build runs the validator, so it fails until H4 is done.
-2. Netlify: domain settings, add `getsummerlist.com`, point DNS at Netlify.
-3. Netlify: upgrade to Personal, switch **auto-recharge on**.
-4. Print the QR cards.
+1. Netlify: link the site to the private repo, production branch `main` (S4.1). The build runs
+   the validator, so it fails until S3.2 is done.
+2. Netlify: confirm `getsummerlist.com` primary, www redirect, HTTPS (S4.2).
+3. Netlify: plan and auto-recharge per S1.6 and S4.8.
+4. Print the QR cards (S5.5).
 
-Stripe, per zone, six times:
+Stripe, per zone, six times (S3.1):
 
 - Product: The Summer List, Ayia Napa. Price EUR 29.
 - After payment: redirect to `https://getsummerlist.com/l/<slug>/`
@@ -305,6 +302,5 @@ Ten couples, standing in Ayia Napa with Google Maps already installed, paying EU
 during the selling window. Zero CAC, so a failure isolates willingness to pay rather than ad
 creative.
 
-If that fails, no amount of C1 through C16 saves it. Build accordingly: everything in streams
-1 to 7 exists to make those ten conversations possible, and nothing after "the first ten"
-should be started until they happen.
+If that fails, nothing on the board saves it. Build accordingly: streams 1 to 7 exist to make
+those ten conversations possible, and S7.4 does not start until they happen.

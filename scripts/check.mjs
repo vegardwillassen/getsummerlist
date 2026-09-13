@@ -51,7 +51,7 @@ if (existsSync(distDir)) {
   const pages = sources.filter(([n]) => n.startsWith('dist'));
   for (const [name, text] of pages) {
     const kb = Buffer.byteLength(text) / 1024;
-    if (kb > 40) errors.push('weight: ' + name + ' is ' + kb.toFixed(1) + ' KB, budget is 40 KB (non-negotiable 5)');
+    if (kb > 80) errors.push('weight: ' + name + ' is ' + kb.toFixed(1) + ' KB, budget is 80 KB (non-negotiable 6)');
   }
 } else {
   console.log('note: dist/ not built yet, page checks skipped. Run npm run build first for full coverage.');
@@ -62,4 +62,4 @@ if (errors.length) {
   for (const e of errors) console.error('  ✗ ' + e);
   process.exit(1);
 }
-console.log('check passed: 12 verdict, 10 unlock, no placeholders, no banned strings, all pages under 40 KB.');
+console.log('check passed: 12 verdict, 10 unlock, no placeholders, no banned strings, all pages under 80 KB.');
