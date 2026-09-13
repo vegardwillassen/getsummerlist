@@ -62,4 +62,4 @@ if (errors.length) {
   for (const e of errors) console.error('  ✗ ' + e);
   process.exit(1);
 }
-console.log('check passed: 12 verdict, 10 unlock, no placeholders, no banned strings, all pages under 30 KB.');
+console.log('check passed: 12 verdict, 10 unlock, no placeholders, no banned strings, all pages under 40 KB.');
